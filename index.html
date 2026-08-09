@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IEDC-CETLY | Innovation & Entrepreneurship Development Centre</title>
+  <meta name="description" content="Official website of IEDC College of Engineering Thalassery. Find the engineer in you.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Grid & Backdrop -->
+  <div class="grid-background"></div>
+  <div class="backdrop-wrapper">
+    <img src="backdrop.jpg" alt="IEDC Backdrop" class="backdrop-img">
+    <div class="backdrop-overlay"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <img src="iedclogo.jpeg" alt="IEDC CETLY Logo" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-title">IEDC-CETLY</span>
+        <span class="brand-sub font-mono">CET THALASSERY</span>
+      </div>
+    </div>
+
+
+    <nav class="nav-actions">
+      <button class="btn btn-outline font-mono" id="btn-events">EVENTS</button>
+      <button class="btn btn-outline font-mono" id="btn-contact">CONTACT</button>
+      <button class="btn btn-primary font-mono" id="btn-join">JOIN US</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="frame-container">
+      <div class="corner-mark top-left">+</div>
+      <div class="corner-mark top-right">+</div>
+      <div class="corner-mark bottom-left">+</div>
+      <div class="corner-mark bottom-right">+</div>
+
+      <div class="hero-meta font-mono">
+        <span>[EST. CETLY]</span>
+        <span>KERALA STARTUP MISSION AFFILIATED</span>
+      </div>
+
+      <h1 class="hero-quote">
+        "FIND THE ENGINEER<br><span class="highlight-text">IN YOU</span>"
+      </h1>
+
+      <div class="hero-description font-mono">
+        <p>
+          The Innovation and Entrepreneurship Development Centre (IEDC) at College of Engineering Thalassery is an initiative to promote innovation and entrepreneurship among students. We provide technical guidance, mentorship, workspace infrastructure, and seed support to turn student ideas into real-world ventures.
+        </p>
+      </div>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary font-mono open-join">JOIN THE CELL →</button>
+        <button class="btn btn-secondary font-mono open-events">VIEW UPCOMING EVENTS</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animated Line Leading Section -->
+  <div class="line-leading-container">
+    <div class="line-meta font-mono">
+      <span>SCROLL TO EXPLORE</span>
+      <span class="line-arrow">↓</span>
+    </div>
+    <div class="line-leading-track">
+      <div class="line-leading-fill" id="scroll-line"></div>
+    </div>
+  </div>
+
+  <!-- Our Mission Section -->
+  <section class="mission-section" id="mission-section">
+    <div class="section-header">
+      <div class="section-tag font-mono">// CORE PURPOSE & VISION</div>
+      <h2 class="section-title">OUR MISSION</h2>
+      <p class="section-subtitle font-mono">Empowering students to turn groundbreaking ideas into sustainable technological ventures.</p>
+    </div>
+
+    <div class="mission-grid">
+      <div class="mission-card">
+        <div class="card-border-line"></div>
+        <div class="mission-num font-mono">01 // INNOVATION</div>
+        <h3 class="mission-card-title">Cultivate Creative Engineering</h3>
+        <p class="mission-card-text">Provide technical guidance, hackathons, and Maker Lab infrastructure to foster hands-on problem solving and technological innovation on campus.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="card-border-line"></div>
+        <div class="mission-num font-mono">02 // ENTREPRENEURSHIP</div>
+        <h3 class="mission-card-title">Incubate Student Ventures</h3>
+        <p class="mission-card-text">Bridge the gap between ideation and market-ready products by supporting student startups with seed support, business modeling, and patent assistance.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="card-border-line"></div>
+        <div class="mission-num font-mono">03 // MENTORSHIP</div>
+        <h3 class="mission-card-title">Ecosystem & Growth</h3>
+        <p class="mission-card-text">Connect aspiring student founders with industry leaders, Kerala Startup Mission (KSUM) networks, and alumni mentors for startup acceleration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet The Team Section -->
+  <section class="team-section" id="team-section">
+    <div class="section-header">
+      <div class="section-tag font-mono">// GOVERNING EXECUTIVES</div>
+      <h2 class="section-title">MEET THE TEAM</h2>
+      <p class="section-subtitle font-mono">The student leaders driving innovation, technology, and execution at IEDC CETLY.</p>
+    </div>
+
+    <div class="team-grid">
+      <!-- 1. CEO -->
+      <div class="team-card" data-role="ceo">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">01 // EXEC</span>
+          <span class="role-tag">CEO</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">CEO</span>
+        </div>
+        <h3 class="member-name">Savanth S Joy</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: ceo@iedc-cetly.org</span>
+        </div>
+      </div>
+
+      <!-- 2. COO -->
+      <div class="team-card" data-role="coo">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">02 // EXEC</span>
+          <span class="role-tag">COO</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">COO</span>
+        </div>
+        <h3 class="member-name">Shanin Raj M</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: coo@iedc-cetly.org</span>
+        </div>
+      </div>
+
+      <!-- 3. Tech Lead -->
+      <div class="team-card" data-role="tech">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">03 // DEPT</span>
+          <span class="role-tag">TECH LEAD</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">TL</span>
+        </div>
+        <h3 class="member-name">Sreerudran P</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: tech@iedc-cetly.org</span>
+        </div>
+      </div>
+
+      <!-- 4. Marketing Lead -->
+      <div class="team-card" data-role="marketing">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">04 // DEPT</span>
+          <span class="role-tag">MARKETING LEAD</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">ML</span>
+        </div>
+        <h3 class="member-name">Sabarinath R Nambiar</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: marketing@iedc-cetly.org</span>
+        </div>
+      </div>
+
+      <!-- 5. Finance Lead -->
+      <div class="team-card" data-role="finance">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">05 // DEPT</span>
+          <span class="role-tag">FINANCE LEAD</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">FL</span>
+        </div>
+        <h3 class="member-name">Vaishnav Dev M</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: finance@iedc-cetly.org</span>
+        </div>
+      </div>
+
+      <!-- 6. Design Lead -->
+      <div class="team-card" data-role="design">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">06 // DEPT</span>
+          <span class="role-tag">DESIGN LEAD</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">DL</span>
+        </div>
+        <h3 class="member-name">Nihara</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: design@iedc-cetly.org</span>
+        </div>
+      </div>
+
+      <!-- 7. Media Lead 1 -->
+      <div class="team-card" data-role="media">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">07 // DEPT</span>
+          <span class="role-tag">MEDIA LEAD</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">ML</span>
+        </div>
+        <h3 class="member-name">Aman Nambiar</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: media@iedc-cetly.org</span>
+        </div>
+      </div>
+
+      <!-- 8. Media Lead 2 -->
+      <div class="team-card" data-role="media">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">08 // DEPT</span>
+          <span class="role-tag">MEDIA LEAD</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">ML</span>
+        </div>
+        <h3 class="member-name">Sandra N</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: media@iedc-cetly.org</span>
+        </div>
+      </div>
+
+      <!-- 9. Content Lead -->
+      <div class="team-card" data-role="content">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">09 // DEPT</span>
+          <span class="role-tag">CONTENT LEAD</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">CL</span>
+        </div>
+        <h3 class="member-name">Niveditha Manoharan</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: content@iedc-cetly.org</span>
+        </div>
+      </div>
+
+      <!-- 10. Community Lead -->
+      <div class="team-card" data-role="community">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">10 // DEPT</span>
+          <span class="role-tag">COMMUNITY LEAD</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">CM</span>
+        </div>
+        <h3 class="member-name">Abhikshitha S S</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: community@iedc-cetly.org</span>
+        </div>
+      </div>
+
+      <!-- 11. Creative Lead -->
+      <div class="team-card" data-role="creative">
+        <div class="card-border-line"></div>
+        <div class="card-header font-mono">
+          <span class="role-badge">11 // DEPT</span>
+          <span class="role-tag">CREATIVE LEAD</span>
+        </div>
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">CR</span>
+        </div>
+        <h3 class="member-name">Abhinav vk</h3>
+        <div class="card-footer font-mono">
+          <span>CONTACT: creative@iedc-cetly.org</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <!-- 1. Events Modal -->
+  <div class="modal-overlay" id="modal-events">
+    <div class="modal-card">
+      <div class="modal-header font-mono">
+        <span>// IEDC CETLY EVENTS</span>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h3 class="modal-title">UPCOMING & RECENT EVENTS</h3>
+        <div class="events-list font-mono">
+          <div class="event-item">
+            <span class="event-date">AUG 25, 2026</span>
+            <div class="event-info">
+              <h4 class="event-heading">HACK-CET 2026</h4>
+              <p>24-hour campus hackathon solving real-world challenges with mentorship.</p>
+            </div>
+            <button class="btn btn-outline btn-sm">REGISTER</button>
+          </div>
+
+          <div class="event-item">
+            <span class="event-date">SEP 10, 2026</span>
+            <div class="event-info">
+              <h4 class="event-heading">STARTUP BOOTCAMP</h4>
+              <p>Ideation to MVP workshop hosted by Kerala Startup Mission experts.</p>
+            </div>
+            <button class="btn btn-outline btn-sm">REGISTER</button>
+          </div>
+
+          <div class="event-item">
+            <span class="event-date">OCT 02, 2026</span>
+            <div class="event-info">
+              <h4 class="event-heading">FOUNDER SPEAKER SERIES</h4>
+              <p>Interaction with successful alumni founders and tech entrepreneurs.</p>
+            </div>
+            <button class="btn btn-outline btn-sm">JOIN LIST</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Contact Modal -->
+  <div class="modal-overlay" id="modal-contact">
+    <div class="modal-card">
+      <div class="modal-header font-mono">
+        <span>// CONTACT IEDC CETLY</span>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body font-mono">
+        <h3 class="modal-title">GET IN TOUCH</h3>
+        <p class="modal-text">Have an idea, project, or want to collaborate with IEDC CETLY?</p>
+        
+        <div class="contact-details">
+          <div class="contact-row">
+            <span class="label">LOCATION:</span>
+            <span class="val">College of Engineering Thalassery, Kinarukara, Kerala 670107</span>
+          </div>
+          <div class="contact-row">
+            <span class="label">EMAIL:</span>
+            <span class="val">iedc@cethalassery.ac.in</span>
+          </div>
+          <div class="contact-row">
+            <span class="label">PHONE:</span>
+            <span class="val">+91 490 2388930</span>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message or Idea Pitch..." rows="3" required></textarea>
+          <button type="submit" class="btn btn-primary">SEND MESSAGE →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Join Us Modal -->
+  <div class="modal-overlay" id="modal-join">
+    <div class="modal-card">
+      <div class="modal-header font-mono">
+        <span>// MEMBERSHIP APPLICATION</span>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body font-mono">
+        <h3 class="modal-title">BECOME AN IEDC MEMBER</h3>
+        <p class="modal-text">Join CETLY's vibrant community of builders, innovators, and problem solvers.</p>
+        
+        <form class="join-form" onsubmit="event.preventDefault(); alert('Application submitted successfully!');">
+          <div class="form-group">
+            <label>FULL NAME</label>
+            <input type="text" placeholder="e.g. Rahul Sharma" required>
+          </div>
+          <div class="form-group">
+            <label>DEPT & YEAR</label>
+            <input type="text" placeholder="e.g. CSE / S5" required>
+          </div>
+          <div class="form-group">
+            <label>COLLEGE EMAIL</label>
+            <input type="email" placeholder="student@cethalassery.ac.in" required>
+          </div>
+          <div class="form-group">
+            <label>AREA OF INTEREST</label>
+            <select required>
+              <option value="">Select Domain...</option>
+              <option>Software / Development</option>
+              <option>Hardware / IoT / Robotics</option>
+              <option>Design & Media</option>
+              <option>Management & Finance</option>
+              <option>Marketing & Content</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">SUBMIT APPLICATION →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer font-mono">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-title">IEDC-CETLY</span>
+        <span class="footer-sub">Innovation & Entrepreneurship Development Centre</span>
+      </div>
+      <div class="footer-rights">
+        © 2026 IEDC College of Engineering Thalassery. All Rights Reserved.
+      </div>
+      <div class="footer-top">
+        <a href="#" id="scroll-top">BACK TO TOP ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
