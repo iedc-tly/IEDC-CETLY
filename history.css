@@ -6,7 +6,7 @@
 
 :root {
   --history-black: #0D0A0B;
-  --history-gray: #454955;
+  --history-gray: #9CA3AF;
   --history-light: #F3EFF5;
   --history-green: #72B01D;
   --history-green-dark: #3F7D20;
@@ -27,7 +27,7 @@
     sans-serif;
 
   --history-border:
-    1px solid rgba(69, 73, 85, 0.4);
+    1px solid rgba(156, 163, 175, 0.3);
 }
 
 

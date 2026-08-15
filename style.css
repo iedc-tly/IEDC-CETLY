@@ -5,7 +5,7 @@
 
 :root {
   --color-black: #0D0A0B;
-  --color-gray: #454955;
+  --color-gray: #9CA3AF;
   --color-light: #F3EFF5;
   --color-green-light: #72B01D;
   --color-green-dark: #3F7D20;
@@ -14,7 +14,7 @@
   --font-mono: 'Space Mono', monospace;
   --font-body: 'Inter', sans-serif;
 
-  --border-subtle: 1px solid rgba(69, 73, 85, 0.4);
+  --border-subtle: 1px solid rgba(156, 163, 175, 0.3);
   --border-accent: 1px solid #72B01D;
 }
 
@@ -134,10 +134,55 @@ body {
 }
 
 
+/* Accessibility Focus Ring & Scroll Lock */
+:focus-visible {
+  outline: 2px solid var(--color-green-light);
+  outline-offset: 3px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+/* Mobile Hamburger Toggle Button */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid var(--color-green-light);
+  border-radius: 4px;
+  padding: 6px 4px;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.hamburger-bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-green-light);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.nav-toggle.active .hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.active .hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active .hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Buttons */
@@ -417,6 +462,16 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
+}
+
+.team-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.team-card-link:hover .card-footer {
+  color: var(--color-green-light);
 }
 
 .team-card {
@@ -723,12 +778,43 @@ input:focus, textarea:focus, select:focus {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-actions {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100vw;
+    background: rgba(13, 10, 11, 0.96);
+    backdrop-filter: blur(16px);
+    border-bottom: var(--border-subtle);
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 99;
+  }
+
+  .nav-actions.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-actions .btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+
   .navbar {
     padding: 0 20px;
-  }
-  
-  .nav-meta {
-    display: none;
   }
 
   .frame-container {

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Profile | IEDC-CETLY</title>
+  <meta name="description" content="Detailed executive profile for IEDC College of Engineering Thalassery team lead.">
+  <meta name="theme-color" content="#0D0A0B">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Executive Lead Profile | IEDC-CETLY">
+  <meta property="og:description" content="View full lead profile, contact info, and role vision at IEDC College of Engineering Thalassery.">
+  <meta property="og:image" content="https://iedc-tly.github.io/IEDC-CETLY/backdrop.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+  <!-- Background System -->
+  <div class="grid-background" aria-hidden="true"></div>
+  <div class="backdrop-wrapper" aria-hidden="true">
+    <img src="backdrop.jpg" alt="" class="backdrop-img">
+    <div class="backdrop-overlay"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="index.html" class="nav-brand" aria-label="Return to IEDC-CETLY Homepage">
+      <img src="iedclogo.jpeg" alt="IEDC CETLY Logo" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-title">IEDC-CETLY</span>
+        <span class="brand-sub font-mono">LEAD PROFILE</span>
+      </div>
+    </a>
+
+    <nav class="nav-actions" aria-label="Profile Navigation">
+      <a href="index.html#team-section" class="btn btn-outline font-mono">
+        ← BACK TO TEAM
+      </a>
+      <a href="history.html" class="btn btn-outline font-mono">
+        HISTORY
+      </a>
+      <a href="index.html" class="btn btn-primary font-mono">
+        HOME
+      </a>
+    </nav>
+  </header>
+
+  <!-- Main Profile Container -->
+  <main class="profile-main">
+    
+    <!-- 404 Fallback if lead not found -->
+    <div class="profile-not-found" id="profile-not-found" style="display: none;">
+      <div class="frame-container">
+        <div class="hero-meta font-mono">// 404 PROFILE ERROR</div>
+        <h1 class="hero-quote">LEAD NOT FOUND</h1>
+        <p class="font-mono">The requested lead profile could not be located in our archives.</p>
+        <br>
+        <a href="index.html#team-section" class="btn btn-primary font-mono">RETURN TO TEAM OVERVIEW →</a>
+      </div>
+    </div>
+
+    <!-- Active Profile Layout -->
+    <div class="profile-container" id="profile-container">
+      
+      <!-- Top Navigation & Breadcrumb -->
+      <div class="profile-breadcrumb font-mono">
+        <a href="index.html">HOME</a> / <a href="index.html#team-section">TEAM</a> / <span id="lead-badge">[01 // EXEC]</span>
+      </div>
+
+      <!-- Lead Hero Section: Photo & Primary Info -->
+      <section class="profile-hero-card">
+        <div class="corner-mark top-left">+</div>
+        <div class="corner-mark top-right">+</div>
+        <div class="corner-mark bottom-left">+</div>
+        <div class="corner-mark bottom-right">+</div>
+
+        <!-- FIELD 1: Photo & Avatar -->
+        <div class="profile-photo-wrapper">
+          <img src="iedclogo.jpeg" alt="Lead Photo" id="lead-photo" class="profile-photo">
+          <div class="photo-badge font-mono" id="lead-initials">ID</div>
+        </div>
+
+        <!-- Primary Details: Name & Role -->
+        <div class="profile-primary-info">
+          <div class="role-badge font-mono" id="lead-role">CHIEF EXECUTIVE OFFICER</div>
+          
+          <!-- FIELD 2: Name -->
+          <h1 class="profile-name" id="lead-name">Savanth S Joy</h1>
+          
+          <div class="profile-tagline font-mono">
+            <span>IEDC CETLY EXECUTIVES</span>
+            <span class="highlight-text">AFFILIATED KSUM</span>
+          </div>
+
+          <div class="profile-quick-contacts font-mono">
+            <a href="mailto:ceo@iedc-cetly.org" id="contact-email" class="contact-pill">
+              ✉ ceo@iedc-cetly.org
+            </a>
+            <a href="tel:+919400123401" id="contact-phone" class="contact-pill">
+              📞 +91 94001 23401
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid Layout for About & Contact Details -->
+      <div class="profile-grid">
+        
+        <!-- FIELD 3: About Lead -->
+        <section class="profile-section-card profile-about-card">
+          <div class="section-tag font-mono">// EXECUTIVE SUMMARY</div>
+          <h2 class="card-title">ABOUT THE LEAD</h2>
+          <p class="about-text" id="lead-about">
+            Loading lead biography and profile information...
+          </p>
+
+          <h3 class="subsection-title font-mono">// KEY RESPONSIBILITIES & VISION</h3>
+          <ul class="responsibilities-list font-mono" id="lead-responsibilities">
+            <li>Strategic direction & organizational vision</li>
+            <li>KSUM & Government incubator liaison</li>
+          </ul>
+        </section>
+
+        <!-- FIELD 4: Contact Information -->
+        <section class="profile-section-card profile-contact-card">
+          <div class="section-tag font-mono">// DIRECT COMMUNICATION</div>
+          <h2 class="card-title">CONTACT INFORMATION</h2>
+          
+          <div class="contact-list font-mono">
+            <div class="contact-item">
+              <span class="contact-label">PRIMARY EMAIL:</span>
+              <a href="#" id="contact-email" class="contact-value">ceo@iedc-cetly.org</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">OFFICIAL EMAIL:</span>
+              <a href="#" id="contact-official-email" class="contact-value">savanth@cethalassery.ac.in</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">PHONE NUMBER:</span>
+              <a href="#" id="contact-phone" class="contact-value">+91 94001 23401</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">OFFICE LOCATION:</span>
+              <span id="contact-location" class="contact-value-text">IEDC Incubator Suite, CET Thalassery</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">LINKEDIN:</span>
+              <a href="#" id="contact-linkedin" target="_blank" rel="noopener" class="contact-value">linkedin.com/in/lead</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">GITHUB:</span>
+              <a href="#" id="contact-github" target="_blank" rel="noopener" class="contact-value">github.com/lead</a>
+            </div>
+          </div>
+
+          <!-- Direct Quick Message Action -->
+          <div class="contact-action-box">
+            <h4 class="font-mono">// DIRECT MESSAGE</h4>
+            <form onsubmit="event.preventDefault(); alert('Message sent to lead!');" class="profile-quick-form font-mono">
+              <input type="text" placeholder="Your Name" required aria-label="Your Name">
+              <input type="email" placeholder="Your Email" required aria-label="Your Email">
+              <textarea placeholder="Message for this lead..." rows="2" required aria-label="Message for this lead"></textarea>
+              <button type="submit" class="btn btn-primary btn-sm">SEND DIRECT MESSAGE →</button>
+            </form>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Lead Switcher Navigation -->
+      <nav class="profile-nav-switcher font-mono" aria-label="Lead Switcher">
+        <a href="#" id="prev-lead-btn" class="btn btn-outline">← PREVIOUS LEAD</a>
+        <a href="index.html#team-section" class="btn btn-secondary">VIEW ALL LEADS</a>
+        <a href="#" id="next-lead-btn" class="btn btn-outline">NEXT LEAD →</a>
+      </nav>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer font-mono">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-title">IEDC-CETLY</span>
+        <span class="footer-sub">Innovation & Entrepreneurship Development Centre</span>
+      </div>
+      <div class="footer-rights">
+        © 2026 IEDC College of Engineering Thalassery. All Rights Reserved.
+      </div>
+      <div class="footer-top">
+        <a href="index.html#team-section">TEAM OVERVIEW ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="leads.js"></script>
+</body>
+</html>
