@@ -1,9 +1,33 @@
 /**
  * IEDC-CETLY Main Script
- * Handles anime.js scroll animations, line leading growth, and modal interactions.
+ * Handles anime.js scroll animations, line leading growth, mobile nav drawer, and modal interactions.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  // 1. Mobile Navigation Toggle Logic
+  const navToggle = document.getElementById('nav-toggle');
+  const navActions = document.getElementById('nav-actions');
+
+  if (navToggle && navActions) {
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navToggle.classList.toggle('active');
+      navActions.classList.toggle('active');
+    });
+
+    // Close menu when clicking navigation links inside mobile drawer
+    navActions.querySelectorAll('a, button').forEach(item => {
+      item.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.classList.remove('active');
+          navActions.classList.remove('active');
+        }
+      });
+    });
+  }
 
   // 2. Hero Section Entrance Animation with Anime.js
   anime.timeline({ easing: 'easeOutExpo' })
@@ -47,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleScroll() {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrollPercent = Math.min((scrollTop / docHeight) * 100, 100);
+    const scrollPercent = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
 
     // Animate line leading height fill
     if (scrollLine) {
@@ -91,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll(); // Initial check
 
   // 4. Modal Interactions
@@ -102,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function openModal(modal) {
     if (!modal) return;
     modal.classList.add('active');
+    document.body.classList.add('modal-open');
     anime({
       targets: modal.querySelector('.modal-card'),
       scale: [0.9, 1],
@@ -121,11 +146,25 @@ document.addEventListener('DOMContentLoaded', () => {
       easing: 'easeInCubic',
       complete: () => {
         modal.classList.remove('active');
+        if (!document.querySelector('.modal-overlay.active')) {
+          document.body.classList.remove('modal-open');
+        }
       }
     });
   }
 
-  // Button triggers (event listeners removed for Events, Contact, and Join Us buttons)
+  // Attach Event Listeners to Open Modals
+  document.getElementById('btn-events')?.addEventListener('click', () => openModal(modalEvents));
+  document.getElementById('btn-contact')?.addEventListener('click', () => openModal(modalContact));
+  document.getElementById('btn-join')?.addEventListener('click', () => openModal(modalJoin));
+
+  document.querySelectorAll('.open-events').forEach(btn => {
+    btn.addEventListener('click', () => openModal(modalEvents));
+  });
+
+  document.querySelectorAll('.open-join').forEach(btn => {
+    btn.addEventListener('click', () => openModal(modalJoin));
+  });
 
   // Close buttons & overlay click
   document.querySelectorAll('.modal-close').forEach(closeBtn => {
@@ -141,6 +180,16 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal(overlay);
       }
     });
+  });
+
+  // Close modals on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const activeModal = document.querySelector('.modal-overlay.active');
+      if (activeModal) {
+        closeModal(activeModal);
+      }
+    }
   });
 
   // 5. Back to Top Smooth Scroll

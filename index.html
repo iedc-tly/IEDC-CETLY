@@ -4,7 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IEDC-CETLY | Innovation & Entrepreneurship Development Centre</title>
-  <meta name="description" content="Official website of IEDC College of Engineering Thalassery. Find the engineer in you.">
+  <meta name="description" content="Official website of IEDC College of Engineering Thalassery. Find the engineer in you. Promoting innovation, technology startups, and entrepreneurship.">
+  <meta name="keywords" content="IEDC, CETLY, College of Engineering Thalassery, KSUM, Kerala Startup Mission, Innovation, Hackatly, Entrepreneurship">
+  <meta name="theme-color" content="#0D0A0B">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://iedc-tly.github.io/IEDC-CETLY/">
+  <meta property="og:title" content="IEDC-CETLY | Innovation & Entrepreneurship Development Centre">
+  <meta property="og:description" content="Official website of IEDC College of Engineering Thalassery. Find the engineer in you. Empowering student innovators and technology ventures.">
+  <meta property="og:image" content="https://iedc-tly.github.io/IEDC-CETLY/backdrop.jpg">
+  <meta property="og:site_name" content="IEDC-CETLY">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IEDC-CETLY | College of Engineering Thalassery">
+  <meta name="twitter:description" content="Innovation and Entrepreneurship Development Centre - CET Thalassery. Find the engineer in you.">
+  <meta name="twitter:image" content="https://iedc-tly.github.io/IEDC-CETLY/backdrop.jpg">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "IEDC College of Engineering Thalassery",
+    "alternateName": "IEDC-CETLY",
+    "url": "https://iedc-tly.github.io/IEDC-CETLY/",
+    "logo": "https://iedc-tly.github.io/IEDC-CETLY/iedclogo.jpeg",
+    "description": "Innovation & Entrepreneurship Development Centre at College of Engineering Thalassery, affiliated with Kerala Startup Mission (KSUM).",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Thalassery",
+      "addressRegion": "Kerala",
+      "postalCode": "670107",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://www.cethalassery.ac.in"
+    ]
+  }
+  </script>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +59,9 @@
 <body>
 
   <!-- Background Grid & Backdrop -->
-  <div class="grid-background"></div>
-  <div class="backdrop-wrapper">
-    <img src="backdrop.jpg" alt="IEDC Backdrop" class="backdrop-img">
+  <div class="grid-background" aria-hidden="true"></div>
+  <div class="backdrop-wrapper" aria-hidden="true">
+    <img src="backdrop.jpg" alt="" class="backdrop-img">
     <div class="backdrop-overlay"></div>
   </div>
 
@@ -36,20 +75,27 @@
       </div>
     </div>
 
-    <nav class="nav-actions">
+    <!-- Mobile Hamburger Toggle -->
+    <button class="nav-toggle font-mono" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <nav class="nav-actions" id="nav-actions" aria-label="Main Navigation">
       <a href="history.html" class="btn btn-outline font-mono history-link">
         HISTORY
       </a>
 
-      <button class="btn btn-outline font-mono" id="btn-events">
+      <button class="btn btn-outline font-mono" id="btn-events" aria-haspopup="dialog">
         EVENTS
       </button>
 
-      <button class="btn btn-outline font-mono" id="btn-contact">
+      <button class="btn btn-outline font-mono" id="btn-contact" aria-haspopup="dialog">
         CONTACT
       </button>
 
-      <button class="btn btn-primary font-mono" id="btn-join">
+      <button class="btn btn-primary font-mono" id="btn-join" aria-haspopup="dialog">
         JOIN US
       </button>
     </nav>
@@ -138,193 +184,215 @@
 
     <div class="team-grid">
       <!-- 1. CEO -->
-      <div class="team-card" data-role="ceo">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">01 // EXEC</span>
-          <span class="role-tag">CEO</span>
+      <a href="profile.html?id=ceo" class="team-card-link">
+        <div class="team-card" data-role="ceo">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">01 // EXEC</span>
+            <span class="role-tag">CEO</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">CEO</span>
+          </div>
+          <h3 class="member-name">Savanth S Joy</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">CEO</span>
-        </div>
-        <h3 class="member-name">Savanth S Joy</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: ceo@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
 
       <!-- 2. COO -->
-      <div class="team-card" data-role="coo">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">02 // EXEC</span>
-          <span class="role-tag">COO</span>
+      <a href="profile.html?id=coo" class="team-card-link">
+        <div class="team-card" data-role="coo">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">02 // EXEC</span>
+            <span class="role-tag">COO</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">COO</span>
+          </div>
+          <h3 class="member-name">Shanin Raj M</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">COO</span>
-        </div>
-        <h3 class="member-name">Shanin Raj M</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: coo@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
 
       <!-- 3. Tech Lead -->
-      <div class="team-card" data-role="tech">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">03 // DEPT</span>
-          <span class="role-tag">TECH LEAD</span>
+      <a href="profile.html?id=tech" class="team-card-link">
+        <div class="team-card" data-role="tech">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">03 // DEPT</span>
+            <span class="role-tag">TECH LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">TL</span>
+          </div>
+          <h3 class="member-name">Sreerudran P</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">TL</span>
-        </div>
-        <h3 class="member-name">Sreerudran P</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: tech@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
 
       <!-- 4. Marketing Lead -->
-      <div class="team-card" data-role="marketing">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">04 // DEPT</span>
-          <span class="role-tag">MARKETING LEAD</span>
+      <a href="profile.html?id=marketing" class="team-card-link">
+        <div class="team-card" data-role="marketing">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">04 // DEPT</span>
+            <span class="role-tag">MARKETING LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">ML</span>
+          </div>
+          <h3 class="member-name">Sabarinath R Nambiar</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">ML</span>
-        </div>
-        <h3 class="member-name">Sabarinath R Nambiar</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: marketing@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
 
       <!-- 5. Finance Lead -->
-      <div class="team-card" data-role="finance">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">05 // DEPT</span>
-          <span class="role-tag">FINANCE LEAD</span>
+      <a href="profile.html?id=finance" class="team-card-link">
+        <div class="team-card" data-role="finance">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">05 // DEPT</span>
+            <span class="role-tag">FINANCE LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">FL</span>
+          </div>
+          <h3 class="member-name">Vaishnav Dev M</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">FL</span>
-        </div>
-        <h3 class="member-name">Vaishnav Dev M</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: finance@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
 
       <!-- 6. Design Lead -->
-      <div class="team-card" data-role="design">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">06 // DEPT</span>
-          <span class="role-tag">DESIGN LEAD</span>
+      <a href="profile.html?id=design" class="team-card-link">
+        <div class="team-card" data-role="design">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">06 // DEPT</span>
+            <span class="role-tag">DESIGN LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">DL</span>
+          </div>
+          <h3 class="member-name">Nihara</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">DL</span>
-        </div>
-        <h3 class="member-name">Nihara</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: design@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
 
       <!-- 7. Media Lead 1 -->
-      <div class="team-card" data-role="media">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">07 // DEPT</span>
-          <span class="role-tag">MEDIA LEAD</span>
+      <a href="profile.html?id=media-1" class="team-card-link">
+        <div class="team-card" data-role="media">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">07 // DEPT</span>
+            <span class="role-tag">MEDIA LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">ML</span>
+          </div>
+          <h3 class="member-name">Aman Nambiar</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">ML</span>
-        </div>
-        <h3 class="member-name">Aman Nambiar</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: media@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
 
       <!-- 8. Media Lead 2 -->
-      <div class="team-card" data-role="media">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">08 // DEPT</span>
-          <span class="role-tag">MEDIA LEAD</span>
+      <a href="profile.html?id=media-2" class="team-card-link">
+        <div class="team-card" data-role="media">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">08 // DEPT</span>
+            <span class="role-tag">MEDIA LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">ML</span>
+          </div>
+          <h3 class="member-name">Sandra N</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">ML</span>
-        </div>
-        <h3 class="member-name">Sandra N</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: media@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
 
       <!-- 9. Content Lead -->
-      <div class="team-card" data-role="content">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">09 // DEPT</span>
-          <span class="role-tag">CONTENT LEAD</span>
+      <a href="profile.html?id=content" class="team-card-link">
+        <div class="team-card" data-role="content">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">09 // DEPT</span>
+            <span class="role-tag">CONTENT LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">CL</span>
+          </div>
+          <h3 class="member-name">Niveditha Manoharan</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">CL</span>
-        </div>
-        <h3 class="member-name">Niveditha Manoharan</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: content@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
 
       <!-- 10. Community Lead -->
-      <div class="team-card" data-role="community">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">10 // DEPT</span>
-          <span class="role-tag">COMMUNITY LEAD</span>
+      <a href="profile.html?id=community" class="team-card-link">
+        <div class="team-card" data-role="community">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">10 // DEPT</span>
+            <span class="role-tag">COMMUNITY LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">CM</span>
+          </div>
+          <h3 class="member-name">Abhikshitha S S</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">CM</span>
-        </div>
-        <h3 class="member-name">Abhikshitha S S</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: community@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
 
       <!-- 11. Creative Lead -->
-      <div class="team-card" data-role="creative">
-        <div class="card-border-line"></div>
-        <div class="card-header font-mono">
-          <span class="role-badge">11 // DEPT</span>
-          <span class="role-tag">CREATIVE LEAD</span>
+      <a href="profile.html?id=creative" class="team-card-link">
+        <div class="team-card" data-role="creative">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">11 // DEPT</span>
+            <span class="role-tag">CREATIVE LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">CR</span>
+          </div>
+          <h3 class="member-name">Abhinav vk</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
         </div>
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">CR</span>
-        </div>
-        <h3 class="member-name">Abhinav vk</h3>
-        <div class="card-footer font-mono">
-          <span>CONTACT: creative@iedc-cetly.org</span>
-        </div>
-      </div>
+      </a>
     </div>
   </section>
 
   <!-- Modals -->
   <!-- 1. Events Modal -->
-  <div class="modal-overlay" id="modal-events">
+  <div class="modal-overlay" id="modal-events" role="dialog" aria-modal="true" aria-labelledby="events-modal-title">
     <div class="modal-card">
       <div class="modal-header font-mono">
         <span>// IEDC CETLY EVENTS</span>
-        <button class="modal-close">&times;</button>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
       </div>
       <div class="modal-body">
-        <h3 class="modal-title">UPCOMING & RECENT EVENTS</h3>
+        <h3 class="modal-title" id="events-modal-title">UPCOMING & RECENT EVENTS</h3>
         <div class="events-list font-mono">
           <div class="event-item">
             <span class="event-date">AUG 25, 2026</span>
@@ -358,14 +426,14 @@
   </div>
 
   <!-- 2. Contact Modal -->
-  <div class="modal-overlay" id="modal-contact">
+  <div class="modal-overlay" id="modal-contact" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
     <div class="modal-card">
       <div class="modal-header font-mono">
         <span>// CONTACT IEDC CETLY</span>
-        <button class="modal-close">&times;</button>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
       </div>
       <div class="modal-body font-mono">
-        <h3 class="modal-title">GET IN TOUCH</h3>
+        <h3 class="modal-title" id="contact-modal-title">GET IN TOUCH</h3>
         <p class="modal-text">Have an idea, project, or want to collaborate with IEDC CETLY?</p>
         
         <div class="contact-details">
@@ -384,9 +452,9 @@
         </div>
 
         <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <textarea placeholder="Your Message or Idea Pitch..." rows="3" required></textarea>
+          <input type="text" placeholder="Your Name" required aria-label="Your Name">
+          <input type="email" placeholder="Your Email" required aria-label="Your Email">
+          <textarea placeholder="Your Message or Idea Pitch..." rows="3" required aria-label="Your Message or Idea Pitch"></textarea>
           <button type="submit" class="btn btn-primary">SEND MESSAGE →</button>
         </form>
       </div>
@@ -394,32 +462,32 @@
   </div>
 
   <!-- 3. Join Us Modal -->
-  <div class="modal-overlay" id="modal-join">
+  <div class="modal-overlay" id="modal-join" role="dialog" aria-modal="true" aria-labelledby="join-modal-title">
     <div class="modal-card">
       <div class="modal-header font-mono">
         <span>// MEMBERSHIP APPLICATION</span>
-        <button class="modal-close">&times;</button>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
       </div>
       <div class="modal-body font-mono">
-        <h3 class="modal-title">BECOME AN IEDC MEMBER</h3>
+        <h3 class="modal-title" id="join-modal-title">BECOME AN IEDC MEMBER</h3>
         <p class="modal-text">Join CETLY's vibrant community of builders, innovators, and problem solvers.</p>
         
         <form class="join-form" onsubmit="event.preventDefault(); alert('Application submitted successfully!');">
           <div class="form-group">
-            <label>FULL NAME</label>
-            <input type="text" placeholder="e.g. Rahul Sharma" required>
+            <label for="join-name">FULL NAME</label>
+            <input type="text" id="join-name" placeholder="e.g. Rahul Sharma" required>
           </div>
           <div class="form-group">
-            <label>DEPT & YEAR</label>
-            <input type="text" placeholder="e.g. CSE / S5" required>
+            <label for="join-dept">DEPT & YEAR</label>
+            <input type="text" id="join-dept" placeholder="e.g. CSE / S5" required>
           </div>
           <div class="form-group">
-            <label>COLLEGE EMAIL</label>
-            <input type="email" placeholder="student@cethalassery.ac.in" required>
+            <label for="join-email">COLLEGE EMAIL</label>
+            <input type="email" id="join-email" placeholder="student@cethalassery.ac.in" required>
           </div>
           <div class="form-group">
-            <label>AREA OF INTEREST</label>
-            <select required>
+            <label for="join-domain">AREA OF INTEREST</label>
+            <select id="join-domain" required>
               <option value="">Select Domain...</option>
               <option>Software / Development</option>
               <option>Hardware / IoT / Robotics</option>
