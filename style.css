@@ -67,6 +67,13 @@ body {
   pointer-events: none;
 }
 
+.backdrop-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.backdrop-picture img,
 .backdrop-img {
   width: 100%;
   height: 100%;
