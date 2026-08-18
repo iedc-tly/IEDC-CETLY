@@ -1,10 +1,10 @@
 const communityLinks = {
-    firstYear: "YOUR_FIRST_YEAR_WHATSAPP_LINK",
-    secondYear: "YOUR_SECOND_YEAR_WHATSAPP_LINK",
-    thirdYear: "YOUR_THIRD_YEAR_WHATSAPP_LINK"
+    firstYear: "#",
+    secondYear: "#",
+    thirdYear: "#"
 };
 
-const coreTeamLink = "YOUR_CORE_TEAM_FORM_LINK";
+const coreTeamLink = "FORM";
 
 document.querySelectorAll(".community-link").forEach(link => {
     const linkName = link.dataset.link;
