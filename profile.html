@@ -88,7 +88,10 @@
 
         <!-- FIELD 1: Photo & Avatar -->
         <div class="profile-photo-wrapper">
-          <img src="iedclogo.jpeg" alt="Lead Photo" id="lead-photo" class="profile-photo">
+          <img src="" alt="Lead Photo" id="lead-photo" class="profile-photo">
+          <div id="profile-fallback-avatar" class="profile-avatar-fallback font-mono" style="display: none;">
+            <span class="fallback-initials" id="profile-fallback-initials">ID</span>
+          </div>
           <div class="photo-badge font-mono" id="lead-initials">ID</div>
         </div>
 
@@ -105,11 +108,11 @@
           </div>
 
           <div class="profile-quick-contacts font-mono">
-            <a href="mailto:ceo@iedc-cetly.org" id="contact-email" class="contact-pill">
-              ✉ ceo@iedc-cetly.org
+            <a href="mailto:ceo@iedc-cetly.org" id="hero-contact-email" class="contact-pill">
+              ✉ <span id="hero-contact-email-text">ceo@iedc-cetly.org</span>
             </a>
-            <a href="tel:+919400123401" id="contact-phone" class="contact-pill">
-              📞 +91 94001 23401
+            <a href="tel:+919400123401" id="hero-contact-phone" class="contact-pill">
+              📞 <span id="hero-contact-phone-text">+91 94001 23401</span>
             </a>
           </div>
         </div>
@@ -140,13 +143,8 @@
           
           <div class="contact-list font-mono">
             <div class="contact-item">
-              <span class="contact-label">PRIMARY EMAIL:</span>
+              <span class="contact-label">EMAIL:</span>
               <a href="#" id="contact-email" class="contact-value">ceo@iedc-cetly.org</a>
-            </div>
-
-            <div class="contact-item">
-              <span class="contact-label">OFFICIAL EMAIL:</span>
-              <a href="#" id="contact-official-email" class="contact-value">savanth@cethalassery.ac.in</a>
             </div>
 
             <div class="contact-item">

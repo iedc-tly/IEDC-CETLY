@@ -8,19 +8,20 @@ const LEADS_DATA = {
     "id": "ceo",
     "badge": "01 // EXEC",
     "name": "Savanth S Joy",
-    "role": "Chief Executive Officer (CEO)",
+    "role": "IEDC Student Lead (CEO)",
     "shortRole": "CEO",
-    "photo": "iedclogo.jpeg",
-    "about": "Savanth S Joy leads IEDC CETLY with a strategic vision to cultivate an industry-grade innovation ecosystem at College of Engineering Thalassery. As Chief Executive Officer, he oversees overall operations, student startup incubation pipelines, government & KSUM relations, and strategic partnerships with industry leaders.",
+    "initials": "CEO",
+    "photo": "leads-photos/Savanth.png",
+    "about": "Savanth S Joy leads IEDC CETLY as the Student Lead (CEO), overseeing the overall coordination of the student leadership team and building an industry-grade entrepreneurship ecosystem at College of Engineering Thalassery. He drives strategic industrial partnerships, spearheads special projects, and executes key IEDC initiatives in close partnership with the Nodal Officer.",
     "responsibilities": [
-      "Strategic direction & organizational vision",
-      "KSUM & Government incubator liaison",
-      "Seed funding & student venture acceleration",
-      "Cross-departmental leadership & governance"
+      "Overall coordination of the team",
+      "Shall forge partnership with various industries",
+      "Shall promote and build entrepreneurship ecosystem in the campus",
+      "Shall be responsible for implementing IEDC activities along with Nodal officer",
+      "Shall be responsible for all special projects"
     ],
     "contact": {
       "email": "ceo@iedc-cetly.org",
-      "officialEmail": "savanth@cethalassery.ac.in",
       "phone": "+91 94001 23401",
       "location": "IEDC Incubator Suite, CET Thalassery",
       "linkedin": "https://linkedin.com/in/savanth-s-joy",
@@ -31,42 +32,44 @@ const LEADS_DATA = {
     "id": "coo",
     "badge": "02 // EXEC",
     "name": "Shanin Raj M",
-    "role": "Chief Operating Officer (COO)",
+    "role": "Operations Lead (COO)",
     "shortRole": "COO",
-    "photo": "iedclogo.jpeg",
-    "about": "Shanin Raj M manages the execution roadmap and operational workflows of IEDC CETLY. Responsible for event logistics, Maker Lab infrastructure, resource allocation, and program scheduling, ensuring seamless delivery of hackathons, workshops, and innovation bootcamps.",
+    "initials": "COO",
+    "photo": "leads-photos/Shanin Raj M.jpg",
+    "about": "Shanin Raj M directs the core operational workflows and logistics of IEDC CETLY. He is responsible for overall operations, managing event logistics, recruiting and managing the team, ensuring program quality, managing the IEDC office and Maker Lab, and securing IEDC accreditation.",
     "responsibilities": [
-      "Operational strategy & event execution",
-      "Resource & Maker Lab facility management",
-      "Inter-departmental workflow coordination",
-      "Student engagement & event logistics"
+      "Shall be responsible for the operation of IEDC",
+      "Shall be responsible for event logistics management",
+      "Shall be entrusted to identify, recruit, and manage the team",
+      "Shall ensure the quality of the programmes and events",
+      "Shall be responsible for the IEDC office and lab",
+      "Shall be responsible for the IEDC accreditation"
     ],
     "contact": {
-      "email": "coo@iedc-cetly.org",
-      "officialEmail": "shanin@cethalassery.ac.in",
-      "phone": "+91 94001 23402",
+      "email": "Shaninraj@cethalassery.ac.in",
+      "phone": "+91 9048424214",
       "location": "Operations Desk, IEDC CETLY",
-      "linkedin": "https://linkedin.com/in/shanin-raj",
-      "github": "https://github.com/shaninraj"
+      "linkedin": "https://www.linkedin.com/in/shanin-raj-m-57315a349",
+      "github": "https://github.com/Shanin-Raj"
     }
   },
   "tech": {
     "id": "tech",
     "badge": "03 // DEPT",
     "name": "Sreerudran P",
-    "role": "Technology Lead",
+    "role": "Technical Lead (CTO)",
     "shortRole": "Tech Lead",
-    "photo": "iedclogo.jpeg",
-    "about": "Sreerudran P heads the technical division at IEDC CETLY. Driving web development, software architecture, technical hackathons like Hackatly, hardware tinkering labs, and mentorship for student technical projects.",
+    "initials": "TL",
+    "photo": "leads-photos/Sreerudran.jpg",
+    "about": "Sreerudran P heads the technical division at IEDC CETLY. He is responsible for organizing technology and innovation-driven events, orchestrating the technology mentorship programme for students, planning and conducting technical workshops and hackathons, and introducing emerging technologies across the campus ecosystem.",
     "responsibilities": [
-      "Technical architecture & web platform maintenance",
-      "Hackatly Hackathon tech track organization",
-      "Open-source & developer workshop coordination",
-      "Technical mentorship for student prototypes"
+      "Shall responsible for organising Technology & innovation driven events",
+      "Shall be responsible for technology mentorship programme for the students",
+      "Shall be responsible for planning, co-ordinating and conducting Technical programmes",
+      "Shall be responsible introducing emerging technologies"
     ],
     "contact": {
       "email": "tech@iedc-cetly.org",
-      "officialEmail": "sreerudran@cethalassery.ac.in",
       "phone": "+91 94001 23403",
       "location": "Tech Stack Lab, IEDC CETLY",
       "linkedin": "https://linkedin.com/in/sreerudran-p",
@@ -77,92 +80,93 @@ const LEADS_DATA = {
     "id": "marketing",
     "badge": "04 // DEPT",
     "name": "Sabarinath R Nambiar",
-    "role": "Marketing Lead",
+    "role": "Marketing Lead (CMO)",
     "shortRole": "Marketing Lead",
-    "photo": "iedclogo.jpeg",
-    "about": "Sabarinath R Nambiar leads marketing initiatives, brand outreach, and campaign strategy for IEDC CETLY. He drives public relations, sponsor outreach, social media presence, and event promotions across regional and national channels.",
+    "initials": "ML",
+    "photo": "leads-photos/Sabarinath R Nambiar.png",
+    "about": "Sabarinath R Nambiar heads the marketing and promotional division at IEDC CETLY. He is responsible for executing all promotional and campaign activities, marketing IEDC initiatives, and introducing IEDC among industries and relevant ecosystem stakeholders.",
     "responsibilities": [
-      "Brand strategy & campaign management",
-      "Public relations & sponsorship acquisition",
-      "Digital marketing & social media growth",
-      "Outreach campaigns for Hackatly and Bootcamps"
+      "Shall be responsible for all promotional activities",
+      "Shall be responsible for marketing of IEDC",
+      "Shall be responsible for introducing IEDC among Industries and other relevant stakeholders",
+      "Shall be responsible for all campaign activities"
     ],
     "contact": {
-      "email": "marketing@iedc-cetly.org",
-      "officialEmail": "sabarinath@cethalassery.ac.in",
-      "phone": "+91 94001 23404",
+      "email": "sabarinathnambiar@gmail.com",
+      "phone": "+91 8590449108",
       "location": "Marketing & Outreach Wing, IEDC CETLY",
-      "linkedin": "https://linkedin.com/in/sabarinath-nambiar",
-      "github": "https://github.com/sabarinath"
+      "linkedin": "https://www.linkedin.com/in/sabarinath-r-nambiar-760359287",
+      "github": "https://github.com/Sababinko"
     }
   },
   "finance": {
     "id": "finance",
     "badge": "05 // DEPT",
     "name": "Vaishnav Dev M",
-    "role": "Finance Lead",
+    "role": "Finance Lead (CFO)",
     "shortRole": "Finance Lead",
-    "photo": "iedclogo.jpeg",
-    "about": "Vaishnav Dev M manages financial planning, budget allocation, grant disbursement, and seed funding administration at IEDC CETLY. He ensures transparent auditing, financial accountability, and grant applications under KSUM guidelines.",
+    "initials": "FL",
+    "photo": "leads-photos/VAISHNAV DEV M.png",
+    "about": "Vaishnav Dev M oversees financial governance and fund administration at IEDC CETLY. He manages all financial planning, tracks IEDC accounts and fund utilization, leads annual audits of the IEDC fund, and coordinates the submission of utilization certificates to Kerala Startup Mission (KSUM).",
     "responsibilities": [
-      "Financial budgeting & expenditure tracking",
-      "KSUM grant application & documentation",
-      "Seed support disbursement for student startups",
-      "Event budget audits & financial compliance"
+      "Shall be responsible for all finance planning and other related activities",
+      "Shall be responsible for IEDC accounts and its fund utilisation",
+      "Shall be responsible for annual audit of the IEDC fund",
+      "Shall be responsible for sharing utilisation certificate with KSUM",
+      "Ensure three-women participation and diversity compliance in IEDC Team"
     ],
     "contact": {
-      "email": "finance@iedc-cetly.org",
-      "officialEmail": "vaishnav@cethalassery.ac.in",
-      "phone": "+91 94001 23405",
+      "email": "vaishnavdevm@gmail.com",
+      "phone": "+91 9496440915",
       "location": "Finance & Audit Desk, IEDC CETLY",
-      "linkedin": "https://linkedin.com/in/vaishnav-dev",
-      "github": "https://github.com/vaishnavdev"
+      "linkedin": "https://www.linkedin.com/in/vaishnav-dev-m-802158349",
+      "github": "https://github.com/vaishnavsphere"
     }
   },
   "design": {
     "id": "design",
     "badge": "06 // DEPT",
-    "name": "Nihara",
+    "name": "Nihara K M",
     "role": "Design Lead",
     "shortRole": "Design Lead",
-    "photo": "iedclogo.jpeg",
-    "about": "Nihara leads visual design, UI/UX aesthetics, and creative branding across IEDC CETLY web assets, event posters, merchandise, and digital UI design systems.",
+    "initials": "DL",
+    "photo": "leads-photos/Nihara K M.jpg",
+    "about": "Nihara is responsible for visual creative direction and UI/UX design at IEDC CETLY. She develops aesthetic creatives for IEDC events, establishes unified visual identity systems, designs merchandise, and guides students in design thinking.",
     "responsibilities": [
-      "UI/UX design & visual identity systems",
-      "Event poster design & digital branding",
-      "Merchandise & print media design",
-      "Design workshops & creative mentorship"
+      "Shall be responsibilities for developing creatives for IEDC events",
+      "Shall coordinate visual identity systems & event poster design",
+      "Shall design merchandise and print media for flagship programs",
+      "Shall provide UI/UX and creative mentorship for student projects"
     ],
     "contact": {
-      "email": "design@iedc-cetly.org",
-      "officialEmail": "nihara@cethalassery.ac.in",
-      "phone": "+91 94001 23406",
+      "email": "niharakm007@gmail.com",
+      "phone": "+91 9072599031",
       "location": "Design Studio, IEDC CETLY",
-      "linkedin": "https://linkedin.com/in/nihara-design",
-      "github": "https://github.com/nihara"
+      "linkedin": "https://www.linkedin.com/in/nihara-k-m-299141322",
+      "github": "https://github.com/Niahra-KM"
     }
   },
   "media-1": {
     "id": "media-1",
     "badge": "07 // DEPT",
-    "name": "Aman Nambiar",
+    "name": "Aman M Nambiar",
     "role": "Media Lead",
     "shortRole": "Media Lead",
-    "photo": "iedclogo.jpeg",
-    "about": "Aman Nambiar coordinates event coverage, videography, photography, and multimedia production for IEDC CETLY events, capturing moments from workshops, hackathons, and speaker sessions.",
+    "initials": "ML",
+    "photo": "",
+    "about": "Aman M Nambiar coordinates media coverage, event photography, videography, and multimedia archives inside and outside campus for all IEDC CETLY programs, hackathons, and speaker sessions.",
     "responsibilities": [
-      "Event photography & video production",
-      "Media archive & digital asset management",
-      "Aftermovie creation for major events",
-      "Press releases & media coverage"
+      "Shall be responsible for media coverage inside and outside campus",
+      "Shall oversee event photography & cinematic videography",
+      "Shall maintain official media archives and digital event assets",
+      "Shall produce aftermovies and official event highlights"
     ],
     "contact": {
-      "email": "media@iedc-cetly.org",
-      "officialEmail": "aman@cethalassery.ac.in",
-      "phone": "+91 94001 23407",
+      "email": "coolaman5647@gmail.com",
+      "phone": "+91 9922115345",
       "location": "Media Production Studio, IEDC CETLY",
-      "linkedin": "https://linkedin.com/in/aman-nambiar",
-      "github": "https://github.com/amannambiar"
+      "linkedin": "https://www.linkedin.com/in/aman-mohan-nambiar-0b0158333",
+      "github": "https://github.com/amannmbr20"
     }
   },
   "media-2": {
@@ -171,21 +175,21 @@ const LEADS_DATA = {
     "name": "Sandra N",
     "role": "Media Lead",
     "shortRole": "Media Lead",
-    "photo": "iedclogo.jpeg",
-    "about": "Sandra N co-leads media strategy, social media video reels, live event broadcasting, and digital media publishing for IEDC CETLY.",
+    "initials": "ML",
+    "photo": "leads-photos/Sandra N.jpg",
+    "about": "Sandra N co-leads media coverage, digital broadcast management, social media reels, and live event broadcasting inside and outside the campus for IEDC CETLY.",
     "responsibilities": [
-      "Social media video reels & shorts production",
-      "Live streaming & event broadcast management",
-      "Content publishing schedules & media campaigns",
-      "Student media team supervision"
+      "Shall be responsible for media coverage inside and outside campus",
+      "Shall manage live event broadcasting and stream management",
+      "Shall direct social media video reels and short-form content",
+      "Shall coordinate digital publishing schedules with marketing"
     ],
     "contact": {
-      "email": "media@iedc-cetly.org",
-      "officialEmail": "sandra@cethalassery.ac.in",
-      "phone": "+91 94001 23408",
+      "email": "sandranellikkotte@gmail.com",
+      "phone": "+91 8075470715",
       "location": "Media Lab, IEDC CETLY",
-      "linkedin": "https://linkedin.com/in/sandra-n",
-      "github": "https://github.com/sandran"
+      "linkedin": "https://www.linkedin.com/in/sandra-nellikkotte-9b3499329",
+      "github": "https://github.com/Sandranellikkot"
     }
   },
   "content": {
@@ -194,21 +198,21 @@ const LEADS_DATA = {
     "name": "Niveditha Manoharan",
     "role": "Content Lead",
     "shortRole": "Content Lead",
-    "photo": "iedclogo.jpeg",
-    "about": "Niveditha Manoharan oversees content creation, editorial writing, event descriptions, press releases, newsletters, and official documentation at IEDC CETLY.",
+    "initials": "CL",
+    "photo": "leads-photos/Niveditha_.jpg",
+    "about": "Niveditha Manoharan is responsible for all documentation, reports, monthly newsletters, and editorial writing for IEDC CETLY. She manages official press releases, event copywriting, and archival records.",
     "responsibilities": [
-      "Editorial writing & official announcements",
-      "Monthly newsletter publication",
-      "Event copy & documentation writing",
-      "Proposal & grant report proofreading"
+      "Shall be responsible for Documentation, Reports and Newsletter",
+      "Shall manage editorial writing and official announcements",
+      "Shall publish the monthly IEDC CETLY newsletter and event reports",
+      "Shall prepare and review grant documentation and proposals"
     ],
     "contact": {
-      "email": "content@iedc-cetly.org",
-      "officialEmail": "niveditha@cethalassery.ac.in",
-      "phone": "+91 94001 23409",
+      "email": "nivedithamanoharan2006@gmail.com",
+      "phone": "+91 8921889545",
       "location": "Editorial Office, IEDC CETLY",
-      "linkedin": "https://linkedin.com/in/niveditha-manoharan",
-      "github": "https://github.com/niveditha"
+      "linkedin": "https://www.linkedin.com/in/niveditha-manoharan-40531b321",
+      "github": "https://github.com/niveditha0407manoharan"
     }
   },
   "community": {
@@ -217,52 +221,117 @@ const LEADS_DATA = {
     "name": "Abhikshitha S S",
     "role": "Community Lead",
     "shortRole": "Community Lead",
-    "photo": "iedclogo.jpeg",
-    "about": "Abhikshitha S S fosters student involvement, community engagement, departmental networking, and peer mentorship across all batches and engineering departments at CETLY.",
+    "initials": "CM",
+    "photo": "leads-photos/Abhikshitha.jpg",
+    "about": "Abhikshitha S S is responsible for all community-related activities at IEDC CETLY. She ensures the active involvement of all campus communities including Tech communities in IEDC activities, and drives innovation evangelisation across students of all departments.",
     "responsibilities": [
-      "Student community onboarding & engagement",
-      "Inter-departmental liaison & student clubs network",
-      "Peer learning circles & study groups",
-      "Community feedback & member wellness"
+      "Shall be responsible for all community related activities",
+      "Shall ensure active involvement of all communities including Tech communities in IEDC activities",
+      "Shall be responsible for innovation evangelisation activities",
+      "Shall facilitate peer learning networks and student onboarding"
     ],
     "contact": {
-      "email": "community@iedc-cetly.org",
-      "officialEmail": "abhikshitha@cethalassery.ac.in",
-      "phone": "+91 94001 23410",
+      "email": "abhikshithas@gmail.com",
+      "phone": "+91 7511148128",
       "location": "Community Hub, IEDC CETLY",
-      "linkedin": "https://linkedin.com/in/abhikshitha-ss",
-      "github": "https://github.com/abhikshitha"
+      "linkedin": "https://www.linkedin.com/in/abhikshitha-s-s-14207b337",
+      "github": "https://github.com/abhikshitha-ss"
     }
   },
   "creative": {
     "id": "creative",
     "badge": "11 // DEPT",
     "name": "Abhinav vk",
-    "role": "Creative Lead",
+    "role": "Creative Lead (CCO)",
     "shortRole": "Creative Lead",
-    "photo": "iedclogo.jpeg",
-    "about": "Abhinav vk directs creative concepts, event stage setups, theme design, and artistic execution for major flagship programs like Hackatly and Innovation Expos.",
+    "initials": "CR",
+    "photo": "leads-photos/Abhinav.jpg",
+    "about": "Abhinav vk directs creative concepts, event stage setups, theme design, Alumni Connect, and outreach activities for IEDC CETLY, ensuring immersive and imaginative flagship experiences for hackathons and innovation expos.",
     "responsibilities": [
-      "Creative direction & theme conceptualization",
-      "Stage & venue setup design for flagship events",
-      "Creative storytelling & promotional ideation",
-      "Artistic branding assets creation"
+      "Shall be responsibilities for developing creatives for IEDC events",
+      "Shall be responsible for Alumni Connect and outreach activities",
+      "Shall conceptualize flagship event themes and venue installations",
+      "Shall drive creative storytelling and promotional narratives"
     ],
     "contact": {
-      "email": "creative@iedc-cetly.org",
-      "officialEmail": "abhinav@cethalassery.ac.in",
-      "phone": "+91 94001 23411",
+      "email": "abhinavvk110@gmail.com",
+      "phone": "+91 8606109015",
       "location": "Creative Lab, IEDC CETLY",
-      "linkedin": "https://linkedin.com/in/abhinav-vk",
-      "github": "https://github.com/abhinavvk"
+      "linkedin": "https://www.linkedin.com/in/abhinav-vk-a06ba6429/",
+      "github": "https://github.com/abhinavvk110-hue"
     }
   }
 };
 
 /**
+ * Helper to escape HTML characters safely
+ */
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
+ * Renders the leads overview cards into the #team-grid element on index.html
+ */
+function renderTeamGrid() {
+  const teamGrid = document.getElementById('team-grid') || document.querySelector('.team-grid');
+  if (!teamGrid) return;
+
+  const leads = Object.values(LEADS_DATA);
+  teamGrid.innerHTML = leads.map(lead => {
+    let initials = lead.initials;
+    if (!initials) {
+      if (lead.shortRole) {
+        initials = lead.shortRole.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase();
+      } else {
+        initials = lead.name.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase();
+      }
+    }
+
+    const roleTag = (lead.shortRole || lead.role).toUpperCase();
+    const hasPhoto = Boolean(lead.photo && lead.photo.trim() !== '' && lead.photo.trim() !== 'leads-photos/');
+
+    return `
+      <a href="profile.html?id=${encodeURIComponent(lead.id)}" class="team-card-link">
+        <div class="team-card" data-role="${escapeHtml(lead.id)}">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">${escapeHtml(lead.badge || '')}</span>
+            <span class="role-tag">${escapeHtml(roleTag)}</span>
+          </div>
+          <div class="team-avatar-wrapper">
+            ${hasPhoto ? `
+              <img src="${escapeHtml(lead.photo)}" alt="${escapeHtml(lead.name)}" class="team-avatar-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="avatar-placeholder" style="display: none;">
+                <span class="avatar-initials">${escapeHtml(initials)}</span>
+              </div>
+            ` : `
+              <div class="avatar-placeholder">
+                <span class="avatar-initials">${escapeHtml(initials)}</span>
+              </div>
+            `}
+          </div>
+          <h3 class="member-name">${escapeHtml(lead.name)}</h3>
+          <div class="member-role font-mono">${escapeHtml(lead.role)}</div>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
+/**
  * Loads profile information into profile.html based on URL parameter ?id=...
  */
-document.addEventListener('DOMContentLoaded', () => {
+function renderLeadProfile() {
   const profileContainer = document.getElementById('profile-container');
   const profileNotFound = document.getElementById('profile-not-found');
   
@@ -283,53 +352,102 @@ document.addEventListener('DOMContentLoaded', () => {
   document.title = `${lead.name} (${lead.shortRole}) | IEDC-CETLY Profile`;
 
   // Inject Lead Details
-  document.getElementById('lead-name').textContent = lead.name;
-  document.getElementById('lead-role').textContent = lead.role;
-  document.getElementById('lead-badge').textContent = lead.badge;
-  document.getElementById('lead-about').textContent = lead.about;
+  const nameEl = document.getElementById('lead-name');
+  if (nameEl) nameEl.textContent = lead.name;
+
+  const roleEl = document.getElementById('lead-role');
+  if (roleEl) roleEl.textContent = lead.role;
+
+  const badgeEl = document.getElementById('lead-badge');
+  if (badgeEl) badgeEl.textContent = lead.badge;
+
+  const aboutEl = document.getElementById('lead-about');
+  if (aboutEl) aboutEl.textContent = lead.about;
   
-  // Set Lead Photo
+  // Set Lead Photo & Fallback
   const photoEl = document.getElementById('lead-photo');
+  const fallbackAvatarEl = document.getElementById('profile-fallback-avatar');
+  const initials = lead.initials || lead.name.split(' ').map(n => n[0]).join('').substring(0, 3).toUpperCase();
+  const hasPhoto = Boolean(lead.photo && lead.photo.trim() !== '' && lead.photo.trim() !== 'leads-photos/');
+
   if (photoEl) {
-    photoEl.src = lead.photo;
-    photoEl.alt = `${lead.name} Profile Photo`;
+    if (hasPhoto) {
+      photoEl.src = lead.photo;
+      photoEl.alt = `${lead.name} Profile Photo`;
+      photoEl.style.display = 'block';
+      if (fallbackAvatarEl) fallbackAvatarEl.style.display = 'none';
+      photoEl.onerror = () => {
+        photoEl.style.display = 'none';
+        if (fallbackAvatarEl) fallbackAvatarEl.style.display = 'flex';
+      };
+    } else {
+      photoEl.style.display = 'none';
+      if (fallbackAvatarEl) fallbackAvatarEl.style.display = 'flex';
+    }
+  }
+
+  const fallbackInitialsEl = document.getElementById('profile-fallback-initials');
+  if (fallbackInitialsEl) {
+    fallbackInitialsEl.textContent = initials;
   }
 
   // Inject Initials Badge fallback
   const initialsEl = document.getElementById('lead-initials');
   if (initialsEl) {
-    const initials = lead.name.split(' ').map(n => n[0]).join('').substring(0, 3).toUpperCase();
     initialsEl.textContent = initials;
+  }
+
+  // Hero Quick Contact Links
+  const heroEmail = document.getElementById('hero-contact-email');
+  const heroEmailText = document.getElementById('hero-contact-email-text');
+  if (heroEmail && lead.contact.email) {
+    heroEmail.href = `mailto:${lead.contact.email}`;
+    if (heroEmailText) heroEmailText.textContent = lead.contact.email;
+  }
+
+  const heroPhone = document.getElementById('hero-contact-phone');
+  const heroPhoneText = document.getElementById('hero-contact-phone-text');
+  if (heroPhone && lead.contact.phone) {
+    heroPhone.href = `tel:${lead.contact.phone.replace(/\s+/g, '')}`;
+    if (heroPhoneText) heroPhoneText.textContent = lead.contact.phone;
   }
 
   // Responsibilities List
   const respListEl = document.getElementById('lead-responsibilities');
   if (respListEl && lead.responsibilities) {
-    respListEl.innerHTML = lead.responsibilities.map(r => `<li>${r}</li>`).join('');
+    respListEl.innerHTML = lead.responsibilities.map(r => `<li>${escapeHtml(r)}</li>`).join('');
   }
 
-  // Contact Details
-  document.getElementById('contact-email').textContent = lead.contact.email;
-  document.getElementById('contact-email').href = `mailto:${lead.contact.email}`;
+  // Full Contact Details List
+  const emailEl = document.getElementById('contact-email');
+  if (emailEl && lead.contact.email) {
+    emailEl.textContent = lead.contact.email;
+    emailEl.href = `mailto:${lead.contact.email}`;
+  }
 
-  document.getElementById('contact-official-email').textContent = lead.contact.officialEmail;
-  document.getElementById('contact-official-email').href = `mailto:${lead.contact.officialEmail}`;
+  const phoneEl = document.getElementById('contact-phone');
+  if (phoneEl && lead.contact.phone) {
+    phoneEl.textContent = lead.contact.phone;
+    phoneEl.href = `tel:${lead.contact.phone.replace(/\s+/g, '')}`;
+  }
 
-  document.getElementById('contact-phone').textContent = lead.contact.phone;
-  document.getElementById('contact-phone').href = `tel:${lead.contact.phone.replace(/\s+/g, '')}`;
-
-  document.getElementById('contact-location').textContent = lead.contact.location;
+  const locEl = document.getElementById('contact-location');
+  if (locEl && lead.contact.location) {
+    locEl.textContent = lead.contact.location;
+  }
 
   const linkedinEl = document.getElementById('contact-linkedin');
-  if (linkedinEl) {
+  if (linkedinEl && lead.contact.linkedin) {
     linkedinEl.href = lead.contact.linkedin;
-    linkedinEl.textContent = lead.contact.linkedin.replace('https://', '');
+    const cleanLinkedin = lead.contact.linkedin.replace(/^https?:\/\/(www\.)?/, '').split('?')[0];
+    linkedinEl.textContent = cleanLinkedin;
   }
 
   const githubEl = document.getElementById('contact-github');
-  if (githubEl) {
+  if (githubEl && lead.contact.github) {
     githubEl.href = lead.contact.github;
-    githubEl.textContent = lead.contact.github.replace('https://', '');
+    const cleanGithub = lead.contact.github.replace(/^https?:\/\/(www\.)?/, '');
+    githubEl.textContent = cleanGithub;
   }
 
   // Setup Previous & Next Lead Navigation
@@ -345,13 +463,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.getElementById('prev-lead-btn');
   const nextBtn = document.getElementById('next-lead-btn');
 
-  if (prevBtn) {
+  if (prevBtn && prevLead) {
     prevBtn.href = `profile.html?id=${prevLead.id}`;
     prevBtn.innerHTML = `← ${prevLead.shortRole}: ${prevLead.name.split(' ')[0]}`;
   }
 
-  if (nextBtn) {
+  if (nextBtn && nextLead) {
     nextBtn.href = `profile.html?id=${nextLead.id}`;
     nextBtn.innerHTML = `${nextLead.shortRole}: ${nextLead.name.split(' ')[0]} →`;
   }
+}
+
+// Initialise on DOM Ready
+document.addEventListener('DOMContentLoaded', () => {
+  renderTeamGrid();
+  renderLeadProfile();
 });
