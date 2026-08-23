@@ -153,7 +153,7 @@ const LEADS_DATA = {
     "role": "Media Lead",
     "shortRole": "Media Lead",
     "initials": "ML",
-    "photo": "",
+    "photo": "leads-photos/Aman M Nambiar.jpeg",
     "about": "Aman M Nambiar coordinates media coverage, event photography, videography, and multimedia archives inside and outside campus for all IEDC CETLY programs, hackathons, and speaker sessions.",
     "responsibilities": [
       "Shall be responsible for media coverage inside and outside campus",

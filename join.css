@@ -52,6 +52,12 @@ a {
     pointer-events: none;
 }
 
+.backdrop-picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .backdrop-img {
     width: 100%;
     height: 100%;

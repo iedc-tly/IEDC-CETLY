@@ -98,9 +98,9 @@
         CONTACT
       </button>
 
-      <button class="btn btn-primary font-mono" id="btn-join" aria-haspopup="dialog">
+      <a href="join.html" class="btn btn-primary font-mono" id="btn-join">
         JOIN US
-      </button>
+      </a>
     </nav>
   </header>
 
@@ -128,8 +128,8 @@
       </div>
 
       <div class="hero-buttons">
-        <button class="btn btn-primary font-mono open-join">JOIN THE CELL →</button>
-        <button class="btn btn-secondary font-mono open-events">VIEW UPCOMING EVENTS</button>
+        <button class="btn btn-primary font-mono open-events">VIEW UPCOMING EVENTS →</button>
+        <a href="#mission-section" class="btn btn-secondary font-mono">EXPLORE OUR MISSION</a>
       </div>
     </div>
   </section>
@@ -263,47 +263,6 @@
           <input type="email" placeholder="Your Email" required aria-label="Your Email">
           <textarea placeholder="Your Message or Idea Pitch..." rows="3" required aria-label="Your Message or Idea Pitch"></textarea>
           <button type="submit" class="btn btn-primary">SEND MESSAGE →</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. Join Us Modal -->
-  <div class="modal-overlay" id="modal-join" role="dialog" aria-modal="true" aria-labelledby="join-modal-title">
-    <div class="modal-card">
-      <div class="modal-header font-mono">
-        <span>// MEMBERSHIP APPLICATION</span>
-        <button class="modal-close" aria-label="Close modal">&times;</button>
-      </div>
-      <div class="modal-body font-mono">
-        <h3 class="modal-title" id="join-modal-title">BECOME AN IEDC MEMBER</h3>
-        <p class="modal-text">Join CETLY's vibrant community of builders, innovators, and problem solvers.</p>
-        
-        <form class="join-form" onsubmit="event.preventDefault(); alert('Application submitted successfully!');">
-          <div class="form-group">
-            <label for="join-name">FULL NAME</label>
-            <input type="text" id="join-name" placeholder="e.g. Rahul Sharma" required>
-          </div>
-          <div class="form-group">
-            <label for="join-dept">DEPT & YEAR</label>
-            <input type="text" id="join-dept" placeholder="e.g. CSE / S5" required>
-          </div>
-          <div class="form-group">
-            <label for="join-email">COLLEGE EMAIL</label>
-            <input type="email" id="join-email" placeholder="student@cethalassery.ac.in" required>
-          </div>
-          <div class="form-group">
-            <label for="join-domain">AREA OF INTEREST</label>
-            <select id="join-domain" required>
-              <option value="">Select Domain...</option>
-              <option>Software / Development</option>
-              <option>Hardware / IoT / Robotics</option>
-              <option>Design & Media</option>
-              <option>Management & Finance</option>
-              <option>Marketing & Content</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">SUBMIT APPLICATION →</button>
         </form>
       </div>
     </div>

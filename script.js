@@ -121,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. Modal Interactions
   const modalEvents = document.getElementById('modal-events');
   const modalContact = document.getElementById('modal-contact');
-  const modalJoin = document.getElementById('modal-join');
 
   function openModal(modal) {
     if (!modal) return;
@@ -156,14 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Attach Event Listeners to Open Modals
   document.getElementById('btn-events')?.addEventListener('click', () => openModal(modalEvents));
   document.getElementById('btn-contact')?.addEventListener('click', () => openModal(modalContact));
-  document.getElementById('btn-join')?.addEventListener('click', () => openModal(modalJoin));
 
   document.querySelectorAll('.open-events').forEach(btn => {
     btn.addEventListener('click', () => openModal(modalEvents));
-  });
-
-  document.querySelectorAll('.open-join').forEach(btn => {
-    btn.addEventListener('click', () => openModal(modalJoin));
   });
 
   // Close buttons & overlay click
