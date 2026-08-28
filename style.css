@@ -529,9 +529,8 @@ body.modal-open {
 .team-avatar-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  max-height: 240px;
-  background: rgba(69, 73, 85, 0.2);
+  aspect-ratio: 4 / 5;
+  background: rgba(13, 10, 11, 0.6);
   border: 1px solid rgba(243, 239, 245, 0.15);
   border-radius: 4px;
   overflow: hidden;
@@ -551,7 +550,7 @@ body.modal-open {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 15%;
   filter: grayscale(15%) contrast(105%);
   transition: transform 0.4s ease, filter 0.4s ease;
   display: block;
@@ -858,17 +857,62 @@ input:focus, textarea:focus, select:focus {
     padding: 0 20px;
   }
 
-  .frame-container {
-    padding: 40px 24px;
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
-  .team-grid {
-    grid-template-columns: 1fr;
+  .team-card {
+    padding: 16px;
+  }
+
+  .team-avatar-wrapper {
+    aspect-ratio: 4 / 5;
+    margin-bottom: 12px;
+  }
+
+  .member-name {
+    font-size: 0.95rem;
   }
 
   .footer-content {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .team-card {
+    padding: 12px;
+  }
+
+  .card-header {
+    margin-bottom: 10px;
+    font-size: 0.58rem;
+  }
+
+  .team-avatar-wrapper {
+    aspect-ratio: 4 / 5;
+    margin-bottom: 10px;
+  }
+
+  .member-name {
+    font-size: 0.85rem;
+  }
+
+  .member-role {
+    font-size: 0.6rem;
+    margin-bottom: 8px;
+  }
+
+  .card-footer {
+    font-size: 0.58rem;
+    padding-top: 8px;
   }
 }
 
