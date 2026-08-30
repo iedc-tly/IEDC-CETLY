@@ -8,7 +8,7 @@ const LEADS_DATA = {
     "id": "ceo",
     "badge": "01 // EXEC",
     "name": "Savanth S Joy",
-    "role": "IEDC Student Lead (CEO)",
+    "role": "IEDC Student Lead",
     "shortRole": "CEO",
     "initials": "CEO",
     "photo": "leads-photos/Savanth.png",
@@ -32,7 +32,7 @@ const LEADS_DATA = {
     "id": "coo",
     "badge": "02 // EXEC",
     "name": "Shanin Raj M",
-    "role": "Operations Lead (COO)",
+    "role": "Operations Lead",
     "shortRole": "COO",
     "initials": "COO",
     "photo": "leads-photos/Shanin Raj M.jpg",
@@ -57,8 +57,8 @@ const LEADS_DATA = {
     "id": "tech",
     "badge": "03 // DEPT",
     "name": "Sreerudran P",
-    "role": "Technical Lead (CTO)",
-    "shortRole": "Tech Lead",
+    "role": "Technical Lead",
+    "shortRole": "CTO",
     "initials": "TL",
     "photo": "leads-photos/Sreerudran.jpg",
     "about": "Sreerudran P heads the technical division at IEDC CETLY. He is responsible for organizing technology and innovation-driven events, orchestrating the technology mentorship programme for students, planning and conducting technical workshops and hackathons, and introducing emerging technologies across the campus ecosystem.",
@@ -80,8 +80,8 @@ const LEADS_DATA = {
     "id": "marketing",
     "badge": "04 // DEPT",
     "name": "Sabarinath R Nambiar",
-    "role": "Marketing Lead (CMO)",
-    "shortRole": "Marketing Lead",
+    "role": "Marketing Lead",
+    "shortRole": "CMO",
     "initials": "ML",
     "photo": "leads-photos/Sabarinath R Nambiar.png",
     "about": "Sabarinath R Nambiar heads the marketing and promotional division at IEDC CETLY. He is responsible for executing all promotional and campaign activities, marketing IEDC initiatives, and introducing IEDC among industries and relevant ecosystem stakeholders.",
@@ -103,8 +103,8 @@ const LEADS_DATA = {
     "id": "finance",
     "badge": "05 // DEPT",
     "name": "Vaishnav Dev M",
-    "role": "Finance Lead (CFO)",
-    "shortRole": "Finance Lead",
+    "role": "Finance Lead",
+    "shortRole": "",
     "initials": "FL",
     "photo": "leads-photos/VAISHNAV DEV M.png",
     "about": "Vaishnav Dev M oversees financial governance and fund administration at IEDC CETLY. He manages all financial planning, tracks IEDC accounts and fund utilization, leads annual audits of the IEDC fund, and coordinates the submission of utilization certificates to Kerala Startup Mission (KSUM).",
@@ -128,7 +128,7 @@ const LEADS_DATA = {
     "badge": "06 // DEPT",
     "name": "Nihara K M",
     "role": "Design Lead",
-    "shortRole": "Design Lead",
+    "shortRole": "",
     "initials": "DL",
     "photo": "leads-photos/Nihara K M.jpg",
     "about": "Nihara is responsible for visual creative direction and UI/UX design at IEDC CETLY. She develops aesthetic creatives for IEDC events, establishes unified visual identity systems, designs merchandise, and guides students in design thinking.",
@@ -151,7 +151,7 @@ const LEADS_DATA = {
     "badge": "07 // DEPT",
     "name": "Aman M Nambiar",
     "role": "Media Lead",
-    "shortRole": "Media Lead",
+    "shortRole": "",
     "initials": "ML",
     "photo": "leads-photos/Aman M Nambiar.jpeg",
     "about": "Aman M Nambiar coordinates media coverage, event photography, videography, and multimedia archives inside and outside campus for all IEDC CETLY programs, hackathons, and speaker sessions.",
@@ -174,7 +174,7 @@ const LEADS_DATA = {
     "badge": "08 // DEPT",
     "name": "Sandra N",
     "role": "Media Lead",
-    "shortRole": "Media Lead",
+    "shortRole": "",
     "initials": "ML",
     "photo": "leads-photos/Sandra N.jpg",
     "about": "Sandra N co-leads media coverage, digital broadcast management, social media reels, and live event broadcasting inside and outside the campus for IEDC CETLY.",
@@ -197,7 +197,7 @@ const LEADS_DATA = {
     "badge": "09 // DEPT",
     "name": "Niveditha Manoharan",
     "role": "Content Lead",
-    "shortRole": "Content Lead",
+    "shortRole": "",
     "initials": "CL",
     "photo": "leads-photos/Niveditha_.jpg",
     "about": "Niveditha Manoharan is responsible for all documentation, reports, monthly newsletters, and editorial writing for IEDC CETLY. She manages official press releases, event copywriting, and archival records.",
@@ -220,7 +220,7 @@ const LEADS_DATA = {
     "badge": "10 // DEPT",
     "name": "Abhikshitha S S",
     "role": "Community Lead",
-    "shortRole": "Community Lead",
+    "shortRole": "",
     "initials": "CM",
     "photo": "leads-photos/Abhikshitha.jpg",
     "about": "Abhikshitha S S is responsible for all community-related activities at IEDC CETLY. She ensures the active involvement of all campus communities including Tech communities in IEDC activities, and drives innovation evangelisation across students of all departments.",
@@ -242,8 +242,8 @@ const LEADS_DATA = {
     "id": "creative",
     "badge": "11 // DEPT",
     "name": "Abhinav vk",
-    "role": "Creative Lead (CCO)",
-    "shortRole": "Creative Lead",
+    "role": "Creative Lead",
+    "shortRole": "",
     "initials": "CR",
     "photo": "leads-photos/Abhinav.jpg",
     "about": "Abhinav vk directs creative concepts, event stage setups, theme design, Alumni Connect, and outreach activities for IEDC CETLY, ensuring immersive and imaginative flagship experiences for hackathons and innovation expos.",
@@ -294,7 +294,6 @@ function renderTeamGrid() {
       }
     }
 
-    const roleTag = (lead.shortRole || lead.role).toUpperCase();
     const hasPhoto = Boolean(lead.photo && lead.photo.trim() !== '' && lead.photo.trim() !== 'leads-photos/');
 
     return `
@@ -303,7 +302,7 @@ function renderTeamGrid() {
           <div class="card-border-line"></div>
           <div class="card-header font-mono">
             <span class="role-badge">${escapeHtml(lead.badge || '')}</span>
-            <span class="role-tag">${escapeHtml(roleTag)}</span>
+            ${lead.shortRole ? `<span class="role-tag">${escapeHtml(lead.shortRole.toUpperCase())}</span>` : ''}
           </div>
           <div class="team-avatar-wrapper">
             ${hasPhoto ? `
@@ -349,7 +348,9 @@ function renderLeadProfile() {
   }
 
   // Update page title
-  document.title = `${lead.name} (${lead.shortRole}) | IEDC-CETLY Profile`;
+  document.title = lead.shortRole 
+    ? `${lead.name} (${lead.shortRole}) | IEDC-CETLY Profile`
+    : `${lead.name} (${lead.role}) | IEDC-CETLY Profile`;
 
   // Inject Lead Details
   const nameEl = document.getElementById('lead-name');
@@ -465,12 +466,14 @@ function renderLeadProfile() {
 
   if (prevBtn && prevLead) {
     prevBtn.href = `profile.html?id=${prevLead.id}`;
-    prevBtn.innerHTML = `← ${prevLead.shortRole}: ${prevLead.name.split(' ')[0]}`;
+    const prevLabel = prevLead.shortRole || prevLead.role;
+    prevBtn.innerHTML = `← ${prevLabel}: ${prevLead.name.split(' ')[0]}`;
   }
 
   if (nextBtn && nextLead) {
     nextBtn.href = `profile.html?id=${nextLead.id}`;
-    nextBtn.innerHTML = `${nextLead.shortRole}: ${nextLead.name.split(' ')[0]} →`;
+    const nextLabel = nextLead.shortRole || nextLead.role;
+    nextBtn.innerHTML = `${nextLabel}: ${nextLead.name.split(' ')[0]} →`;
   }
 }
 
