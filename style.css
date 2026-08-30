@@ -194,6 +194,10 @@ body.modal-open {
 
 /* Buttons */
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   padding: 8px 18px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -202,6 +206,12 @@ body.modal-open {
   transition: all 0.25s ease;
   border-radius: 2px;
   outline: none;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  text-decoration: none;
 }
 
 .btn-outline {

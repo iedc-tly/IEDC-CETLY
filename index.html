@@ -94,9 +94,9 @@
         EVENTS
       </button>
 
-      <button class="btn btn-outline font-mono" id="btn-contact" aria-haspopup="dialog">
+      <a href="mailto:iedc@cethalassery.ac.in" class="btn btn-outline font-mono" id="btn-contact">
         CONTACT
-      </button>
+      </a>
 
       <a href="join.html" class="btn btn-primary font-mono" id="btn-join">
         JOIN US
@@ -127,10 +127,7 @@
         </p>
       </div>
 
-      <div class="hero-buttons">
-        <button class="btn btn-primary font-mono open-events">VIEW UPCOMING EVENTS →</button>
-        <a href="#mission-section" class="btn btn-secondary font-mono">EXPLORE OUR MISSION</a>
-      </div>
+
     </div>
   </section>
 
@@ -232,41 +229,6 @@
     </div>
   </div>
 
-  <!-- 2. Contact Modal -->
-  <div class="modal-overlay" id="modal-contact" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-    <div class="modal-card">
-      <div class="modal-header font-mono">
-        <span>// CONTACT IEDC CETLY</span>
-        <button class="modal-close" aria-label="Close modal">&times;</button>
-      </div>
-      <div class="modal-body font-mono">
-        <h3 class="modal-title" id="contact-modal-title">GET IN TOUCH</h3>
-        <p class="modal-text">Have an idea, project, or want to collaborate with IEDC CETLY?</p>
-        
-        <div class="contact-details">
-          <div class="contact-row">
-            <span class="label">LOCATION:</span>
-            <span class="val">College of Engineering Thalassery, Kinarukara, Kerala 670107</span>
-          </div>
-          <div class="contact-row">
-            <span class="label">EMAIL:</span>
-            <span class="val">iedc@cethalassery.ac.in</span>
-          </div>
-          <div class="contact-row">
-            <span class="label">PHONE:</span>
-            <span class="val">+91 490 2388930</span>
-          </div>
-        </div>
-
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-          <input type="text" placeholder="Your Name" required aria-label="Your Name">
-          <input type="email" placeholder="Your Email" required aria-label="Your Email">
-          <textarea placeholder="Your Message or Idea Pitch..." rows="3" required aria-label="Your Message or Idea Pitch"></textarea>
-          <button type="submit" class="btn btn-primary">SEND MESSAGE →</button>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer class="footer font-mono">

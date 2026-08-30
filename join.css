@@ -124,6 +124,7 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
     padding: 12px 18px;
     border: 1px solid var(--gray);
     font: 700 .7rem var(--mono);
@@ -132,10 +133,13 @@ a {
     cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus,
+.btn:active {
     transform: translateY(-2px);
     border-color: var(--green);
     color: var(--green);
+    text-decoration: none;
 }
 
 .btn-primary {
@@ -164,17 +168,17 @@ main {
 }
 
 .join-hero {
-    min-height: 78vh;
+    min-height: auto;
     display: flex;
     align-items: center;
-    padding: 8vh 7%;
+    padding: 60px 7% 20px;
 }
 
 .hero-frame {
     position: relative;
     width: min(1050px, 100%);
     margin: auto;
-    padding: 70px 7%;
+    padding: 45px 7%;
     border: 1px solid rgba(114, 176, 29, .55);
     background: rgba(13, 10, 11, .68);
     box-shadow: 0 0 70px rgba(114, 176, 29, .07);
@@ -222,7 +226,12 @@ main {
     letter-spacing: .08em;
 }
 
-.join-hero h1,
+.join-hero h1 {
+    font: 700 clamp(3.5rem, 9vw, 8rem) / .86 var(--sans);
+    letter-spacing: -.055em;
+    margin: 0;
+}
+
 .section h2,
 .core-section h2 {
     font: 700 clamp(3.5rem, 9vw, 8rem) / .86 var(--sans);
@@ -251,7 +260,7 @@ main {
 }
 
 .section {
-    padding: 100px 7%;
+    padding: 35px 7% 90px;
     max-width: 1250px;
     margin: auto;
 }
@@ -398,16 +407,12 @@ main {
     }
 
     .join-hero {
-        padding: 5vh 5%;
-        min-height: 72vh;
+        padding: 30px 5% 10px;
+        min-height: auto;
     }
 
     .hero-frame {
-        padding: 55px 7%;
-    }
-
-    .hero-meta {
-        flex-direction: column;
+        padding: 35px 6%;
     }
 
     .community-grid {
@@ -415,7 +420,7 @@ main {
     }
 
     .section {
-        padding: 75px 5%;
+        padding: 30px 5% 60px;
     }
 
     .core-section {

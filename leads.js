@@ -23,7 +23,6 @@ const LEADS_DATA = {
     "contact": {
       "email": "ceo@iedc-cetly.org",
       "phone": "+91 94001 23401",
-      "location": "IEDC Incubator Suite, CET Thalassery",
       "linkedin": "https://linkedin.com/in/savanth-s-joy",
       "github": "https://github.com/savanth-joy"
     }
@@ -48,14 +47,13 @@ const LEADS_DATA = {
     "contact": {
       "email": "Shaninraj@cethalassery.ac.in",
       "phone": "+91 9048424214",
-      "location": "Operations Desk, IEDC CETLY",
       "linkedin": "https://www.linkedin.com/in/shanin-raj-m-57315a349",
       "github": "https://github.com/Shanin-Raj"
     }
   },
   "tech": {
     "id": "tech",
-    "badge": "03 // DEPT",
+    "badge": "03",
     "name": "Sreerudran P",
     "role": "Technical Lead",
     "shortRole": "CTO",
@@ -69,16 +67,15 @@ const LEADS_DATA = {
       "Shall be responsible introducing emerging technologies"
     ],
     "contact": {
-      "email": "tech@iedc-cetly.org",
-      "phone": "+91 94001 23403",
-      "location": "Tech Stack Lab, IEDC CETLY",
-      "linkedin": "https://linkedin.com/in/sreerudran-p",
-      "github": "https://github.com/sreerudran"
+      "email": "sreerud3@gmail.com",
+      "phone": "7012561794",
+      "linkedin": "www.linkedin.com/in/sreerudran-p-689229330",
+      "github": "https://github.com/Sreerud120"
     }
   },
   "marketing": {
     "id": "marketing",
-    "badge": "04 // DEPT",
+    "badge": "04",
     "name": "Sabarinath R Nambiar",
     "role": "Marketing Lead",
     "shortRole": "CMO",
@@ -94,14 +91,13 @@ const LEADS_DATA = {
     "contact": {
       "email": "sabarinathnambiar@gmail.com",
       "phone": "+91 8590449108",
-      "location": "Marketing & Outreach Wing, IEDC CETLY",
       "linkedin": "https://www.linkedin.com/in/sabarinath-r-nambiar-760359287",
       "github": "https://github.com/Sababinko"
     }
   },
   "finance": {
     "id": "finance",
-    "badge": "05 // DEPT",
+    "badge": "05",
     "name": "Vaishnav Dev M",
     "role": "Finance Lead",
     "shortRole": "",
@@ -118,14 +114,13 @@ const LEADS_DATA = {
     "contact": {
       "email": "vaishnavdevm@gmail.com",
       "phone": "+91 9496440915",
-      "location": "Finance & Audit Desk, IEDC CETLY",
       "linkedin": "https://www.linkedin.com/in/vaishnav-dev-m-802158349",
       "github": "https://github.com/vaishnavsphere"
     }
   },
   "design": {
     "id": "design",
-    "badge": "06 // DEPT",
+    "badge": "06",
     "name": "Nihara K M",
     "role": "Design Lead",
     "shortRole": "",
@@ -141,14 +136,13 @@ const LEADS_DATA = {
     "contact": {
       "email": "niharakm007@gmail.com",
       "phone": "+91 9072599031",
-      "location": "Design Studio, IEDC CETLY",
       "linkedin": "https://www.linkedin.com/in/nihara-k-m-299141322",
       "github": "https://github.com/Niahra-KM"
     }
   },
   "media-1": {
     "id": "media-1",
-    "badge": "07 // DEPT",
+    "badge": "07",
     "name": "Aman M Nambiar",
     "role": "Media Lead",
     "shortRole": "",
@@ -164,14 +158,13 @@ const LEADS_DATA = {
     "contact": {
       "email": "coolaman5647@gmail.com",
       "phone": "+91 9922115345",
-      "location": "Media Production Studio, IEDC CETLY",
       "linkedin": "https://www.linkedin.com/in/aman-mohan-nambiar-0b0158333",
       "github": "https://github.com/amannmbr20"
     }
   },
   "media-2": {
     "id": "media-2",
-    "badge": "08 // DEPT",
+    "badge": "08",
     "name": "Sandra N",
     "role": "Media Lead",
     "shortRole": "",
@@ -187,14 +180,13 @@ const LEADS_DATA = {
     "contact": {
       "email": "sandranellikkotte@gmail.com",
       "phone": "+91 8075470715",
-      "location": "Media Lab, IEDC CETLY",
       "linkedin": "https://www.linkedin.com/in/sandra-nellikkotte-9b3499329",
       "github": "https://github.com/Sandranellikkot"
     }
   },
   "content": {
     "id": "content",
-    "badge": "09 // DEPT",
+    "badge": "09",
     "name": "Niveditha Manoharan",
     "role": "Content Lead",
     "shortRole": "",
@@ -210,14 +202,13 @@ const LEADS_DATA = {
     "contact": {
       "email": "nivedithamanoharan2006@gmail.com",
       "phone": "+91 8921889545",
-      "location": "Editorial Office, IEDC CETLY",
       "linkedin": "https://www.linkedin.com/in/niveditha-manoharan-40531b321",
       "github": "https://github.com/niveditha0407manoharan"
     }
   },
   "community": {
     "id": "community",
-    "badge": "10 // DEPT",
+    "badge": "10",
     "name": "Abhikshitha S S",
     "role": "Community Lead",
     "shortRole": "",
@@ -233,14 +224,13 @@ const LEADS_DATA = {
     "contact": {
       "email": "abhikshithas@gmail.com",
       "phone": "+91 7511148128",
-      "location": "Community Hub, IEDC CETLY",
       "linkedin": "https://www.linkedin.com/in/abhikshitha-s-s-14207b337",
       "github": "https://github.com/abhikshitha-ss"
     }
   },
   "creative": {
     "id": "creative",
-    "badge": "11 // DEPT",
+    "badge": "11",
     "name": "Abhinav vk",
     "role": "Creative Lead",
     "shortRole": "",
@@ -256,7 +246,6 @@ const LEADS_DATA = {
     "contact": {
       "email": "abhinavvk110@gmail.com",
       "phone": "+91 8606109015",
-      "location": "Creative Lab, IEDC CETLY",
       "linkedin": "https://www.linkedin.com/in/abhinav-vk-a06ba6429/",
       "github": "https://github.com/abhinavvk110-hue"
     }
@@ -432,10 +421,6 @@ function renderLeadProfile() {
     phoneEl.href = `tel:${lead.contact.phone.replace(/\s+/g, '')}`;
   }
 
-  const locEl = document.getElementById('contact-location');
-  if (locEl && lead.contact.location) {
-    locEl.textContent = lead.contact.location;
-  }
 
   const linkedinEl = document.getElementById('contact-linkedin');
   if (linkedinEl && lead.contact.linkedin) {

@@ -54,14 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       translateY: [20, 0],
       opacity: [0, 1],
       duration: 700
-    }, '-=500')
-    .add({
-      targets: '.hero-buttons .btn',
-      translateY: [15, 0],
-      opacity: [0, 1],
-      delay: anime.stagger(100),
-      duration: 600
-    }, '-=400');
+    }, '-=500');
 
   // 3. Scroll Line, Mission & Team Reveal Animation
   const scrollLine = document.getElementById('scroll-line');
@@ -120,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Modal Interactions
   const modalEvents = document.getElementById('modal-events');
-  const modalContact = document.getElementById('modal-contact');
 
   function openModal(modal) {
     if (!modal) return;
@@ -154,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Attach Event Listeners to Open Modals
   document.getElementById('btn-events')?.addEventListener('click', () => openModal(modalEvents));
-  document.getElementById('btn-contact')?.addEventListener('click', () => openModal(modalContact));
 
   document.querySelectorAll('.open-events').forEach(btn => {
     btn.addEventListener('click', () => openModal(modalEvents));
