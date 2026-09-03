@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Events | IEDC-CETLY</title>
+
+  <meta name="description"
+        content="Explore upcoming and past events organized by IEDC College of Engineering Thalassery.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+  <!-- Main Website Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Events Page Styles -->
+  <link rel="stylesheet" href="events.css">
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="grid-background" aria-hidden="true"></div>
+
+  <div class="backdrop-wrapper" aria-hidden="true">
+    <picture class="backdrop-picture">
+      <source media="(max-width: 768px)" srcset="mob-backdrop.png">
+      <img src="backdrop.jpg" alt="" class="backdrop-img">
+    </picture>
+
+    <div class="backdrop-overlay"></div>
+  </div>
+
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+
+    <div class="nav-brand">
+
+      <img src="iedclogo.jpeg"
+           alt="IEDC CETLY Logo"
+           class="brand-logo">
+
+      <div class="brand-text">
+        <span class="brand-title">IEDC-CETLY</span>
+        <span class="brand-sub font-mono">CET THALASSERY</span>
+      </div>
+
+    </div>
+
+
+    <!-- Mobile Menu -->
+    <button class="nav-toggle font-mono"
+            id="nav-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false">
+
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+
+    </button>
+
+
+    <!-- Navigation -->
+    <nav class="nav-actions"
+         id="nav-actions"
+         aria-label="Main Navigation">
+
+      <a href="index.html"
+         class="btn btn-outline font-mono">
+        HOME
+      </a>
+
+      <a href="history.html"
+         class="btn btn-outline font-mono">
+        HISTORY
+      </a>
+
+      <a href="events.html"
+         class="btn btn-primary font-mono">
+        EVENTS
+      </a>
+
+      <a href="mailto:iedc@cethalassery.ac.in"
+         class="btn btn-outline font-mono">
+        CONTACT
+      </a>
+
+      <a href="join.html"
+         class="btn btn-primary font-mono">
+        JOIN US
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- Events Hero -->
+  <main>
+
+    <section class="events-hero">
+
+      <div class="events-hero-content">
+
+        <div class="section-tag font-mono">
+          // IEDC CETLY EVENTS
+        </div>
+
+        <h1 class="events-title">
+          EVENTS
+        </h1>
+
+        <p class="events-subtitle font-mono">
+          DISCOVER. PARTICIPATE. INNOVATE.
+        </p>
+
+        <p class="events-intro">
+          Explore workshops, hackathons, bootcamps, talks and other
+          innovation and entrepreneurship activities organized by IEDC
+          College of Engineering Thalassery.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- Upcoming Events -->
+    <section class="events-section">
+
+      <div class="section-header">
+
+        <div class="section-tag font-mono">
+          // WHAT'S HAPPENING
+        </div>
+
+        <h2 class="section-title">
+          UPCOMING EVENTS
+        </h2>
+
+        <p class="section-subtitle font-mono">
+          Participate in our upcoming innovation and entrepreneurship programs.
+        </p>
+
+      </div>
+
+
+      <!-- Event Cards -->
+      <div class="events-grid">
+
+
+        <!-- Event 1 -->
+        <article class="event-card">
+
+          <div class="event-image-wrapper">
+
+            <div class="event-image-placeholder">
+              EVENT 01
+            </div>
+
+          </div>
+
+          <div class="event-card-content">
+
+            <div class="event-date font-mono">
+              AUG 25, 2026
+            </div>
+
+            <h3 class="event-title">
+              HACK-CET 2026
+            </h3>
+
+            <p class="event-description">
+              A 24-hour campus hackathon focused on solving real-world
+              challenges through technology, creativity and teamwork.
+            </p>
+
+            <div class="event-details font-mono">
+
+              <span>
+                LOCATION: CET THALASSERY
+              </span>
+
+            </div>
+
+            <a href="#"
+               class="event-register btn btn-primary font-mono">
+              REGISTER NOW
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Event 2 -->
+        <article class="event-card">
+
+          <div class="event-image-wrapper">
+
+            <div class="event-image-placeholder">
+              EVENT 02
+            </div>
+
+          </div>
+
+          <div class="event-card-content">
+
+            <div class="event-date font-mono">
+              SEP 10, 2026
+            </div>
+
+            <h3 class="event-title">
+              STARTUP BOOTCAMP
+            </h3>
+
+            <p class="event-description">
+              An ideation-to-MVP workshop designed to help students
+              understand the process of developing and validating a startup idea.
+            </p>
+
+            <div class="event-details font-mono">
+
+              <span>
+                LOCATION: CET THALASSERY
+              </span>
+
+            </div>
+
+            <a href="#"
+               class="event-register btn btn-primary font-mono">
+              REGISTER NOW
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Event 3 -->
+        <article class="event-card">
+
+          <div class="event-image-wrapper">
+
+            <div class="event-image-placeholder">
+              EVENT 03
+            </div>
+
+          </div>
+
+          <div class="event-card-content">
+
+            <div class="event-date font-mono">
+              OCT 02, 2026
+            </div>
+
+            <h3 class="event-title">
+              FOUNDER SPEAKER SERIES
+            </h3>
+
+            <p class="event-description">
+              An interactive session with successful founders, alumni
+              entrepreneurs and technology professionals.
+            </p>
+
+            <div class="event-details font-mono">
+
+              <span>
+                LOCATION: CET THALASSERY
+              </span>
+
+            </div>
+
+            <a href="#"
+               class="event-register btn btn-primary font-mono">
+              JOIN LIST
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- Past Events -->
+    <section class="events-section past-events">
+
+      <div class="section-header">
+
+        <div class="section-tag font-mono">
+          // PREVIOUS PROGRAMS
+        </div>
+
+        <h2 class="section-title">
+          PAST EVENTS
+        </h2>
+
+        <p class="section-subtitle font-mono">
+          Explore some of our previous activities and initiatives.
+        </p>
+
+      </div>
+
+
+      <div class="past-events-message">
+
+        <span class="font-mono">
+          EVENT ARCHIVE COMING SOON
+        </span>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="footer font-mono">
+
+    <div class="footer-content">
+
+      <div class="footer-brand">
+
+        <span class="footer-title">
+          IEDC-CETLY
+        </span>
+
+        <span class="footer-sub">
+          Innovation & Entrepreneurship Development Centre
+        </span>
+
+      </div>
+
+
+      <div class="footer-rights">
+        © 2026 IEDC College of Engineering Thalassery.
+        All Rights Reserved.
+      </div>
+
+
+      <div class="footer-top">
+
+        <a href="#" id="scroll-top">
+          BACK TO TOP ↑
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- Existing Website JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
