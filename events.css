@@ -1,0 +1,460 @@
+/* =========================================================
+   IEDC-CETLY EVENTS PAGE
+   Uses the existing design system from style.css
+   ========================================================= */
+
+
+/* =========================================================
+   EVENTS HERO
+   ========================================================= */
+
+.events-hero {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 130px 20px 70px;
+  z-index: 2;
+}
+
+.events-hero-content {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  padding: 55px 50px;
+  text-align: center;
+
+  background: rgba(13, 10, 11, 0.78);
+  border: var(--border-subtle);
+  backdrop-filter: blur(8px);
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Decorative corner marks */
+
+.events-hero-content::before,
+.events-hero-content::after {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  color: var(--color-green-light);
+  line-height: 1;
+}
+
+.events-hero-content::before {
+  content: "+";
+  top: -8px;
+  left: -8px;
+}
+
+.events-hero-content::after {
+  content: "+";
+  top: -8px;
+  right: -8px;
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.events-hero .section-tag {
+  margin-bottom: 20px;
+}
+
+.events-title {
+  font-family: var(--font-sans);
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--color-light);
+  margin-bottom: 22px;
+}
+
+.events-subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--color-green-light);
+  margin-bottom: 25px;
+}
+
+.events-intro {
+  max-width: 680px;
+  margin: 0 auto;
+
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.7;
+
+  color: rgba(243, 239, 245, 0.8);
+}
+
+
+/* =========================================================
+   EVENTS SECTION
+   ========================================================= */
+
+.events-section {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 20px;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.events-section .section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.events-section .section-tag {
+  font-size: 0.75rem;
+  color: var(--color-green-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+
+.events-section .section-title {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-light);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.events-section .section-subtitle {
+  font-size: 0.85rem;
+  color: var(--color-gray);
+  margin-top: 10px;
+}
+
+
+/* =========================================================
+   EVENT GRID
+   ========================================================= */
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+
+/* =========================================================
+   EVENT CARD
+   ========================================================= */
+
+.event-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(13, 10, 11, 0.85);
+  border: var(--border-subtle);
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Green animated top line */
+
+.event-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0%;
+  height: 2px;
+
+  background: var(--color-green-light);
+
+  transition: width 0.4s ease;
+
+  z-index: 2;
+}
+
+
+.event-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-green-light);
+  box-shadow: 0 10px 30px rgba(114, 176, 29, 0.1);
+}
+
+
+.event-card:hover::before {
+  width: 100%;
+}
+
+
+/* =========================================================
+   EVENT IMAGE / PLACEHOLDER
+   ========================================================= */
+
+.event-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: rgba(69, 73, 85, 0.2);
+
+  border-bottom: var(--border-subtle);
+}
+
+
+.event-image-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-green-light);
+
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(69, 73, 85, 0.25),
+      rgba(13, 10, 11, 0.6)
+    );
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+.event-card:hover .event-image-placeholder {
+  color: var(--color-light);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(63, 125, 32, 0.25),
+      rgba(13, 10, 11, 0.7)
+    );
+}
+
+
+/* =========================================================
+   EVENT CONTENT
+   ========================================================= */
+
+.event-card-content {
+  display: flex;
+  flex-direction: column;
+
+  flex-grow: 1;
+
+  padding: 28px;
+}
+
+
+.event-date {
+  font-size: 0.7rem;
+  color: var(--color-green-light);
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+
+.event-title {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-light);
+
+  line-height: 1.2;
+
+  margin-bottom: 12px;
+}
+
+
+.event-description {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-gray);
+
+  line-height: 1.65;
+
+  margin-bottom: 20px;
+
+  flex-grow: 1;
+}
+
+
+.event-details {
+  border-top: 1px dashed rgba(69, 73, 85, 0.4);
+
+  padding-top: 12px;
+  margin-bottom: 18px;
+
+  font-size: 0.65rem;
+  color: var(--color-gray);
+
+  letter-spacing: 0.05em;
+}
+
+
+.event-register {
+  align-self: flex-start;
+
+  text-decoration: none;
+
+  margin-top: auto;
+}
+
+
+/* =========================================================
+   PAST EVENTS
+   ========================================================= */
+
+.past-events {
+  border-top: none;
+}
+
+
+.past-events-message {
+  position: relative;
+
+  max-width: 700px;
+  margin: 0 auto;
+
+  padding: 45px 30px;
+
+  text-align: center;
+
+  border: 1px dashed rgba(156, 163, 175, 0.3);
+
+  background: rgba(13, 10, 11, 0.65);
+
+  color: var(--color-gray);
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.1em;
+}
+
+
+.past-events-message::before {
+  content: "//";
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--color-green-light);
+
+  font-size: 1rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .events-hero {
+    min-height: 70vh;
+    padding: 130px 20px 60px;
+  }
+
+  .events-hero-content {
+    padding: 45px 30px;
+  }
+
+  .events-section {
+    padding: 60px 20px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .events-hero {
+    padding: 125px 16px 50px;
+  }
+
+  .events-hero-content {
+    padding: 40px 20px;
+  }
+
+  .events-title {
+    font-size: clamp(3rem, 17vw, 4.5rem);
+  }
+
+  .events-subtitle {
+    font-size: 0.7rem;
+  }
+
+  .events-intro {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .events-section {
+    padding: 50px 16px;
+  }
+
+  .event-card-content {
+    padding: 22px;
+  }
+
+  .event-title {
+    font-size: 1.2rem;
+  }
+
+  .event-description {
+    font-size: 0.78rem;
+  }
+
+}
