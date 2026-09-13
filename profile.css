@@ -182,6 +182,14 @@
   text-align: justify;
 }
 
+.about-p {
+  margin-bottom: 14px;
+}
+
+.about-p:last-child {
+  margin-bottom: 0;
+}
+
 .subsection-title {
   font-size: 0.8rem;
   color: var(--color-green-light);

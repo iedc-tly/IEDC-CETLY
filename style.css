@@ -474,6 +474,18 @@ body.modal-open {
   margin-top: 10px;
 }
 
+/* Centered Nodal Officer regular card above the leads */
+.nodal-lead-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.nodal-card-link {
+  width: 100%;
+  max-width: 280px;
+}
+
 /* Team Grid */
 .team-grid {
   display: grid;
@@ -867,6 +879,10 @@ input:focus, textarea:focus, select:focus {
     padding: 0 20px;
   }
 
+  .nodal-card-link {
+    max-width: 260px;
+  }
+
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
@@ -892,6 +908,10 @@ input:focus, textarea:focus, select:focus {
 }
 
 @media (max-width: 480px) {
+  .nodal-card-link {
+    max-width: 100%;
+  }
+
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;

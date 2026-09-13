@@ -4,6 +4,29 @@
  */
 
 const LEADS_DATA = {
+  "nodal-officer": {
+    "id": "nodal-officer",
+    "badge": "00 // FACULTY",
+    "name": "Dr. Umesh P",
+    "role": "IEDC Nodal Officer",
+    "shortRole": "Nodal Officer",
+    "initials": "UP",
+    "photo": "leads-photos/Umesh P.jpeg",
+    "about": "Assistant Professor at the College of Engineering Thalassery, Kannur, Kerala, with a Ph.D. in Bioinformatics from the University of Kerala. Research interests lie in Mathematical Modeling, Computational Biology, Machine Learning (ML), and Artificial Intelligence (AI), with a particular focus on developing computational modeling platforms for Synthetic Biology.\n\nEnjoys communicating science to a broader audience and has written and delivered popular science talks and articles to make complex topics accessible to the public.\n\nWith a keen interest in innovation and design thinking, currently mentoring several innovative projects, helping teams turn creative ideas into practical solutions. Passionate about bridging the gap between cutting-edge research and real-world applications.",
+    "responsibilities": [
+      "Mentoring and guiding student innovation and startup initiatives across the institution",
+      "Bridging the gap between cutting-edge research, design thinking, and practical solutions",
+      "Guiding projects in AI, Machine Learning, Computational Biology, and Mathematical Modeling",
+      "Institutional liaison with Kerala Startup Mission (KSUM) and ecosystem stakeholders",
+      "Communicating science and fostering an entrepreneurial culture on campus"
+    ],
+    "contact": {
+      "email": "toumesh@gmail.com",
+      "phone": "",
+      "linkedin": "https://www.linkedin.com/in/umeshpin/",
+      "github": ""
+    }
+  },
   "ceo": {
     "id": "ceo",
     "badge": "01 // EXEC",
@@ -272,7 +295,8 @@ function renderTeamGrid() {
   const teamGrid = document.getElementById('team-grid') || document.querySelector('.team-grid');
   if (!teamGrid) return;
 
-  const leads = Object.values(LEADS_DATA);
+  // Render student leads in the grid (Nodal Officer is featured in the dedicated post above)
+  const leads = Object.values(LEADS_DATA).filter(lead => lead.id !== 'nodal-officer');
   teamGrid.innerHTML = leads.map(lead => {
     let initials = lead.initials;
     if (!initials) {
@@ -326,7 +350,7 @@ function renderLeadProfile() {
   if (!profileContainer) return; // Not on profile.html page
 
   const params = new URLSearchParams(window.location.search);
-  const leadId = params.get('id') || 'ceo';
+  const leadId = params.get('id') || 'nodal-officer';
   const lead = LEADS_DATA[leadId];
 
   if (!lead) {
@@ -352,7 +376,9 @@ function renderLeadProfile() {
   if (badgeEl) badgeEl.textContent = lead.badge;
 
   const aboutEl = document.getElementById('lead-about');
-  if (aboutEl) aboutEl.textContent = lead.about;
+  if (aboutEl && lead.about) {
+    aboutEl.innerHTML = lead.about.split('\n\n').map(p => `<p class="about-p">${escapeHtml(p)}</p>`).join('');
+  }
   
   // Set Lead Photo & Fallback
   const photoEl = document.getElementById('lead-photo');
@@ -390,16 +416,26 @@ function renderLeadProfile() {
   // Hero Quick Contact Links
   const heroEmail = document.getElementById('hero-contact-email');
   const heroEmailText = document.getElementById('hero-contact-email-text');
-  if (heroEmail && lead.contact.email) {
-    heroEmail.href = `mailto:${lead.contact.email}`;
-    if (heroEmailText) heroEmailText.textContent = lead.contact.email;
+  if (heroEmail) {
+    if (lead.contact && lead.contact.email) {
+      heroEmail.href = `mailto:${lead.contact.email}`;
+      if (heroEmailText) heroEmailText.textContent = lead.contact.email;
+      heroEmail.style.display = 'inline-flex';
+    } else {
+      heroEmail.style.display = 'none';
+    }
   }
 
   const heroPhone = document.getElementById('hero-contact-phone');
   const heroPhoneText = document.getElementById('hero-contact-phone-text');
-  if (heroPhone && lead.contact.phone) {
-    heroPhone.href = `tel:${lead.contact.phone.replace(/\s+/g, '')}`;
-    if (heroPhoneText) heroPhoneText.textContent = lead.contact.phone;
+  if (heroPhone) {
+    if (lead.contact && lead.contact.phone) {
+      heroPhone.href = `tel:${lead.contact.phone.replace(/\s+/g, '')}`;
+      if (heroPhoneText) heroPhoneText.textContent = lead.contact.phone;
+      heroPhone.style.display = 'inline-flex';
+    } else {
+      heroPhone.style.display = 'none';
+    }
   }
 
   // Responsibilities List
@@ -410,30 +446,49 @@ function renderLeadProfile() {
 
   // Full Contact Details List
   const emailEl = document.getElementById('contact-email');
-  if (emailEl && lead.contact.email) {
-    emailEl.textContent = lead.contact.email;
-    emailEl.href = `mailto:${lead.contact.email}`;
+  if (emailEl) {
+    if (lead.contact && lead.contact.email) {
+      emailEl.textContent = lead.contact.email;
+      emailEl.href = `mailto:${lead.contact.email}`;
+      if (emailEl.closest('.contact-item')) emailEl.closest('.contact-item').style.display = 'flex';
+    } else if (emailEl.closest('.contact-item')) {
+      emailEl.closest('.contact-item').style.display = 'none';
+    }
   }
 
   const phoneEl = document.getElementById('contact-phone');
-  if (phoneEl && lead.contact.phone) {
-    phoneEl.textContent = lead.contact.phone;
-    phoneEl.href = `tel:${lead.contact.phone.replace(/\s+/g, '')}`;
+  if (phoneEl) {
+    if (lead.contact && lead.contact.phone) {
+      phoneEl.textContent = lead.contact.phone;
+      phoneEl.href = `tel:${lead.contact.phone.replace(/\s+/g, '')}`;
+      if (phoneEl.closest('.contact-item')) phoneEl.closest('.contact-item').style.display = 'flex';
+    } else if (phoneEl.closest('.contact-item')) {
+      phoneEl.closest('.contact-item').style.display = 'none';
+    }
   }
 
-
   const linkedinEl = document.getElementById('contact-linkedin');
-  if (linkedinEl && lead.contact.linkedin) {
-    linkedinEl.href = lead.contact.linkedin;
-    const cleanLinkedin = lead.contact.linkedin.replace(/^https?:\/\/(www\.)?/, '').split('?')[0];
-    linkedinEl.textContent = cleanLinkedin;
+  if (linkedinEl) {
+    if (lead.contact && lead.contact.linkedin) {
+      linkedinEl.href = lead.contact.linkedin;
+      const cleanLinkedin = lead.contact.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+      linkedinEl.textContent = cleanLinkedin;
+      if (linkedinEl.closest('.contact-item')) linkedinEl.closest('.contact-item').style.display = 'flex';
+    } else if (linkedinEl.closest('.contact-item')) {
+      linkedinEl.closest('.contact-item').style.display = 'none';
+    }
   }
 
   const githubEl = document.getElementById('contact-github');
-  if (githubEl && lead.contact.github) {
-    githubEl.href = lead.contact.github;
-    const cleanGithub = lead.contact.github.replace(/^https?:\/\/(www\.)?/, '');
-    githubEl.textContent = cleanGithub;
+  if (githubEl) {
+    if (lead.contact && lead.contact.github) {
+      githubEl.href = lead.contact.github;
+      const cleanGithub = lead.contact.github.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+      githubEl.textContent = cleanGithub;
+      if (githubEl.closest('.contact-item')) githubEl.closest('.contact-item').style.display = 'flex';
+    } else if (githubEl.closest('.contact-item')) {
+      githubEl.closest('.contact-item').style.display = 'none';
+    }
   }
 
   // Setup Previous & Next Lead Navigation

@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
           targets: '.team-card',
           translateY: [40, 0],
           opacity: [0, 1],
-          delay: anime.stagger(120, { start: 100 }),
+          delay: anime.stagger(100, { start: 100 }),
           duration: 800,
           easing: 'easeOutCubic'
         });
