@@ -25,7 +25,7 @@ const EVENTS_CONFIG = {
     {
       title: "HACK-CET 2026",
       date: "AUG 25, 2026",
-      description: "A 24-hour campus hackathon focused on solving real-world challenges through technology, creativity and teamwork.",
+      description: "A 24-hour campus hackathon focused on solving real-world challenges through technology, creativity, and teamwork.",
       location: "CET THALASSERY",
       status: "upcoming",
       link: "#",
@@ -47,7 +47,7 @@ const EVENTS_CONFIG = {
     {
       title: "FOUNDER SPEAKER SERIES",
       date: "OCT 02, 2026",
-      description: "An interactive session with successful founders, alumni entrepreneurs and technology professionals.",
+      description: "An interactive session with successful founders, alumni entrepreneurs, and technology professionals.",
       location: "CET THALASSERY",
       status: "upcoming",
       link: "#",

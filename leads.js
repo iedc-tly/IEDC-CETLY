@@ -37,10 +37,10 @@ const LEADS_DATA = {
     "photo": "leads-photos/Savanth.png",
     "about": "Savanth S Joy leads IEDC CETLY as the Student Lead (CEO), overseeing the overall coordination of the student leadership team and building an industry-grade entrepreneurship ecosystem at College of Engineering Thalassery. He drives strategic industrial partnerships, spearheads special projects, and executes key IEDC initiatives in close partnership with the Nodal Officer.",
     "responsibilities": [
-      "Overall coordination of the team",
-      "Shall forge partnership with various industries",
-      "Shall promote and build entrepreneurship ecosystem in the campus",
-      "Shall be responsible for implementing IEDC activities along with Nodal officer",
+      "Overall coordination of the leadership team",
+      "Shall forge partnerships with various industries",
+      "Shall promote and build an entrepreneurship ecosystem on campus",
+      "Shall be responsible for implementing IEDC activities along with the Nodal Officer",
       "Shall be responsible for all special projects"
     ],
     "contact": {
@@ -60,12 +60,12 @@ const LEADS_DATA = {
     "photo": "leads-photos/Shanin Raj M.jpg",
     "about": "Shanin Raj M directs the core operational workflows and logistics of IEDC CETLY. He is responsible for overall operations, managing event logistics, recruiting and managing the team, ensuring program quality, managing the IEDC office and Maker Lab, and securing IEDC accreditation.",
     "responsibilities": [
-      "Shall be responsible for the operation of IEDC",
+      "Shall be responsible for the operations of IEDC",
       "Shall be responsible for event logistics management",
-      "Shall be entrusted to identify, recruit, and manage the team",
-      "Shall ensure the quality of the programmes and events",
-      "Shall be responsible for the IEDC office and lab",
-      "Shall be responsible for the IEDC accreditation"
+      "Shall be responsible for identifying, recruiting, and managing the team",
+      "Shall ensure the quality of programmes and events",
+      "Shall be responsible for the IEDC office and Maker Lab",
+      "Shall be responsible for IEDC accreditation"
     ],
     "contact": {
       "email": "Shaninraj@cethalassery.ac.in",
@@ -84,15 +84,15 @@ const LEADS_DATA = {
     "photo": "leads-photos/Sreerudran.jpg",
     "about": "Sreerudran P heads the technical division at IEDC CETLY. He is responsible for organizing technology and innovation-driven events, orchestrating the technology mentorship programme for students, planning and conducting technical workshops and hackathons, and introducing emerging technologies across the campus ecosystem.",
     "responsibilities": [
-      "Shall responsible for organising Technology & innovation driven events",
-      "Shall be responsible for technology mentorship programme for the students",
-      "Shall be responsible for planning, co-ordinating and conducting Technical programmes",
-      "Shall be responsible introducing emerging technologies"
+      "Shall be responsible for organising technology and innovation-driven events",
+      "Shall be responsible for the technology mentorship programme for students",
+      "Shall be responsible for planning, coordinating, and conducting technical programmes",
+      "Shall be responsible for introducing emerging technologies"
     ],
     "contact": {
       "email": "sreerud3@gmail.com",
       "phone": "7012561794",
-      "linkedin": "www.linkedin.com/in/sreerudran-p-689229330",
+      "linkedin": "https://www.linkedin.com/in/sreerudran-p-689229330",
       "github": "https://github.com/Sreerud120"
     }
   },
@@ -104,11 +104,11 @@ const LEADS_DATA = {
     "shortRole": "CMO",
     "initials": "ML",
     "photo": "leads-photos/Sabarinath R Nambiar.png",
-    "about": "Sabarinath R Nambiar heads the marketing and promotional division at IEDC CETLY. He is responsible for executing all promotional and campaign activities, marketing IEDC initiatives, and introducing IEDC among industries and relevant ecosystem stakeholders.",
+    "about": "Sabarinath R Nambiar heads the marketing and promotional division at IEDC CETLY. He is responsible for executing all promotional and campaign activities, marketing IEDC initiatives, and introducing IEDC to industries and relevant ecosystem stakeholders.",
     "responsibilities": [
       "Shall be responsible for all promotional activities",
-      "Shall be responsible for marketing of IEDC",
-      "Shall be responsible for introducing IEDC among Industries and other relevant stakeholders",
+      "Shall be responsible for the marketing of IEDC",
+      "Shall be responsible for introducing IEDC to industries and other relevant stakeholders",
       "Shall be responsible for all campaign activities"
     ],
     "contact": {
@@ -128,11 +128,11 @@ const LEADS_DATA = {
     "photo": "leads-photos/VAISHNAV DEV M.png",
     "about": "Vaishnav Dev M oversees financial governance and fund administration at IEDC CETLY. He manages all financial planning, tracks IEDC accounts and fund utilization, leads annual audits of the IEDC fund, and coordinates the submission of utilization certificates to Kerala Startup Mission (KSUM).",
     "responsibilities": [
-      "Shall be responsible for all finance planning and other related activities",
-      "Shall be responsible for IEDC accounts and its fund utilisation",
-      "Shall be responsible for annual audit of the IEDC fund",
-      "Shall be responsible for sharing utilisation certificate with KSUM",
-      "Ensure three-women participation and diversity compliance in IEDC Team"
+      "Shall be responsible for all financial planning and related activities",
+      "Shall be responsible for IEDC accounts and fund utilisation",
+      "Shall be responsible for the annual audit of the IEDC fund",
+      "Shall be responsible for submitting utilisation certificates to KSUM",
+      "Ensure women's participation and diversity compliance across the IEDC team"
     ],
     "contact": {
       "email": "vaishnavdevm@gmail.com",
@@ -151,7 +151,7 @@ const LEADS_DATA = {
     "photo": "leads-photos/Nihara K M.jpg",
     "about": "Nihara is responsible for visual creative direction and UI/UX design at IEDC CETLY. She develops aesthetic creatives for IEDC events, establishes unified visual identity systems, designs merchandise, and guides students in design thinking.",
     "responsibilities": [
-      "Shall be responsibilities for developing creatives for IEDC events",
+      "Shall be responsible for developing creatives for IEDC events",
       "Shall coordinate visual identity systems & event poster design",
       "Shall design merchandise and print media for flagship programs",
       "Shall provide UI/UX and creative mentorship for student projects"
@@ -193,7 +193,7 @@ const LEADS_DATA = {
     "shortRole": "",
     "initials": "ML",
     "photo": "leads-photos/Sandra N.jpg",
-    "about": "Sandra N co-leads media coverage, digital broadcast management, social media reels, and live event broadcasting inside and outside the campus for IEDC CETLY.",
+    "about": "Sandra N co-leads media coverage, digital broadcast management, social media reels, and live event broadcasting inside and outside campus for IEDC CETLY.",
     "responsibilities": [
       "Shall be responsible for media coverage inside and outside campus",
       "Shall manage live event broadcasting and stream management",
@@ -217,7 +217,7 @@ const LEADS_DATA = {
     "photo": "leads-photos/Niveditha_.jpg",
     "about": "Niveditha Manoharan is responsible for all documentation, reports, monthly newsletters, and editorial writing for IEDC CETLY. She manages official press releases, event copywriting, and archival records.",
     "responsibilities": [
-      "Shall be responsible for Documentation, Reports and Newsletter",
+      "Shall be responsible for documentation, reports, and newsletters",
       "Shall manage editorial writing and official announcements",
       "Shall publish the monthly IEDC CETLY newsletter and event reports",
       "Shall prepare and review grant documentation and proposals"
@@ -237,11 +237,11 @@ const LEADS_DATA = {
     "shortRole": "",
     "initials": "CM",
     "photo": "leads-photos/Abhikshitha.jpg",
-    "about": "Abhikshitha S S is responsible for all community-related activities at IEDC CETLY. She ensures the active involvement of all campus communities including Tech communities in IEDC activities, and drives innovation evangelisation across students of all departments.",
+    "about": "Abhikshitha S S is responsible for all community-related activities at IEDC CETLY. She ensures the active involvement of all campus communities including tech communities in IEDC activities, and drives innovation evangelism across students of all departments.",
     "responsibilities": [
-      "Shall be responsible for all community related activities",
-      "Shall ensure active involvement of all communities including Tech communities in IEDC activities",
-      "Shall be responsible for innovation evangelisation activities",
+      "Shall be responsible for all community-related activities",
+      "Shall ensure active involvement of all communities including tech communities in IEDC activities",
+      "Shall be responsible for innovation evangelism and outreach activities",
       "Shall facilitate peer learning networks and student onboarding"
     ],
     "contact": {
@@ -254,14 +254,14 @@ const LEADS_DATA = {
   "creative": {
     "id": "creative",
     "badge": "11",
-    "name": "Abhinav vk",
+    "name": "Abhinav V K",
     "role": "Creative Lead",
     "shortRole": "",
     "initials": "CR",
     "photo": "leads-photos/Abhinav.jpg",
-    "about": "Abhinav vk directs creative concepts, event stage setups, theme design, Alumni Connect, and outreach activities for IEDC CETLY, ensuring immersive and imaginative flagship experiences for hackathons and innovation expos.",
+    "about": "Abhinav V K directs creative concepts, event stage setups, theme design, Alumni Connect, and outreach activities for IEDC CETLY, ensuring immersive and imaginative flagship experiences for hackathons and innovation expos.",
     "responsibilities": [
-      "Shall be responsibilities for developing creatives for IEDC events",
+      "Shall be responsible for developing creatives for IEDC events",
       "Shall be responsible for Alumni Connect and outreach activities",
       "Shall conceptualize flagship event themes and venue installations",
       "Shall drive creative storytelling and promotional narratives"
