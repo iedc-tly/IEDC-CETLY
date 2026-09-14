@@ -209,6 +209,7 @@
    ========================================================= */
 
 .event-image-wrapper {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
 
@@ -217,6 +218,18 @@
   background: rgba(69, 73, 85, 0.2);
 
   border-bottom: var(--border-subtle);
+}
+
+.event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.event-card:hover .event-image {
+  transform: scale(1.05);
 }
 
 
@@ -273,13 +286,43 @@
   padding: 28px;
 }
 
+.event-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
 
 .event-date {
   font-size: 0.7rem;
   color: var(--color-green-light);
   letter-spacing: 0.1em;
-  margin-bottom: 14px;
   font-weight: 700;
+}
+
+.event-tag-badge {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  background: rgba(114, 176, 29, 0.1);
+  border: 1px solid rgba(114, 176, 29, 0.3);
+  color: var(--color-green-light);
+  border-radius: 2px;
+}
+
+.event-card-past {
+  opacity: 0.85;
+}
+
+.event-card-past .event-date {
+  color: var(--color-gray);
+}
+
+.event-card-past .event-tag-badge {
+  border-color: rgba(156, 163, 175, 0.3);
+  color: var(--color-gray);
+  background: rgba(69, 73, 85, 0.15);
 }
 
 
@@ -327,6 +370,39 @@
   text-decoration: none;
 
   margin-top: auto;
+}
+
+
+/* =========================================================
+   EMPTY STATE & LOADING SKELETON
+   ========================================================= */
+
+.events-empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 20px;
+  background: rgba(13, 10, 11, 0.65);
+  border: 1px dashed rgba(156, 163, 175, 0.3);
+  color: var(--color-gray);
+}
+
+.events-empty-state .empty-icon {
+  display: block;
+  color: var(--color-green-light);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.events-empty-state .empty-text {
+  font-size: 0.85rem;
+  color: var(--color-light);
+  margin-bottom: 6px;
+  letter-spacing: 0.1em;
+}
+
+.events-empty-state .empty-sub {
+  font-size: 0.75rem;
+  color: var(--color-gray);
 }
 
 
