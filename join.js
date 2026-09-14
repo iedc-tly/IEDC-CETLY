@@ -1,7 +1,8 @@
 const communityLinks = {
-    firstYear: "#",
-    secondYear: "#",
-    thirdYear: "#"
+    firstYear: "https://chat.whatsapp.com/Gy4LWT6Ijje9Ks2TtISvlg?s=cl&p=a&mlu=4&ilr=4",
+    secondYear: "https://chat.whatsapp.com/C6SPmFvzc2e7BUWDgphfrh?s=cl&p=a&mlu=4&ilr=4",
+    thirdYear: "https://chat.whatsapp.com/Kuf2x7Fn8hN48oIkmffu8i?s=cl&p=a&mlu=4&ilr=4",
+    fourthYear: "https://chat.whatsapp.com/FnEnrkQ1YU57O5UNWOYm84?s=cl&p=a&mlu=4&ilr=4"
 };
 
 const coreTeamLink = "FORM";
