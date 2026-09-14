@@ -268,25 +268,25 @@ function renderEvents(events) {
   const pastContainer = document.getElementById("past-events-grid");
   const pastFallback = document.getElementById("past-events-fallback");
 
-  if (!upcomingContainer) return;
-
   const upcomingEvents = events.filter(e => e.status === "upcoming");
   const pastEvents = events.filter(e => e.status === "past");
 
-  // 1. Render Upcoming Events
-  if (upcomingEvents.length > 0) {
-    upcomingContainer.innerHTML = upcomingEvents.map((evt, idx) => renderEventCard(evt, idx)).join("");
-  } else {
-    upcomingContainer.innerHTML = `
-      <div class="events-empty-state font-mono">
-        <span class="empty-icon">//</span>
-        <p class="empty-text">NO UPCOMING EVENTS SCHEDULED CURRENTLY</p>
-        <p class="empty-sub">Check back soon or follow our social channels for announcements.</p>
-      </div>
-    `;
+  // 1. Render Events Page: Upcoming Grid
+  if (upcomingContainer) {
+    if (upcomingEvents.length > 0) {
+      upcomingContainer.innerHTML = upcomingEvents.map((evt, idx) => renderEventCard(evt, idx)).join("");
+    } else {
+      upcomingContainer.innerHTML = `
+        <div class="events-empty-state font-mono">
+          <span class="empty-icon">//</span>
+          <p class="empty-text">NO UPCOMING EVENTS SCHEDULED CURRENTLY</p>
+          <p class="empty-sub">Check back soon or follow our social channels for announcements.</p>
+        </div>
+      `;
+    }
   }
 
-  // 2. Render Past Events
+  // 2. Render Events Page: Past Grid
   if (pastContainer) {
     if (pastEvents.length > 0) {
       pastContainer.style.display = "grid";
@@ -298,8 +298,61 @@ function renderEvents(events) {
     }
   }
 
-  // 3. Optional: Sync with index.html modal if present
+  // 3. Render Landing Page Hero Mini Cards
+  renderLandingMiniCards(upcomingEvents);
+
+  // 4. Render Index Modal
   renderIndexEventsModal(upcomingEvents);
+}
+
+/**
+ * Renders compact mini cards for upcoming events on the landing page hero section
+ */
+function renderLandingMiniCards(upcomingEvents) {
+  const landingGrid = document.getElementById("landing-events-grid");
+  if (!landingGrid) return;
+
+  // Show up to 3 upcoming events on the landing page
+  const displayEvents = upcomingEvents.slice(0, 3);
+
+  if (displayEvents.length > 0) {
+    landingGrid.innerHTML = displayEvents.map((evt, idx) => {
+      const isExternalLink = evt.link && evt.link !== "#" && evt.link.startsWith("http");
+      const tagText = evt.tag ? evt.tag.toUpperCase() : `EVENT 0${idx + 1}`;
+
+      return `
+        <article class="mini-event-card">
+          <div>
+            <div class="mini-event-top font-mono">
+              <span class="mini-event-date">${escapeHtml(evt.date)}</span>
+              <span class="mini-event-tag">${escapeHtml(tagText)}</span>
+            </div>
+
+            <h4 class="mini-event-title">${escapeHtml(evt.title)}</h4>
+            <p class="mini-event-desc">${escapeHtml(evt.description)}</p>
+          </div>
+
+          <div>
+            <div class="mini-event-details font-mono">
+              <span>LOCATION: ${escapeHtml(evt.location)}</span>
+            </div>
+
+            <a href="${escapeHtml(evt.link)}"
+               class="btn btn-outline btn-sm mini-event-btn font-mono"
+               ${isExternalLink ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+              ${escapeHtml(evt.buttonText || 'REGISTER NOW')} →
+            </a>
+          </div>
+        </article>
+      `;
+    }).join("");
+  } else {
+    landingGrid.innerHTML = `
+      <div class="mini-events-empty font-mono">
+        <span>// NO UPCOMING EVENTS CURRENTLY SCHEDULED</span>
+      </div>
+    `;
+  }
 }
 
 /**
