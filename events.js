@@ -85,7 +85,7 @@ function normalizeHeader(header) {
   if (["location", "venue", "place", "where"].includes(h)) return "location";
   if (["status", "type", "category", "state", "section"].includes(h)) return "status";
   if (["link", "registrationlink", "registerlink", "registerurl", "url", "formlink"].includes(h)) return "link";
-  if (["buttontext", "btntext", "buttonlabel", "action", "button"].includes(h)) return "buttonText";
+  if (["buttontext", "btntext", "buttonlabel", "action", "button", "bottomtext", "bottomlabel", "cta"].includes(h)) return "buttonText";
   if (["image", "imageurl", "poster", "banner", "photo", "img"].includes(h)) return "image";
   if (["tag", "badge", "label", "eventtag"].includes(h)) return "tag";
   
@@ -136,20 +136,18 @@ function parseGvizResponse(jsonText) {
       const cell = row.c[colIdx];
       let value = "";
       if (cell !== null && cell !== undefined) {
-        if (cell.f !== null && cell.f !== undefined) {
+        // If Google Visualization sends a Date object as string "Date(year,month,day)"
+        if (typeof cell.v === "string" && cell.v.startsWith("Date(")) {
+          const parts = cell.v.replace(/Date\(|\)/g, "").split(",").map(n => parseInt(n.trim(), 10));
+          if (parts.length >= 3) {
+            const d = new Date(parts[0], parts[1], parts[2]);
+            const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+            value = `${months[d.getMonth()]} ${String(d.getDate()).padStart(2, "0")}, ${d.getFullYear()}`;
+          }
+        } else if (cell.f !== null && cell.f !== undefined) {
           value = String(cell.f).trim();
         } else if (cell.v !== null && cell.v !== undefined) {
-          // If Google Visualization sends a Date object as string "Date(year,month,day)"
-          if (typeof cell.v === "string" && cell.v.startsWith("Date(")) {
-            const parts = cell.v.replace(/Date\(|\)/g, "").split(",").map(n => parseInt(n.trim(), 10));
-            if (parts.length >= 3) {
-              const d = new Date(parts[0], parts[1], parts[2]);
-              const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-              value = `${months[d.getMonth()]} ${String(d.getDate()).padStart(2, "0")}, ${d.getFullYear()}`;
-            }
-          } else {
-            value = String(cell.v).trim();
-          }
+          value = String(cell.v).trim();
         }
       }
 
@@ -306,53 +304,56 @@ function renderEvents(events) {
 }
 
 /**
- * Renders compact mini cards for upcoming events on the landing page hero section
+ * Renders compact small cards for upcoming events on the landing page below hero card
  */
 function renderLandingMiniCards(upcomingEvents) {
+  const landingSection = document.getElementById("landing-events-section");
   const landingGrid = document.getElementById("landing-events-grid");
   if (!landingGrid) return;
+
+  if (upcomingEvents.length === 0) {
+    if (landingSection) landingSection.style.display = "none";
+    return;
+  }
+
+  if (landingSection) landingSection.style.display = "block";
 
   // Show up to 3 upcoming events on the landing page
   const displayEvents = upcomingEvents.slice(0, 3);
 
-  if (displayEvents.length > 0) {
-    landingGrid.innerHTML = displayEvents.map((evt, idx) => {
-      const isExternalLink = evt.link && evt.link !== "#" && evt.link.startsWith("http");
-      const tagText = evt.tag ? evt.tag.toUpperCase() : `EVENT 0${idx + 1}`;
+  landingGrid.innerHTML = displayEvents.map((evt, idx) => {
+    const hasValidLink = evt.link && evt.link !== "#" && evt.link.trim() !== "";
+    const isExternalLink = hasValidLink && (evt.link.startsWith("http://") || evt.link.startsWith("https://"));
+    const targetLink = hasValidLink ? (isExternalLink ? evt.link : (evt.link.startsWith("http") ? evt.link : `https://${evt.link}`)) : "events.html";
+    const tagText = evt.tag ? evt.tag.toUpperCase() : `EVENT 0${idx + 1}`;
+    const btnText = (evt.buttonText && evt.buttonText.trim() !== "") ? evt.buttonText.toUpperCase() : "REGISTER NOW";
 
-      return `
-        <article class="mini-event-card">
-          <div>
-            <div class="mini-event-top font-mono">
-              <span class="mini-event-date">${escapeHtml(evt.date)}</span>
-              <span class="mini-event-tag">${escapeHtml(tagText)}</span>
-            </div>
-
-            <h4 class="mini-event-title">${escapeHtml(evt.title)}</h4>
-            <p class="mini-event-desc">${escapeHtml(evt.description)}</p>
+    return `
+      <article class="small-event-card">
+        <div>
+          <div class="small-event-top font-mono">
+            <span class="small-event-date">${escapeHtml(evt.date)}</span>
+            <span class="small-event-tag">${escapeHtml(tagText)}</span>
           </div>
 
-          <div>
-            <div class="mini-event-details font-mono">
-              <span>LOCATION: ${escapeHtml(evt.location)}</span>
-            </div>
+          <h4 class="small-event-title">${escapeHtml(evt.title)}</h4>
+          <p class="small-event-desc">${escapeHtml(evt.description)}</p>
+        </div>
 
-            <a href="${escapeHtml(evt.link)}"
-               class="btn btn-outline btn-sm mini-event-btn font-mono"
-               ${isExternalLink ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-              ${escapeHtml(evt.buttonText || 'REGISTER NOW')} →
-            </a>
+        <div>
+          <div class="small-event-details font-mono">
+            <span>LOCATION: ${escapeHtml(evt.location)}</span>
           </div>
-        </article>
-      `;
-    }).join("");
-  } else {
-    landingGrid.innerHTML = `
-      <div class="mini-events-empty font-mono">
-        <span>// NO UPCOMING EVENTS CURRENTLY SCHEDULED</span>
-      </div>
+
+          <a href="${escapeHtml(targetLink)}"
+             class="btn btn-outline btn-sm small-event-btn font-mono"
+             ${isExternalLink ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+            ${escapeHtml(btnText)} →
+          </a>
+        </div>
+      </article>
     `;
-  }
+  }).join("");
 }
 
 /**

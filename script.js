@@ -54,13 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       translateY: [20, 0],
       opacity: [0, 1],
       duration: 700
-    }, '-=500')
-    .add({
-      targets: '.hero-events-wrapper',
-      translateY: [25, 0],
-      opacity: [0, 1],
-      duration: 750
-    }, '-=450');
+    }, '-=500');
 
   // 3. Scroll Line, Mission & Team Reveal Animation
   const scrollLine = document.getElementById('scroll-line');
