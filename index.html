@@ -89,18 +89,17 @@
       <a href="history.html" class="btn btn-outline font-mono history-link">
         HISTORY
       </a>
-
-      <a href="events.html" class="btn btn-outline font-mono">
+      <a href="events.html" class="btn btn-outline font-mono event-link">
         EVENTS
       </a>
 
-      <a href="mailto:iedc@cethalassery.ac.in" class="btn btn-outline font-mono" id="btn-contact">
+      <a href="contact.html" class="btn btn-outline font-mono contact-link">
         CONTACT
       </a>
 
-      <a href="join.html" class="btn btn-primary font-mono" id="btn-join">
+      <button class="btn btn-primary font-mono" id="btn-join" aria-haspopup="dialog">
         JOIN US
-      </a>
+      </button>
     </nav>
   </header>
 
@@ -127,22 +126,9 @@
         </p>
       </div>
 
-    </div>
-  </section>
-
-  <!-- Small Event Cards (Below the Hero Card) -->
-  <section class="landing-events-section" id="landing-events-section" style="display: none;">
-    <div class="landing-events-container">
-      <div class="landing-events-header font-mono">
-        <div class="events-header-left">
-          <span class="pulse-indicator"></span>
-          <span class="section-tag">// UPCOMING EVENTS</span>
-        </div>
-        <a href="events.html" class="landing-all-events-link">VIEW ALL EVENTS →</a>
-      </div>
-
-      <div class="landing-events-grid" id="landing-events-grid">
-        <!-- Rendered dynamically from Google Sheets via events.js -->
+      <div class="hero-buttons">
+        <button class="btn btn-primary font-mono open-join">JOIN THE CELL →</button>
+        <a href="events.html#upcoming" class="btn btn-secondary font-mono open-events">VIEW UPCOMING EVENTS</a>
       </div>
     </div>
   </section>
@@ -195,80 +181,251 @@
     <div class="section-header">
       <div class="section-tag font-mono">// GOVERNING EXECUTIVES</div>
       <h2 class="section-title">MEET THE TEAM</h2>
-      <p class="section-subtitle font-mono">The leadership and student innovators driving innovation, technology, and execution at IEDC CETLY.</p>
+      <p class="section-subtitle font-mono">The student leaders driving innovation, technology, and execution at IEDC CETLY.</p>
     </div>
 
-    <!-- Centered Nodal Officer Card -->
-    <div class="nodal-lead-container">
-      <a href="profile.html?id=nodal-officer" class="team-card-link nodal-card-link">
-        <div class="team-card" data-role="nodal-officer">
+    <div class="team-grid">
+      <!-- 1. CEO -->
+      <a href="profile.html?id=ceo" class="team-card-link">
+        <div class="team-card" data-role="ceo">
           <div class="card-border-line"></div>
           <div class="card-header font-mono">
-            <span class="role-badge">00 // FACULTY</span>
-            <span class="role-tag">NODAL OFFICER</span>
+            <span class="role-badge">01 // EXEC</span>
+            <span class="role-tag">CEO</span>
           </div>
-          <div class="team-avatar-wrapper">
-            <img src="leads-photos/Umesh P.jpeg" alt="Dr. Umesh P" class="team-avatar-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="avatar-placeholder" style="display: none;">
-              <span class="avatar-initials">UP</span>
-            </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">CEO</span>
           </div>
-          <h3 class="member-name">Dr. Umesh P</h3>
-          <div class="member-role font-mono">IEDC Nodal Officer</div>
+          <h3 class="member-name">Savanth S Joy</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. COO -->
+      <a href="profile.html?id=coo" class="team-card-link">
+        <div class="team-card" data-role="coo">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">02 // EXEC</span>
+            <span class="role-tag">COO</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">COO</span>
+          </div>
+          <h3 class="member-name">Shanin Raj M</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3. Tech Lead -->
+      <a href="profile.html?id=tech" class="team-card-link">
+        <div class="team-card" data-role="tech">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">03 // DEPT</span>
+            <span class="role-tag">TECH LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">TL</span>
+          </div>
+          <h3 class="member-name">Sreerudran P</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. Marketing Lead -->
+      <a href="profile.html?id=marketing" class="team-card-link">
+        <div class="team-card" data-role="marketing">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">04 // DEPT</span>
+            <span class="role-tag">MARKETING LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">ML</span>
+          </div>
+          <h3 class="member-name">Sabarinath R Nambiar</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 5. Finance Lead -->
+      <a href="profile.html?id=finance" class="team-card-link">
+        <div class="team-card" data-role="finance">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">05 // DEPT</span>
+            <span class="role-tag">FINANCE LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">FL</span>
+          </div>
+          <h3 class="member-name">Vaishnav Dev M</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 6. Design Lead -->
+      <a href="profile.html?id=design" class="team-card-link">
+        <div class="team-card" data-role="design">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">06 // DEPT</span>
+            <span class="role-tag">DESIGN LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">DL</span>
+          </div>
+          <h3 class="member-name">Nihara</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 7. Media Lead 1 -->
+      <a href="profile.html?id=media-1" class="team-card-link">
+        <div class="team-card" data-role="media">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">07 // DEPT</span>
+            <span class="role-tag">MEDIA LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">ML</span>
+          </div>
+          <h3 class="member-name">Aman Nambiar</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 8. Media Lead 2 -->
+      <a href="profile.html?id=media-2" class="team-card-link">
+        <div class="team-card" data-role="media">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">08 // DEPT</span>
+            <span class="role-tag">MEDIA LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">ML</span>
+          </div>
+          <h3 class="member-name">Sandra N</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 9. Content Lead -->
+      <a href="profile.html?id=content" class="team-card-link">
+        <div class="team-card" data-role="content">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">09 // DEPT</span>
+            <span class="role-tag">CONTENT LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">CL</span>
+          </div>
+          <h3 class="member-name">Niveditha Manoharan</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 10. Community Lead -->
+      <a href="profile.html?id=community" class="team-card-link">
+        <div class="team-card" data-role="community">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">10 // DEPT</span>
+            <span class="role-tag">COMMUNITY LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">CM</span>
+          </div>
+          <h3 class="member-name">Abhikshitha S S</h3>
+          <div class="card-footer font-mono">
+            <span>VIEW FULL PROFILE →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 11. Creative Lead -->
+      <a href="profile.html?id=creative" class="team-card-link">
+        <div class="team-card" data-role="creative">
+          <div class="card-border-line"></div>
+          <div class="card-header font-mono">
+            <span class="role-badge">11 // DEPT</span>
+            <span class="role-tag">CREATIVE LEAD</span>
+          </div>
+          <div class="avatar-placeholder">
+            <span class="avatar-initials">CR</span>
+          </div>
+          <h3 class="member-name">Abhinav vk</h3>
           <div class="card-footer font-mono">
             <span>VIEW FULL PROFILE →</span>
           </div>
         </div>
       </a>
     </div>
-
-    <div class="team-grid" id="team-grid">
-      <!-- Dynamically rendered from leads.js -->
-    </div>
   </section>
 
   <!-- Modals -->
-  <!-- 1. Events Modal -->
-  <div class="modal-overlay" id="modal-events" role="dialog" aria-modal="true" aria-labelledby="events-modal-title">
+  <!-- 1. Join Us Modal -->
+  <div class="modal-overlay" id="modal-join" role="dialog" aria-modal="true" aria-labelledby="join-modal-title">
     <div class="modal-card">
       <div class="modal-header font-mono">
-        <span>// IEDC CETLY EVENTS</span>
+        <span>// MEMBERSHIP APPLICATION</span>
         <button class="modal-close" aria-label="Close modal">&times;</button>
       </div>
-      <div class="modal-body">
-        <h3 class="modal-title" id="events-modal-title">UPCOMING & RECENT EVENTS</h3>
-        <div class="events-list font-mono">
-          <div class="event-item">
-            <span class="event-date">AUG 25, 2026</span>
-            <div class="event-info">
-              <h4 class="event-heading">HACK-CET 2026</h4>
-              <p>24-hour campus hackathon solving real-world challenges with mentorship.</p>
-            </div>
-            <button class="btn btn-outline btn-sm">REGISTER</button>
+      <div class="modal-body font-mono">
+        <h3 class="modal-title" id="join-modal-title">BECOME AN IEDC MEMBER</h3>
+        <p class="modal-text">Join CETLY's vibrant community of builders, innovators, and problem solvers.</p>
+        
+        <form class="join-form" onsubmit="event.preventDefault(); alert('Application submitted successfully!');">
+          <div class="form-group">
+            <label for="join-name">FULL NAME</label>
+            <input type="text" id="join-name" placeholder="e.g. Rahul Sharma" required>
           </div>
-
-          <div class="event-item">
-            <span class="event-date">SEP 10, 2026</span>
-            <div class="event-info">
-              <h4 class="event-heading">STARTUP BOOTCAMP</h4>
-              <p>Ideation to MVP workshop hosted by Kerala Startup Mission experts.</p>
-            </div>
-            <button class="btn btn-outline btn-sm">REGISTER</button>
+          <div class="form-group">
+            <label for="join-dept">DEPT & YEAR</label>
+            <input type="text" id="join-dept" placeholder="e.g. CSE / S5" required>
           </div>
-
-          <div class="event-item">
-            <span class="event-date">OCT 02, 2026</span>
-            <div class="event-info">
-              <h4 class="event-heading">FOUNDER SPEAKER SERIES</h4>
-              <p>Interaction with successful alumni founders and tech entrepreneurs.</p>
-            </div>
-            <button class="btn btn-outline btn-sm">JOIN LIST</button>
+          <div class="form-group">
+            <label for="join-email">COLLEGE EMAIL</label>
+            <input type="email" id="join-email" placeholder="student@cethalassery.ac.in" required>
           </div>
-        </div>
+          <div class="form-group">
+            <label for="join-domain">AREA OF INTEREST</label>
+            <select id="join-domain" required>
+              <option value="">Select Domain...</option>
+              <option>Software / Development</option>
+              <option>Hardware / IoT / Robotics</option>
+              <option>Design & Media</option>
+              <option>Management & Finance</option>
+              <option>Marketing & Content</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">SUBMIT APPLICATION →</button>
+        </form>
       </div>
     </div>
   </div>
-
 
   <!-- Footer -->
   <footer class="footer font-mono">
@@ -286,8 +443,6 @@
     </div>
   </footer>
 
-  <script src="leads.js"></script>
-  <script src="events.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
