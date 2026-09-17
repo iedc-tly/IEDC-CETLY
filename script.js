@@ -54,14 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       translateY: [20, 0],
       opacity: [0, 1],
       duration: 700
-    }, '-=500')
-    .add({
-      targets: '.hero-buttons .btn',
-      translateY: [15, 0],
-      opacity: [0, 1],
-      delay: anime.stagger(100),
-      duration: 600
-    }, '-=400');
+    }, '-=500');
 
   // 3. Scroll Line, Mission & Team Reveal Animation
   const scrollLine = document.getElementById('scroll-line');
@@ -107,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
           targets: '.team-card',
           translateY: [40, 0],
           opacity: [0, 1],
-          delay: anime.stagger(120, { start: 100 }),
+          delay: anime.stagger(100, { start: 100 }),
           duration: 800,
           easing: 'easeOutCubic'
         });
@@ -119,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   handleScroll(); // Initial check
 
   // 4. Modal Interactions
-  const modalJoin = document.getElementById('modal-join');
+  const modalEvents = document.getElementById('modal-events');
 
   function openModal(modal) {
     if (!modal) return;
@@ -152,10 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Attach Event Listeners to Open Modals
-  document.getElementById('btn-join')?.addEventListener('click', () => openModal(modalJoin));
+  document.getElementById('btn-events')?.addEventListener('click', () => openModal(modalEvents));
 
-  document.querySelectorAll('.open-join').forEach(btn => {
-    btn.addEventListener('click', () => openModal(modalJoin));
+  document.querySelectorAll('.open-events').forEach(btn => {
+    btn.addEventListener('click', () => openModal(modalEvents));
   });
 
   // Close buttons & overlay click
