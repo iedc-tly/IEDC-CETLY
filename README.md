@@ -36,3 +36,65 @@ const EVENTS_CONFIG = {
 - **Add a new event**: Add a new row in your Google Sheet.
 - **Move to Past Events**: Set `Status` to `Past` (or `Completed`). The event will automatically move to the "PAST EVENTS" section with a "VIEW RECAP" button.
 - **Event Posters/Images**: Put any direct image URL in the `Image` column. If left empty, a stylish event placeholder with the event tag/number will be displayed automatically.
+
+---
+
+## 🚀 Growspace Digital Logbook (Google Sheets Integration)
+
+Growspace (`growspace.html`) is an initiative of IEDC-CETLY to provide a dedicated workspace for students of College of Engineering Thalassery. It features a digital attendance logbook where students input their details and stay duration. Entry time and calculated exit time are logged directly into a Google Sheet.
+
+### 1. Attendance Google Sheet
+- **Active Sheet**: [IEDC Growspace Logbook Sheet](https://docs.google.com/spreadsheets/d/1GIyxyBwqo2ymGv2ud5oguk4H4_jHqWn9Fg2TtsTQI4E/edit?usp=sharing)
+- Columns in Row 1:
+   | Timestamp | Student Name | Department | Roll No | Class & Sem | Entry Time | Exit Time | Hours Stayed | Purpose |
+   |---|---|---|---|---|---|---|---|---|
+
+### 2. Add Google Apps Script Web App
+1. Inside the Google Sheet, navigate to **Extensions** > **Apps Script**.
+2. Replace any existing code in `Code.gs` with:
+   ```javascript
+   function doPost(e) {
+     var lock = LockService.getScriptLock();
+     lock.tryLock(10000);
+     try {
+       var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+       var data = JSON.parse(e.postData.contents);
+       sheet.appendRow([
+         data.timestamp || new Date(),
+         data.name,
+         data.department,
+         data.rollNo,
+         data.classSemester,
+         data.entryTime,
+         data.exitTime,
+         data.hoursStayed,
+         data.purpose || ''
+       ]);
+       return ContentService.createTextOutput(JSON.stringify({ status: 'success' }))
+         .setMimeType(ContentService.MimeType.JSON);
+     } catch (err) {
+       return ContentService.createTextOutput(JSON.stringify({ status: 'error', message: err.message }))
+         .setMimeType(ContentService.MimeType.JSON);
+     } finally {
+       lock.releaseLock();
+     }
+   }
+   ```
+3. Click **Deploy** > **New deployment**.
+4. Select type: **Web app**.
+5. Set:
+   - **Execute as**: `Me`
+   - **Who has access**: `Anyone`
+6. Click **Deploy**, authorize access, and copy the **Web app URL**.
+
+### 3. Connect to the Website
+Open [`growspace.js`](./growspace.js) and paste your Web App URL into `GROWSPACE_CONFIG`:
+```javascript
+const GROWSPACE_CONFIG = {
+  scriptUrl: "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec",
+  enableLocalStorage: true,
+  maxLocalEntries: 20
+};
+```
+*(If `scriptUrl` is not configured yet, entries are automatically cached in local browser storage so you can test immediately!)*
+
