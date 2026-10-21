@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Growspace | IEDC-CETLY Workspace</title>
+
+  <meta name="description" content="Growspace is an initiative of IEDC-CETLY to provide a dedicated workspace for the students of College of Engineering Thalassery. Check into the digital logbook.">
+  <meta name="keywords" content="Growspace, IEDC CETLY, College of Engineering Thalassery, student workspace, logbook, innovation hub, KSUM">
+  <meta name="theme-color" content="#0D0A0B">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://iedc-tly.github.io/IEDC-CETLY/growspace.html">
+  <meta property="og:title" content="Growspace | IEDC-CETLY Workspace">
+  <meta property="og:description" content="An initiative of IEDC-CETLY to provide a workspace for the students of the college.">
+  <meta property="og:image" content="https://iedc-tly.github.io/IEDC-CETLY/backdrop.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Growspace | IEDC-CETLY Workspace">
+  <meta name="twitter:description" content="An initiative of IEDC-CETLY to provide a workspace for the students of the college.">
+  <meta name="twitter:image" content="https://iedc-tly.github.io/IEDC-CETLY/backdrop.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="growspace.css">
+</head>
+<body>
+
+  <!-- Background Grid & Backdrop -->
+  <div class="grid-background" aria-hidden="true"></div>
+  <div class="backdrop-wrapper" aria-hidden="true">
+    <picture class="backdrop-picture">
+      <source media="(max-width: 768px)" srcset="mob-backdrop.png">
+      <img src="backdrop.jpg" alt="" class="backdrop-img">
+    </picture>
+    <div class="backdrop-overlay"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="index.html" class="nav-brand" aria-label="Return to IEDC-CETLY Homepage">
+      <img src="iedclogo.jpeg" alt="IEDC CETLY Logo" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-title">IEDC-CETLY</span>
+        <span class="brand-sub font-mono">GROWSPACE</span>
+      </div>
+    </a>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button class="nav-toggle font-mono" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <!-- Main Navigation Actions -->
+    <nav class="nav-actions" id="nav-actions" aria-label="Main Navigation">
+      <a href="index.html" class="btn btn-outline font-mono">
+        HOME
+      </a>
+      <a href="history.html" class="btn btn-outline font-mono">
+        HISTORY
+      </a>
+      <a href="events.html" class="btn btn-outline font-mono">
+        EVENTS
+      </a>
+      <a href="growspace.html" class="btn btn-outline font-mono growspace-link active" aria-current="page">
+        GROWSPACE
+      </a>
+      <a href="contact.html" class="btn btn-outline font-mono">
+        CONTACT
+      </a>
+      <a href="join.html" class="btn btn-primary font-mono">
+        JOIN US
+      </a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =========================================
+         HERO SECTION
+         ========================================= -->
+    <section class="growspace-hero">
+      <div class="growspace-hero-frame">
+        <div class="corner-mark top-left">+</div>
+        <div class="corner-mark top-right">+</div>
+        <div class="corner-mark bottom-left">+</div>
+        <div class="corner-mark bottom-right">+</div>
+
+        <div class="hero-meta-bar font-mono">
+          <span>// IEDC CETLY WORKSPACE INITIATIVE</span>
+          <span class="badge-live">HUB OPEN // CET THALASSERY</span>
+        </div>
+
+        <div class="growspace-kicker font-mono">// CO-WORKING &amp; PROTOTYPING CELL</div>
+
+        <h1 class="growspace-title">
+          GROW<span>SPACE</span>
+        </h1>
+
+        <!-- Required Heading from user prompt -->
+        <h2 class="growspace-initiative-heading">
+          An initiative of iedc-cetly to provide a workspace for the students of the college
+        </h2>
+
+        <p class="growspace-hero-desc">
+          Growspace is a creative student incubator and dedicated collaborative workspace at College of Engineering Thalassery. Whether you're hacking on a software project, prototyping IoT hardware, preparing for hackathons, or building your own startup, Growspace provides the tools, power, internet, and community you need to thrive.
+        </p>
+
+        <div class="growspace-hero-actions">
+          <a href="#logbook" class="btn btn-primary font-mono">
+            DIGITAL LOGBOOK ↓
+          </a>
+          <a href="#amenities" class="btn btn-outline font-mono">
+            EXPLORE AMENITIES →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         AMENITIES & OVERVIEW
+         ========================================= -->
+    <section class="growspace-section" id="amenities">
+      <div class="growspace-section-header">
+        <div class="growspace-section-tag font-mono">// WORKSPACE INFRASTRUCTURE</div>
+        <h2 class="growspace-section-title">BUILT FOR <span>INNOVATORS</span></h2>
+        <p class="growspace-section-sub font-mono">
+          Free access to workspace infrastructure for all CET Thalassery engineering students.
+        </p>
+      </div>
+
+      <div class="amenities-grid">
+        <article class="amenity-card">
+          <div class="amenity-num font-mono">01 // WORKSTATIONS</div>
+          <h3>DESK SPACE &amp; POWER</h3>
+          <p>
+            Equipped with ergonomic seating, individual power sockets, high-speed Wi-Fi, and a distraction-free environment for extended coding and research sessions.
+          </p>
+        </article>
+
+        <article class="amenity-card">
+          <div class="amenity-num font-mono">02 // HARDWARE LAB</div>
+          <h3>PROTOTYPING &amp; IOT</h3>
+          <p>
+            Access microcontroller boards, sensors, measurement tools, and hardware kits to develop embedded systems, robotics, and physical computing projects.
+          </p>
+        </article>
+
+        <article class="amenity-card">
+          <div class="amenity-num font-mono">03 // COLLABORATION</div>
+          <h3>TEAM BRAINSTORMING</h3>
+          <p>
+            Whiteboards, display units, and flexible group seating designed for team discussions, sprint planning, ideation meetings, and hackathon prep.
+          </p>
+        </article>
+
+        <article class="amenity-card">
+          <div class="amenity-num font-mono">04 // INCUBATION</div>
+          <h3>MENTORSHIP &amp; GRANTS</h3>
+          <p>
+            Direct connectivity with IEDC faculty coordinators, senior mentors, KSUM seed funding avenues, and Technology Business Incubator (TBI) assistance.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================
+         DIGITAL LOGBOOK SECTION
+         ========================================= -->
+    <section class="logbook-section" id="logbook">
+      <div class="growspace-section-header">
+        <div class="growspace-section-tag font-mono">// DIGITAL ATTENDANCE SYSTEM</div>
+        <h2 class="growspace-section-title">STUDENT <span>LOGBOOK</span></h2>
+        <p class="growspace-section-sub font-mono">
+          Enter your student details and expected stay duration. Entry and exit times are automatically logged and synchronized with our Google Sheets attendance record.
+        </p>
+      </div>
+
+      <div class="logbook-layout">
+
+        <!-- Left Column: Guidelines, Clock & Admin Config -->
+        <div class="logbook-info-col">
+          
+          <!-- Live Realtime Clock Card -->
+          <div class="live-clock-card">
+            <div class="live-clock-tag font-mono">// CURRENT SYSTEM TIME</div>
+            <div class="live-clock-time" id="live-clock-time">--:--:-- --</div>
+            <div class="live-clock-date font-mono" id="live-clock-date">LOADING DATE...</div>
+          </div>
+
+          <!-- Guidelines Card -->
+          <div class="guidelines-card">
+            <h3 class="guidelines-title font-mono">// WORKSPACE PROTOCOL</h3>
+            <ul class="guidelines-list">
+              <li>Log your entry upon arriving at Growspace and specify your intended stay duration.</li>
+              <li>Keep your designated workspace tidy and dispose of any waste in bins.</li>
+              <li>Handle electronic equipment, test devices, and cables with caution.</li>
+              <li>Maintain a collaborative, respectful atmosphere for all students.</li>
+              <li>Power down monitors and unplug chargers when concluding your session.</li>
+            </ul>
+          </div>
+
+          <!-- Google Sheets Setup Guide for Admins -->
+          <div class="sheets-integration-card">
+            <div class="sheets-integration-header" id="sheets-guide-toggle" role="button" tabindex="0" aria-expanded="false">
+              <h4 class="font-mono">// GOOGLE SHEETS SETUP (ADMIN)</h4>
+              <span class="sheets-toggle-icon font-mono" id="sheets-guide-icon">▼</span>
+            </div>
+            <div class="sheets-integration-body" id="sheets-guide-body" hidden>
+              <p>To connect this logbook directly to your official Google Sheet:</p>
+              <ol>
+                <li>Create a Google Sheet with columns: <code>Timestamp</code>, <code>Name</code>, <code>Department</code>, <code>Roll No</code>, <code>Class &amp; Sem</code>, <code>Entry Time</code>, <code>Exit Time</code>, <code>Hours Stayed</code>, <code>Purpose</code>.</li>
+                <li>Go to <strong>Extensions &gt; Apps Script</strong> and paste the Google Apps Script connector.</li>
+                <li>Click <strong>Deploy &gt; New deployment &gt; Web app</strong>.</li>
+                <li>Set <em>Execute as:</em> <strong>Me</strong> and <em>Who has access:</em> <strong>Anyone</strong>.</li>
+                <li>Copy the Web App URL and set it in <code>GROWSPACE_CONFIG.scriptUrl</code> in <code>growspace.js</code>.</li>
+              </ol>
+              <button type="button" class="btn btn-outline font-mono btn-sm" id="btn-copy-script" style="width: 100%; margin-top: 8px;">
+                COPY APPS SCRIPT CODE
+              </button>
+              <a href="https://docs.google.com/spreadsheets/d/1GIyxyBwqo2ymGv2ud5oguk4H4_jHqWn9Fg2TtsTQI4E/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline font-mono btn-sm" style="width: 100%; margin-top: 8px; text-align: center; display: block;">
+                OPEN GOOGLE SHEET ↗
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Logbook Form & Confirmation -->
+        <div class="logbook-form-card">
+          <div class="corner-mark top-left">+</div>
+          <div class="corner-mark top-right">+</div>
+          <div class="corner-mark bottom-left">+</div>
+          <div class="corner-mark bottom-right">+</div>
+
+          <div class="logbook-form-title font-mono">
+            <span>// CHECK-IN FORM</span>
+            <span>[CETLY-LOG-01]</span>
+          </div>
+
+          <!-- FORM ELEMENT -->
+          <form class="logbook-form" id="growspace-logbook-form" novalidate>
+
+            <!-- Student Name -->
+            <div class="form-group">
+              <label for="log-name">STUDENT FULL NAME *</label>
+              <input type="text" id="log-name" name="name" placeholder="e.g. Rahul K" required autocomplete="name">
+              <small class="field-error" id="err-name" role="alert"></small>
+            </div>
+
+            <!-- Department & Roll Number -->
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="log-department">DEPARTMENT *</label>
+                <select id="log-department" name="department" required>
+                  <option value="" disabled selected>Select Department</option>
+                  <option value="Computer Science & Engineering">Computer Science &amp; Engg (CSE)</option>
+                  <option value="Electronics & Communication">Electronics &amp; Comm. (ECE)</option>
+                  <option value="Electrical & Electronics">Electrical &amp; Electronics (EEE)</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering (ME)</option>
+                  <option value="Civil Engineering">Civil Engineering (CE)</option>
+                  <option value="Information Technology">Information Technology (IT)</option>
+                  <option value="Artificial Intelligence & Data Science">AI &amp; Data Science (AI&amp;DS)</option>
+                  <option value="Master of Computer Applications">MCA / Post-Graduate</option>
+                  <option value="Other">Other Branch / Stream</option>
+                </select>
+                <small class="field-error" id="err-dept" role="alert"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="log-rollno">ROLL NO / REG NO *</label>
+                <input type="text" id="log-rollno" name="rollno" placeholder="e.g. TLY22CS042" required autocomplete="off">
+                <small class="field-error" id="err-roll" role="alert"></small>
+              </div>
+            </div>
+
+            <!-- Class & Semester -->
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="log-semester">SEMESTER *</label>
+                <select id="log-semester" name="semester" required>
+                  <option value="" disabled selected>Select Semester</option>
+                  <option value="S1">Semester 1 (S1)</option>
+                  <option value="S2">Semester 2 (S2)</option>
+                  <option value="S3">Semester 3 (S3)</option>
+                  <option value="S4">Semester 4 (S4)</option>
+                  <option value="S5">Semester 5 (S5)</option>
+                  <option value="S6">Semester 6 (S6)</option>
+                  <option value="S7">Semester 7 (S7)</option>
+                  <option value="S8">Semester 8 (S8)</option>
+                </select>
+                <small class="field-error" id="err-sem" role="alert"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="log-class">CLASS / BATCH *</label>
+                <input type="text" id="log-class" name="class" placeholder="e.g. CSE-A or BATCH 2" required>
+                <small class="field-error" id="err-class" role="alert"></small>
+              </div>
+            </div>
+
+            <!-- Entry Time -->
+            <div class="form-group">
+              <label for="log-entry-time">
+                <span>TIME OF ENTRY *</span>
+                <span class="opt">[DEFAULTS TO CURRENT TIME]</span>
+              </label>
+              <input type="datetime-local" id="log-entry-time" name="entryTime" required>
+              <small class="field-error" id="err-entry" role="alert"></small>
+            </div>
+
+            <!-- Stay Duration (Hours Stayed) -->
+            <div class="form-group duration-wrapper">
+              <label for="log-hours">
+                <span>HOURS STAYED / PLANNED DURATION *</span>
+                <span class="opt">[SELECT OR TYPE HOURS]</span>
+              </label>
+              <div class="duration-chips" id="duration-chips">
+                <button type="button" class="duration-chip" data-hours="0.5">0.5 hr</button>
+                <button type="button" class="duration-chip active" data-hours="1.0">1.0 hr</button>
+                <button type="button" class="duration-chip" data-hours="1.5">1.5 hrs</button>
+                <button type="button" class="duration-chip" data-hours="2.0">2.0 hrs</button>
+                <button type="button" class="duration-chip" data-hours="3.0">3.0 hrs</button>
+                <button type="button" class="duration-chip" data-hours="4.0">4.0 hrs</button>
+              </div>
+              <input type="number" id="log-hours" name="hoursStayed" step="0.5" min="0.5" max="12" value="1.0" required>
+              <small class="field-error" id="err-hours" role="alert"></small>
+            </div>
+
+            <!-- Dynamic Calculated Entry & Exit Preview -->
+            <div class="calc-preview-card" aria-live="polite">
+              <div class="calc-preview-header">
+                <span>// COMPUTED SESSION TIME WINDOW</span>
+                <span>AUTO-CALCULATED</span>
+              </div>
+              <div class="calc-preview-body">
+                <div class="calc-meta-item">
+                  <div class="calc-label font-mono">TIME OF ENTRY:</div>
+                  <div class="calc-val" id="preview-entry-val">--:--</div>
+                </div>
+                <div class="calc-meta-item">
+                  <div class="calc-label font-mono">COMPUTED EXIT TIME:</div>
+                  <div class="calc-val highlight" id="preview-exit-val">--:--</div>
+                </div>
+                <div class="calc-meta-item" style="grid-column: 1 / -1;">
+                  <div class="calc-label font-mono">TOTAL STAY DURATION:</div>
+                  <div class="calc-val" id="preview-duration-val">1.0 hrs</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional Purpose / Project Details -->
+            <div class="form-group">
+              <label for="log-purpose">
+                <span>PURPOSE OF VISIT / PROJECT WORK</span>
+                <span class="opt">[OPTIONAL]</span>
+              </label>
+              <input type="text" id="log-purpose" name="purpose" placeholder="e.g. Hackathon prep, Web development, Hardware testing">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary font-mono logbook-submit-btn" id="log-submit">
+              RECORD LOGBOOK ENTRY →
+            </button>
+          </form>
+
+          <!-- SUCCESS STATE VIEW -->
+          <div class="logbook-success-card" id="logbook-success-card" hidden tabindex="-1">
+            <div class="success-badge-icon font-mono" aria-hidden="true">✓</div>
+            <h3 class="success-title">LOGBOOK ENTRY RECORDED</h3>
+            <p class="success-subtitle font-mono">
+              Your session has been logged in the Growspace student register.
+            </p>
+
+            <div class="receipt-card">
+              <div class="receipt-row">
+                <span class="receipt-label">STUDENT NAME</span>
+                <span class="receipt-val" id="receipt-name">--</span>
+              </div>
+              <div class="receipt-row">
+                <span class="receipt-label">DEPARTMENT</span>
+                <span class="receipt-val" id="receipt-dept">--</span>
+              </div>
+              <div class="receipt-row">
+                <span class="receipt-label">ROLL NUMBER</span>
+                <span class="receipt-val" id="receipt-roll">--</span>
+              </div>
+              <div class="receipt-row">
+                <span class="receipt-label">CLASS &amp; SEMESTER</span>
+                <span class="receipt-val" id="receipt-class">--</span>
+              </div>
+              <div class="receipt-row">
+                <span class="receipt-label">TIME OF ENTRY</span>
+                <span class="receipt-val" id="receipt-entry">--</span>
+              </div>
+              <div class="receipt-row">
+                <span class="receipt-label">TIME OF EXIT</span>
+                <span class="receipt-val highlight" id="receipt-exit">--</span>
+              </div>
+              <div class="receipt-row">
+                <span class="receipt-label">HOURS STAYED</span>
+                <span class="receipt-val highlight" id="receipt-hours">--</span>
+              </div>
+            </div>
+
+            <div class="success-status-note font-mono" id="success-status-note">
+              <span>✓ Logged to Google Sheet &amp; Local Register</span>
+            </div>
+
+            <button type="button" class="btn btn-primary font-mono" id="btn-log-again">
+              LOG ANOTHER STUDENT ENTRY +
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- =========================================
+           RECENT CHECK-INS LIST / SESSION LOG
+           ========================================= -->
+      <section class="recent-checkins-section">
+        <div class="recent-checkins-header font-mono">
+          <h3>// RECENT CHECK-INS ON THIS TERMINAL</h3>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <span id="today-count-badge" style="color: var(--color-green-light); font-size: 0.72rem;">0 SESSIONS</span>
+            <button type="button" class="btn btn-outline font-mono btn-sm" id="btn-clear-local" style="padding: 4px 8px; font-size: 0.65rem;">CLEAR LOCAL</button>
+          </div>
+        </div>
+
+        <div class="recent-table-wrapper">
+          <table class="checkin-table">
+            <thead>
+              <tr>
+                <th>STUDENT NAME</th>
+                <th>DEPARTMENT</th>
+                <th>ROLL NO</th>
+                <th>CLASS &amp; SEM</th>
+                <th>TIME OF ENTRY</th>
+                <th>TIME OF EXIT</th>
+              </tr>
+            </thead>
+            <tbody id="recent-checkins-body">
+              <tr>
+                <td colspan="6" class="table-empty font-mono">
+                  // NO CHECK-INS RECORDED ON THIS DEVICE YET. ENTER YOUR FIRST LOGBOOK SESSION ABOVE.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+  <footer class="footer font-mono">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-title">IEDC-CETLY</span>
+        <span class="footer-sub">Innovation &amp; Entrepreneurship Development Centre</span>
+      </div>
+      <div class="footer-rights">
+        © 2026 IEDC College of Engineering Thalassery. All Rights Reserved.
+      </div>
+      <div class="footer-top">
+        <a href="#" id="scroll-top">BACK TO TOP ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Page Logic -->
+  <script src="growspace.js"></script>
+</body>
+</html>
