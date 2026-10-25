@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Growspace Logbook — IEDC CETLY</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap">
+  <link rel="stylesheet" href="growspace2.css">
+</head>
+<body>
+
+<!-- Flash overlay -->
+<div class="flash-overlay" id="flash-overlay" aria-hidden="true"></div>
+
+<!-- Toast message -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Grid backdrop -->
+<div class="grid-bg" aria-hidden="true"></div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <div>
+      <span class="brand-title">IEDC-CETLY</span>
+      <span class="brand-sub">CET THALASSERY</span>
+    </div>
+  </div>
+  <span class="nav-tag">GROWSPACE LOGBOOK</span>
+</nav>
+
+<div class="page">
+
+  <!-- Hero -->
+  <header class="hero">
+    <p class="section-kicker">IEDC · CETLY · WORKSPACE</p>
+    <h1 class="section-heading">GROW<span>SPACE</span><br>LOGBOOK</h1>
+    <p class="section-sub">Digital attendance register for the Growspace workspace. Fill in your details — your entry is saved directly to the logbook sheet.</p>
+  </header>
+
+  <!-- Offline badge -->
+  <div class="offline-badge" id="offline-badge" role="status">
+    <span class="offline-badge-dot"></span>
+    <span>YOU ARE OFFLINE — ENTRIES WILL SYNC WHEN RECONNECTED</span>
+    <span class="pending-count" id="pending-count">0 PENDING</span>
+  </div>
+
+  <!-- Live clock -->
+  <div class="clock-card">
+    <div class="clock-dot" aria-hidden="true"></div>
+    <div class="clock-center">
+      <div class="clock-live-tag">LIVE CLOCK</div>
+      <div class="clock-time" id="clock-time">--:-- --</div>
+      <div class="clock-date" id="clock-date">LOADING...</div>
+    </div>
+  </div>
+
+  <!-- Today's entry counter -->
+  <div class="counter-card">
+    <div>
+      <div class="counter-label">TODAY'S CHECK-INS</div>
+      <div class="counter-value" id="counter-value">—</div>
+      <div class="counter-sub" id="counter-sub">LOADING...</div>
+    </div>
+    <div style="font-family:var(--font-mono);font-size:.65rem;color:var(--gray);text-align:right;line-height:1.8;">
+      <div id="counter-date" style="color:var(--green);letter-spacing:.1em;"></div>
+      <div>GROWSPACE SESSIONS</div>
+    </div>
+  </div>
+
+  <!-- Workspace guidelines (collapsible) -->
+  <div class="guidelines-card" id="guidelines-card">
+    <button class="guidelines-toggle" id="guidelines-toggle" aria-expanded="false" aria-controls="guidelines-body">
+      <span>WORKSPACE GUIDELINES</span>
+      <span class="guidelines-toggle-icon" aria-hidden="true">▼</span>
+    </button>
+    <div class="guidelines-body" id="guidelines-body" hidden>
+      <ul class="guidelines-list">
+        <li>Log your entry every time you use the Growspace. Unlogged sessions will not count.</li>
+        <li>Keep the workspace clean and tidy. Return borrowed equipment to its place.</li>
+        <li>Do not disturb others. Keep noise to a minimum during focus sessions.</li>
+        <li>Hardware projects must be supervised. Do not leave soldering stations unattended.</li>
+        <li>Log out when you leave, even if leaving early. Update your exit time if needed.</li>
+        <li>Report any damage or missing items to the IEDC coordinator immediately.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Form card -->
+  <div class="form-card" id="form-card">
+    <p class="form-card-title">LOGBOOK ENTRY FORM</p>
+
+    <form class="logbook-form" id="logbook-form" novalidate>
+
+      <!-- Name -->
+      <div class="field">
+        <label for="f-name">FULL NAME</label>
+        <input type="text" id="f-name" name="name" placeholder="e.g. Rahul K" autocomplete="name" required>
+        <span class="field-err" id="err-name"></span>
+      </div>
+
+      <!-- Dept + Roll No -->
+      <div class="row-2">
+        <div class="field">
+          <label for="f-dept">DEPARTMENT</label>
+          <select id="f-dept" name="department" required>
+            <option value="">Select…</option>
+            <option>CSE</option><option>ECE</option><option>EEE</option>
+            <option>ME</option><option>CE</option><option>IT</option>
+            <option>MCA</option><option>Other</option>
+          </select>
+          <span class="field-err" id="err-dept"></span>
+        </div>
+        <div class="field">
+          <label for="f-roll">ROLL NO</label>
+          <input type="text" id="f-roll" name="rollNo" placeholder="TLY22CS042" autocomplete="off" required>
+          <span class="field-err" id="err-roll"></span>
+        </div>
+      </div>
+
+      <!-- Semester + Class -->
+      <div class="row-2">
+        <div class="field">
+          <label for="f-sem">SEMESTER</label>
+          <select id="f-sem" name="semester" required>
+            <option value="">Select…</option>
+            <option>S1</option><option>S2</option><option>S3</option><option>S4</option>
+            <option>S5</option><option>S6</option><option>S7</option><option>S8</option>
+          </select>
+          <span class="field-err" id="err-sem"></span>
+        </div>
+        <div class="field">
+          <label for="f-class">CLASS / BATCH <span class="opt">optional</span></label>
+          <input type="text" id="f-class" name="classBatch" placeholder="CSE-A">
+          <span class="field-err" id="err-class"></span>
+        </div>
+      </div>
+
+      <!-- Duration -->
+      <div class="field">
+        <p class="chips-label">HOW LONG WILL YOU STAY?</p>
+        <div class="chips" id="dur-chips">
+          <button type="button" class="chip" data-h="0.5">0.5 hr</button>
+          <button type="button" class="chip active" data-h="1">1 hr</button>
+          <button type="button" class="chip" data-h="1.5">1.5 hr</button>
+          <button type="button" class="chip" data-h="2">2 hr</button>
+          <button type="button" class="chip" data-h="3">3 hr</button>
+          <button type="button" class="chip" data-h="4">4 hr</button>
+          <button type="button" class="chip" data-h="custom" id="chip-custom">Custom</button>
+        </div>
+        <div id="custom-dur-wrap" style="display:none;margin-top:10px;">
+          <input type="number" id="f-custom-hours" min="0.5" step="0.5"
+            placeholder="Enter hours (e.g. 5 or 6.5)"
+            style="max-width:240px;">
+          <span style="font-family:var(--font-mono);font-size:.65rem;color:var(--gray);margin-left:8px;">HRS</span>
+        </div>
+      </div>
+
+      <!-- Calc preview -->
+      <div class="calc-preview">
+        <div class="calc-preview-head">
+          <span>CALCULATED SESSION TIMES</span>
+          <span id="cp-dur-label">1 HR SESSION</span>
+        </div>
+        <div class="calc-body">
+          <div class="calc-item">
+            <div class="calc-lbl">ENTRY TIME</div>
+            <div class="calc-val" id="cp-entry">--:--</div>
+          </div>
+          <div class="calc-item">
+            <div class="calc-lbl">EXIT TIME</div>
+            <div class="calc-val hl" id="cp-exit">--:--</div>
+          </div>
+          <div class="calc-item">
+            <div class="calc-lbl">DURATION</div>
+            <div class="calc-val hl" id="cp-dur">1 HR</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Purpose -->
+      <div class="field">
+        <label for="f-purpose">PURPOSE <span class="opt">optional — tap a tag or type below</span></label>
+        <div class="chips" id="purpose-chips" style="margin-bottom:8px;">
+          <button type="button" class="chip" data-purpose="Project Work">Project Work</button>
+          <button type="button" class="chip" data-purpose="Hackathon Prep">Hackathon Prep</button>
+          <button type="button" class="chip" data-purpose="Study / Research">Study / Research</button>
+          <button type="button" class="chip" data-purpose="Hardware Testing">Hardware Testing</button>
+          <button type="button" class="chip" data-purpose="Team Meeting">Team Meeting</button>
+          <button type="button" class="chip" data-purpose="Workshop">Workshop</button>
+        </div>
+        <input type="text" id="f-purpose" name="purpose" placeholder="Or describe your activity…">
+      </div>
+
+      <!-- Status slot -->
+      <div id="submit-status"></div>
+
+      <button type="submit" class="btn-submit" id="btn-submit">
+        RECORD LOGBOOK ENTRY →
+      </button>
+
+    </form>
+  </div>
+
+  <!-- Receipt -->
+  <div class="form-card" id="receipt-card" hidden>
+    <div class="receipt-wrap">
+
+      <div style="text-align:center;">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <h2 class="success-title" style="margin-top:16px;">Entry Recorded</h2>
+        <p class="success-sub">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:6px;"></span>
+          SAVED TO GROWSPACE LOGBOOK
+        </p>
+      </div>
+
+      <div class="receipt-card-inner">
+        <div class="receipt-row"><span class="r-key">NAME</span>       <span class="r-val"    id="r-name">—</span></div>
+        <div class="receipt-row"><span class="r-key">DEPARTMENT</span> <span class="r-val"    id="r-dept">—</span></div>
+        <div class="receipt-row"><span class="r-key">ROLL NO</span>    <span class="r-val"    id="r-roll">—</span></div>
+        <div class="receipt-row"><span class="r-key">CLASS</span>      <span class="r-val"    id="r-class">—</span></div>
+        <div class="receipt-row"><span class="r-key">ENTRY TIME</span> <span class="r-val hl" id="r-entry">—</span></div>
+        <div class="receipt-row"><span class="r-key">EXIT TIME</span>  <span class="r-val hl" id="r-exit">—</span></div>
+        <div class="receipt-row"><span class="r-key">DURATION</span>   <span class="r-val"    id="r-dur">—</span></div>
+        <div class="receipt-row"><span class="r-key">PURPOSE</span>    <span class="r-val"    id="r-purpose">—</span></div>
+      </div>
+
+      <button class="btn-again" id="btn-again">← LOG ANOTHER ENTRY</button>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    IEDC-CETLY · COLLEGE OF ENGINEERING THALASSERY
+  </footer>
+
+</div>
+
+<script src="growspace2.js"></script>
+</body>
+</html>
