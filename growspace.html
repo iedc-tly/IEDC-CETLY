@@ -188,7 +188,7 @@
 
       <div class="logbook-layout">
 
-        <!-- Left Column: Guidelines, Clock & Admin Config -->
+        <!-- Left Column: Guidelines & Clock -->
         <div class="logbook-info-col">
           
           <!-- Live Realtime Clock Card -->
@@ -208,30 +208,6 @@
               <li>Maintain a collaborative, respectful atmosphere for all students.</li>
               <li>Power down monitors and unplug chargers when concluding your session.</li>
             </ul>
-          </div>
-
-          <!-- Google Sheets Setup Guide for Admins -->
-          <div class="sheets-integration-card">
-            <div class="sheets-integration-header" id="sheets-guide-toggle" role="button" tabindex="0" aria-expanded="false">
-              <h4 class="font-mono">// GOOGLE SHEETS SETUP (ADMIN)</h4>
-              <span class="sheets-toggle-icon font-mono" id="sheets-guide-icon">▼</span>
-            </div>
-            <div class="sheets-integration-body" id="sheets-guide-body" hidden>
-              <p>To connect this logbook directly to your official Google Sheet:</p>
-              <ol>
-                <li>Create a Google Sheet with columns: <code>Timestamp</code>, <code>Name</code>, <code>Department</code>, <code>Roll No</code>, <code>Class &amp; Sem</code>, <code>Entry Time</code>, <code>Exit Time</code>, <code>Hours Stayed</code>, <code>Purpose</code>.</li>
-                <li>Go to <strong>Extensions &gt; Apps Script</strong> and paste the Google Apps Script connector.</li>
-                <li>Click <strong>Deploy &gt; New deployment &gt; Web app</strong>.</li>
-                <li>Set <em>Execute as:</em> <strong>Me</strong> and <em>Who has access:</em> <strong>Anyone</strong>.</li>
-                <li>Copy the Web App URL and set it in <code>GROWSPACE_CONFIG.scriptUrl</code> in <code>growspace.js</code>.</li>
-              </ol>
-              <button type="button" class="btn btn-outline font-mono btn-sm" id="btn-copy-script" style="width: 100%; margin-top: 8px;">
-                COPY APPS SCRIPT CODE
-              </button>
-              <a href="https://docs.google.com/spreadsheets/d/1GIyxyBwqo2ymGv2ud5oguk4H4_jHqWn9Fg2TtsTQI4E/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline font-mono btn-sm" style="width: 100%; margin-top: 8px; text-align: center; display: block;">
-                OPEN GOOGLE SHEET ↗
-              </a>
-            </div>
           </div>
 
         </div>

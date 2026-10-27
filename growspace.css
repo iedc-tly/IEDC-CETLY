@@ -342,64 +342,6 @@
   flex-shrink: 0;
 }
 
-/* Sheets Integration Help Card */
-.sheets-integration-card {
-  background: rgba(13, 10, 11, 0.85);
-  border: 1px dashed rgba(114, 176, 29, 0.4);
-  padding: 20px;
-  border-radius: 2px;
-}
-
-.sheets-integration-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-}
-
-.sheets-integration-header h4 {
-  font-size: 0.75rem;
-  color: var(--color-green-light);
-  letter-spacing: 0.1em;
-}
-
-.sheets-toggle-icon {
-  color: var(--color-green-light);
-  font-size: 0.85rem;
-  transition: transform 0.25s ease;
-}
-
-.sheets-integration-body {
-  margin-top: 14px;
-  font-size: 0.78rem;
-  line-height: 1.65;
-  color: rgba(243, 239, 245, 0.75);
-  border-top: var(--border-subtle);
-  padding-top: 14px;
-}
-
-.sheets-integration-body ol {
-  padding-left: 18px;
-  margin: 10px 0;
-}
-
-.sheets-integration-body li {
-  margin-bottom: 6px;
-}
-
-.code-snippet {
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 10px 12px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: #72B01D;
-  overflow-x: auto;
-  margin: 8px 0;
-  border-radius: 2px;
-}
-
 /* Right Column: Logbook Form Card */
 .logbook-form-card {
   position: relative;

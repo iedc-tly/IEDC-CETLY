@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
   initLogbookForm();
   initRecentCheckins();
-  initSheetsGuideToggle();
 });
 
 // =============================================================================
@@ -510,63 +509,4 @@ function escapeHtml(str) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
-}
-
-// =============================================================================
-// 6. GOOGLE SHEETS SETUP GUIDE COLLAPSIBLE
-// =============================================================================
-function initSheetsGuideToggle() {
-  const header = document.getElementById("sheets-guide-toggle");
-  const body = document.getElementById("sheets-guide-body");
-  const icon = document.getElementById("sheets-guide-icon");
-  const copyBtn = document.getElementById("btn-copy-script");
-
-  if (!header || !body) return;
-
-  header.addEventListener("click", () => {
-    const isHidden = body.hidden;
-    body.hidden = !isHidden;
-    if (icon) {
-      icon.textContent = isHidden ? "▲" : "▼";
-    }
-  });
-
-  if (copyBtn) {
-    copyBtn.addEventListener("click", () => {
-      const scriptCode = `function doPost(e) {
-  var lock = LockService.getScriptLock();
-  lock.tryLock(10000);
-  try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var data = JSON.parse(e.postData.contents);
-    sheet.appendRow([
-      data.timestamp || new Date(),
-      data.name,
-      data.department,
-      data.rollNo,
-      data.classSemester,
-      data.entryTime,
-      data.exitTime,
-      data.hoursStayed,
-      data.purpose || ''
-    ]);
-    return ContentService.createTextOutput(JSON.stringify({ status: 'success' }))
-      .setMimeType(ContentService.MimeType.JSON);
-  } catch (err) {
-    return ContentService.createTextOutput(JSON.stringify({ status: 'error', message: err.message }))
-      .setMimeType(ContentService.MimeType.JSON);
-  } finally {
-    lock.releaseLock();
-  }
-}`;
-      navigator.clipboard.writeText(scriptCode).then(() => {
-        copyBtn.textContent = "COPIED TO CLIPBOARD ✓";
-        setTimeout(() => {
-          copyBtn.textContent = "COPY APPS SCRIPT CODE";
-        }, 2500);
-      }).catch(() => {
-        alert("Please copy the script code manually.");
-      });
-    });
-  }
 }
