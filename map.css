@@ -50,7 +50,7 @@
   width: 100%;
   height: calc(100vh - 70px);
   overflow: hidden;
-  background: radial-gradient(circle at 50% 50%, #15181e 0%, #0d0a0b 100%);
+  background: radial-gradient(circle at 50% 40%, #161e2c 0%, #0c1017 100%);
 }
 
 #webgl-canvas {

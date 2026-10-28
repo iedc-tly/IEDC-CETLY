@@ -364,14 +364,69 @@ async function submitToGoogleSheet(data) {
 }
 
 // =============================================================================
-// 5. LOCAL STORAGE RECENT ENTRIES
+// 5. LOCAL STORAGE RECENT ENTRIES (24-HOUR AUTO-PURGE RETENTION)
 // =============================================================================
 const STORAGE_KEY = "iedc_growspace_logbook";
+const RETENTION_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+function parseSheetTimestamp(raw) {
+  if (!raw) return null;
+  const str = String(raw).trim();
+
+  // GViz format: Date(YYYY, M, D, H, M, S)
+  const gvizMatch = str.match(/Date\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+),\s*(\d+)(?:,\s*(\d+))?)?\)/);
+  if (gvizMatch) {
+    const y = parseInt(gvizMatch[1], 10);
+    const m = parseInt(gvizMatch[2], 10);
+    const d = parseInt(gvizMatch[3], 10);
+    const h = gvizMatch[4] ? parseInt(gvizMatch[4], 10) : 0;
+    const min = gvizMatch[5] ? parseInt(gvizMatch[5], 10) : 0;
+    const s = gvizMatch[6] ? parseInt(gvizMatch[6], 10) : 0;
+    return new Date(y, m, d, h, min, s);
+  }
+
+  // Standard ISO or date string
+  const parsed = Date.parse(str);
+  if (!isNaN(parsed)) {
+    return new Date(parsed);
+  }
+
+  // "DD/MM/YYYY HH:mm:ss" or "DD-MM-YYYY HH:mm:ss"
+  const dmyMatch = str.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?/);
+  if (dmyMatch) {
+    const d = parseInt(dmyMatch[1], 10);
+    const m = parseInt(dmyMatch[2], 10) - 1;
+    const y = parseInt(dmyMatch[3], 10);
+    const h = dmyMatch[4] ? parseInt(dmyMatch[4], 10) : 0;
+    const min = dmyMatch[5] ? parseInt(dmyMatch[5], 10) : 0;
+    const s = dmyMatch[6] ? parseInt(dmyMatch[6], 10) : 0;
+    return new Date(y, m, d, h, min, s);
+  }
+
+  return null;
+}
 
 function getLocalEntries() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
+    if (!raw) return [];
+    const entries = JSON.parse(raw);
+    if (!Array.isArray(entries)) return [];
+
+    const now = Date.now();
+    // Prune entries older than 24 hours
+    const activeEntries = entries.filter(e => {
+      if (!e.timestamp) return true;
+      const t = new Date(e.timestamp).getTime();
+      return !isNaN(t) && (now - t) < RETENTION_MS;
+    });
+
+    // If any old entries were deleted, update localStorage immediately
+    if (activeEntries.length !== entries.length) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(activeEntries));
+    }
+
+    return activeEntries;
   } catch (_) {
     return [];
   }
@@ -396,14 +451,14 @@ function renderEntriesList(entries) {
   if (!tableBody) return;
 
   if (countBadge) {
-    countBadge.textContent = `${entries.length} SESSIONS`;
+    countBadge.textContent = `${entries.length} SESSIONS (LAST 24H)`;
   }
 
   if (entries.length === 0) {
     tableBody.innerHTML = `
       <tr>
         <td colspan="6" class="table-empty font-mono">
-          // NO CHECK-INS RECORDED YET. ENTER YOUR FIRST LOGBOOK SESSION ABOVE.
+          // NO CHECK-INS IN THE PAST 24 HOURS. ENTER YOUR LOGBOOK SESSION ABOVE.
         </td>
       </tr>
     `;
@@ -439,7 +494,7 @@ async function fetchGoogleSheetEntries() {
     if (!table || !table.rows) return [];
 
     const sheetEntries = [];
-    // If the first row is header labels, rows might start from index 0 or 1
+    const now = Date.now();
     const startIndex = (table.rows.length > 0 && table.rows[0].c && table.rows[0].c[1] && table.rows[0].c[1].v === "Student Name") ? 1 : 0;
 
     for (let i = startIndex; i < table.rows.length; i++) {
@@ -450,8 +505,18 @@ async function fetchGoogleSheetEntries() {
       const name = getVal(1);
       if (!name) continue; // skip blank rows
 
+      // Verify 24-hour retention window
+      const rawTimestamp = row.c[0] ? (row.c[0].f || row.c[0].v || "") : "";
+      if (rawTimestamp) {
+        const entryDate = parseSheetTimestamp(rawTimestamp);
+        if (entryDate && (now - entryDate.getTime()) > RETENTION_MS) {
+          // Entry is older than 24 hours: do not show
+          continue;
+        }
+      }
+
       sheetEntries.unshift({
-        timestamp: getVal(0),
+        timestamp: rawTimestamp,
         name: name,
         department: getVal(2),
         rollNo: getVal(3),
@@ -489,6 +554,9 @@ async function renderRecentCheckins() {
 
 function initRecentCheckins() {
   renderRecentCheckins();
+
+  // Automatically refresh and prune entries every 60 seconds
+  setInterval(renderRecentCheckins, 60000);
 
   const clearBtn = document.getElementById("btn-clear-local");
   if (clearBtn) {

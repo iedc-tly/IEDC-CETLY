@@ -25,7 +25,7 @@ const CAMPUS_DATA = {
       'Executive Conference Hall & Senate Room',
       'Visitors & Placement Reception Lobby'
     ],
-    accentColor: 0xeab308
+    accentColor: 0xfacc15
   },
   'CS': {
     name: 'Computer Science & Engineering',
@@ -216,7 +216,7 @@ function initNavbar() {
 }
 
 /* ==========================================================================
-   2. Three.js Scene Setup
+   2. Three.js Scene Setup (Enhanced Lighting & Visibility)
    ========================================================================== */
 function initThree() {
   const container = document.getElementById('viewer-container');
@@ -224,8 +224,9 @@ function initThree() {
 
   // Scene
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x0e1117);
-  scene.fog = new THREE.FogExp2(0x0e1117, 0.015);
+  scene.background = new THREE.Color(0x0c1017);
+  // Linear fog starting far back (keeps depth without muddying foreground models)
+  scene.fog = new THREE.Fog(0x0c1017, 65, 175);
 
   // Camera
   const aspect = container.clientWidth / container.clientHeight;
@@ -241,7 +242,7 @@ function initThree() {
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.15;
+  renderer.toneMappingExposure = 1.35;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -273,19 +274,20 @@ function initThree() {
 }
 
 /* ==========================================================================
-   3. Lighting
+   3. Lighting Setup (Key + Fill + Top Rim Lights)
    ========================================================================== */
-let dirLight, hemiLight, ambientLight;
+let dirLight, hemiLight, ambientLight, fillLight, topLight;
 
 function setupLighting() {
-  ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
+  ambientLight = new THREE.AmbientLight(0xffffff, 0.95);
   scene.add(ambientLight);
 
-  hemiLight = new THREE.HemisphereLight(0x72b01d, 0x1f2937, 0.45);
+  hemiLight = new THREE.HemisphereLight(0xbae6fd, 0x1e293b, 1.1);
   scene.add(hemiLight);
 
-  dirLight = new THREE.DirectionalLight(0xffffff, 1.4);
-  dirLight.position.set(30, 45, 25);
+  // Key sun light
+  dirLight = new THREE.DirectionalLight(0xffffff, 2.2);
+  dirLight.position.set(30, 48, 25);
   dirLight.castShadow = true;
   dirLight.shadow.mapSize.width = 2048;
   dirLight.shadow.mapSize.height = 2048;
@@ -299,9 +301,15 @@ function setupLighting() {
   dirLight.shadow.bias = -0.0005;
   scene.add(dirLight);
 
-  const fillLight = new THREE.DirectionalLight(0x38bdf8, 0.4);
-  fillLight.position.set(-30, 25, -25);
+  // Cool fill light (illuminates shadowed facades)
+  fillLight = new THREE.DirectionalLight(0x93c5fd, 1.2);
+  fillLight.position.set(-30, 28, -25);
   scene.add(fillLight);
+
+  // Top-down rim light (clarifies rooftops and contours)
+  topLight = new THREE.DirectionalLight(0xf8fafc, 0.8);
+  topLight.position.set(0, 45, 0);
+  scene.add(topLight);
 }
 
 /* ==========================================================================
@@ -333,13 +341,13 @@ function loadCampusModel() {
       rootContainer.add(campusGroup);
       scene.add(rootContainer);
 
-      // CRITICAL: Force matrix world recalculation so all child world positions are accurate!
+      // CRITICAL: Force matrix world recalculation
       scene.updateMatrixWorld(true);
 
       // 2. Ground contact shadow plane
       const groundGeo = new THREE.PlaneGeometry(size.x * 2.2, size.z * 2.2);
       const groundMat = new THREE.MeshStandardMaterial({
-        color: 0x080a0d,
+        color: 0x080c12,
         roughness: 0.95,
         metalness: 0.05
       });
@@ -349,13 +357,20 @@ function loadCampusModel() {
       ground.receiveShadow = true;
       scene.add(ground);
 
-      // 3. Classify and style meshes
+      // 3. Subtle Circular Grid Helper (Spatial Perspective)
+      const grid = new THREE.GridHelper(size.x * 1.8, 36, 0x72b01d, 0x242e3d);
+      grid.position.y = -size.y / 2 - 0.02;
+      grid.material.opacity = 0.3;
+      grid.material.transparent = true;
+      scene.add(grid);
+
+      // 4. Classify and style meshes with high-contrast architectural shaders
       processMeshes(campusGroup);
 
-      // Re-force matrix world update after material / hierarchy processing
+      // Re-force matrix world update
       scene.updateMatrixWorld(true);
 
-      // 4. Set optimal camera position
+      // 5. Set optimal camera position
       const maxDim = Math.max(size.x, size.z);
       defaultCamPos = new THREE.Vector3(maxDim * 0.9, maxDim * 0.65, maxDim * 0.95);
       defaultTarget = new THREE.Vector3(0, 0, 0);
@@ -364,10 +379,10 @@ function loadCampusModel() {
       controls.target.copy(defaultTarget);
       controls.update();
 
-      // 5. Build precise 3D floating labels and visual beacons
+      // 6. Build precise 3D floating labels and visual beacons
       createFloatingLabels();
 
-      // 6. Complete loading screen
+      // 7. Complete loading screen
       if (progressBar) progressBar.style.width = '100%';
       if (loaderPercentage) loaderPercentage.textContent = '100%';
       if (loaderSub) loaderSub.textContent = '3D Campus Map Ready!';
@@ -394,7 +409,7 @@ function loadCampusModel() {
 }
 
 /* ==========================================================================
-   5. Mesh Classification & Material Styling
+   5. Mesh Classification & Architectural Materials
    ========================================================================== */
 function processMeshes(root) {
   root.traverse((child) => {
@@ -428,19 +443,29 @@ function processMeshes(root) {
 }
 
 function applyBuildingMaterial(mesh, key, theme) {
-  const data = CAMPUS_DATA[key];
-  let color = 0x242b35;
-  let roughness = 0.45;
-  let metalness = 0.2;
+  let color = 0x64748b;
+  let roughness = 0.35;
+  let metalness = 0.15;
   let emissive = 0x000000;
 
   if (theme === 'tech') {
-    color = 0x1f2633;
+    // High-visibility architectural palette per department
+    const colorMap = {
+      'AD': 0x94a3b8,        // Crisp architectural titanium
+      'CS': 0x64748b,        // Modern tech slate
+      'EC': 0x64748b,        // Modern tech slate
+      'EEE': 0x52525b,       // Charcoal slate (IEDC green beacon on top)
+      'CE': 0x78716c,        // Architectural sandstone
+      'MC': 0x64748b,        // Industrial titanium
+      'cafeteria': 0x78716c, // Warm concrete
+      'court': 0x475569      // Courtyard stone
+    };
+    color = colorMap[key] || 0x64748b;
     roughness = 0.35;
-    metalness = 0.35;
+    metalness = 0.15;
   } else if (theme === 'daylight') {
-    color = 0xe2e8f0;
-    roughness = 0.6;
+    color = 0xf1f5f9;
+    roughness = 0.55;
     metalness = 0.05;
   } else if (theme === 'blueprint') {
     color = 0x0f2744;
@@ -459,23 +484,65 @@ function applyBuildingMaterial(mesh, key, theme) {
 
   mesh.material = mat;
   originalMaterials.set(mesh, mat);
+
+  // Add crisp architectural edge contour lines
+  addBuildingEdges(mesh, key, theme);
+}
+
+function addBuildingEdges(mesh, key, theme) {
+  // Clear any previous edge lines
+  for (let i = mesh.children.length - 1; i >= 0; i--) {
+    const c = mesh.children[i];
+    if (c.isLineSegments) {
+      mesh.remove(c);
+      if (c.geometry) c.geometry.dispose();
+      if (c.material) c.material.dispose();
+    }
+  }
+
+  const edgeGeo = new THREE.EdgesGeometry(mesh.geometry, 25);
+  let edgeColor = 0xa0aec0;
+  let opacity = 0.65;
+
+  if (theme === 'blueprint') {
+    edgeColor = 0x38bdf8;
+    opacity = 0.9;
+  } else if (theme === 'tech') {
+    edgeColor = CAMPUS_DATA[key]?.accentColor || 0xa0aec0;
+    opacity = 0.65;
+  } else {
+    edgeColor = 0x334155;
+    opacity = 0.45;
+  }
+
+  const edgeMat = new THREE.LineBasicMaterial({
+    color: edgeColor,
+    transparent: true,
+    opacity: opacity
+  });
+  const lineSegments = new THREE.LineSegments(edgeGeo, edgeMat);
+  mesh.add(lineSegments);
 }
 
 function applyArenaMaterial(mesh, theme) {
   const mat = new THREE.MeshStandardMaterial({
-    color: theme === 'daylight' ? 0xd1d5db : 0x282f3a,
-    roughness: 0.7,
+    color: theme === 'daylight' ? 0xe2e8f0 : (theme === 'blueprint' ? 0x0f2744 : 0x475569),
+    roughness: 0.5,
     metalness: 0.1,
     wireframe: theme === 'blueprint'
   });
   mesh.material = mat;
   originalMaterials.set(mesh, mat);
+  addBuildingEdges(mesh, 'court', theme);
 }
 
 function applyTreeMaterial(mesh, theme) {
+  const isTrunk = mesh.name.startsWith('tree');
+  let treeColor = isTrunk ? 0x854d0e : 0x22c55e; // rich cedar trunk and emerald canopy
+
   const mat = new THREE.MeshStandardMaterial({
-    color: theme === 'blueprint' ? 0x059669 : (theme === 'daylight' ? 0x22c55e : 0x3F7D20),
-    roughness: 0.75,
+    color: theme === 'blueprint' ? 0x059669 : (theme === 'daylight' ? 0x22c55e : treeColor),
+    roughness: 0.7,
     metalness: 0.05,
     wireframe: theme === 'blueprint'
   });
@@ -485,8 +552,8 @@ function applyTreeMaterial(mesh, theme) {
 
 function applyLandMaterial(mesh, theme) {
   const mat = new THREE.MeshStandardMaterial({
-    color: theme === 'daylight' ? 0x94a3b8 : (theme === 'blueprint' ? 0x030d1a : 0x141821),
-    roughness: 0.85,
+    color: theme === 'daylight' ? 0x94a3b8 : (theme === 'blueprint' ? 0x030d1a : 0x1e293b),
+    roughness: 0.8,
     metalness: 0.1,
     wireframe: theme === 'blueprint'
   });
@@ -496,9 +563,9 @@ function applyLandMaterial(mesh, theme) {
 
 function applyDefaultMaterial(mesh, theme) {
   const mat = new THREE.MeshStandardMaterial({
-    color: theme === 'daylight' ? 0xf1f5f9 : 0x334155,
-    roughness: 0.5,
-    metalness: 0.2,
+    color: theme === 'daylight' ? 0xf8fafc : 0x64748b,
+    roughness: 0.45,
+    metalness: 0.15,
     wireframe: theme === 'blueprint'
   });
   mesh.material = mat;
@@ -513,7 +580,6 @@ function createFloatingLabels() {
   if (!labelsContainer) return;
   labelsContainer.innerHTML = '';
 
-  // Remove existing pinGroup if any
   if (pinGroup) {
     scene.remove(pinGroup);
     pinGroup = null;
@@ -521,16 +587,13 @@ function createFloatingLabels() {
   pinGroup = new THREE.Group();
   scene.add(pinGroup);
 
-  // Ensure world matrix is completely evaluated
   scene.updateMatrixWorld(true);
 
   Object.keys(CAMPUS_DATA).forEach((key) => {
     const data = CAMPUS_DATA[key];
-    // For IEDC room, it is in the Electrical Block (mesh EEE)
     const mesh = (key === 'IEDC') ? buildingMeshes['EEE'] : buildingMeshes[key];
     if (!mesh) return;
 
-    // Calculate exact world bounds of this mesh
     const box = new THREE.Box3().setFromObject(mesh);
     const center = box.getCenter(new THREE.Vector3());
     const roofY = box.max.y;
@@ -539,22 +602,19 @@ function createFloatingLabels() {
     let stemHeight = 0.35;
 
     if (key === 'IEDC') {
-      // Offset toward the front wing of the Electrical Block
       const halfZ = (box.max.z - box.min.z) * 0.25;
       stemHeight = 0.45;
       anchorPos = new THREE.Vector3(center.x, roofY + stemHeight, center.z + halfZ);
     } else if (key === 'EEE') {
-      // Offset EEE general label slightly to the opposite side of Electrical Block
       const halfZ = (box.max.z - box.min.z) * 0.25;
       anchorPos = new THREE.Vector3(center.x, roofY + stemHeight, center.z - halfZ);
     } else {
-      // Placed directly centered above the building rooftop
       anchorPos = new THREE.Vector3(center.x, roofY + stemHeight, center.z);
     }
 
     labelWorldPos[key] = anchorPos;
 
-    // 1. Add sleek 3D vertical beacon pin in Three.js scene
+    // 1. Sleek 3D vertical beacon pin
     const isIEDC = (key === 'IEDC');
     const pinColor = isIEDC ? 0x72b01d : data.accentColor;
 
@@ -562,7 +622,7 @@ function createFloatingLabels() {
     const stemMat = new THREE.MeshBasicMaterial({
       color: pinColor,
       transparent: true,
-      opacity: 0.75
+      opacity: 0.85
     });
     const stem = new THREE.Mesh(stemGeo, stemMat);
     stem.position.set(anchorPos.x, roofY + stemHeight / 2, anchorPos.z);
@@ -578,14 +638,14 @@ function createFloatingLabels() {
     head.position.copy(anchorPos);
     pinGroup.add(head);
 
-    // Special pulsing ring for IEDC Room
+    // Pulsing ring for IEDC Room
     if (isIEDC) {
       const ringGeo = new THREE.RingGeometry(0.16, 0.24, 24);
       const ringMat = new THREE.MeshBasicMaterial({
         color: 0x72b01d,
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: 0.8
+        opacity: 0.85
       });
       iedcBeaconRing = new THREE.Mesh(ringGeo, ringMat);
       iedcBeaconRing.rotation.x = Math.PI / 2;
@@ -593,7 +653,7 @@ function createFloatingLabels() {
       pinGroup.add(iedcBeaconRing);
     }
 
-    // 2. Create interactive 2D HTML badge
+    // 2. Interactive 2D HTML badge
     const labelEl = document.createElement('div');
     labelEl.className = isIEDC ? 'map-label iedc-label' : 'map-label';
     labelEl.dataset.target = key;
@@ -646,11 +706,9 @@ function updateLabels() {
       return;
     }
 
-    // Project 3D coordinate to screen space
     tempV.copy(pos);
     tempV.project(camera);
 
-    // If point is offscreen, hide it
     if (tempV.z > 1 || Math.abs(tempV.x) > 1.05 || Math.abs(tempV.y) > 1.05) {
       el.style.display = 'none';
       return;
@@ -663,7 +721,6 @@ function updateLabels() {
     el.style.left = `${x}px`;
     el.style.top = `${y}px`;
 
-    // Active state
     if (activeBuildingKey === key) {
       el.classList.add('active');
     } else {
@@ -773,18 +830,15 @@ function selectBuilding(key) {
 
   activeBuildingKey = key;
 
-  // Update quick nav pills UI
   document.querySelectorAll('.pill-btn').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.target === key);
   });
 
-  // Calculate target position and camera offset
   const box = new THREE.Box3().setFromObject(mesh);
   const center = box.getCenter(new THREE.Vector3());
   const size = box.getSize(new THREE.Vector3());
   const maxDim = Math.max(size.x, size.z, 4);
 
-  // Position camera at an isometric framing angle
   let focusTarget = center;
   if (key === 'IEDC' && labelWorldPos['IEDC']) {
     focusTarget = labelWorldPos['IEDC'];
@@ -796,7 +850,6 @@ function selectBuilding(key) {
     focusTarget.z + maxDim * 1.6
   );
 
-  // Animate camera smoothly to this building
   animateCameraTo(targetCamPos, focusTarget, 1200);
 
   // Highlight building mesh
@@ -812,7 +865,6 @@ function selectBuilding(key) {
     }
   });
 
-  // Open Building Details Drawer
   showBuildingDrawer(key, data);
 }
 
@@ -895,7 +947,6 @@ function animateCameraTo(targetPos, targetLookAt, duration = 1000) {
    10. HUD & Controls Binding
    ========================================================================== */
 function setupUI() {
-  // Quick Nav Pills
   document.querySelectorAll('.pill-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.target;
@@ -903,13 +954,11 @@ function setupUI() {
     });
   });
 
-  // Drawer Close Button
   const drawerClose = document.getElementById('drawer-close');
   if (drawerClose) {
     drawerClose.addEventListener('click', hideBuildingDrawer);
   }
 
-  // Drawer Focus 360 Spin
   const drawerFocusBtn = document.getElementById('drawer-focus-btn');
   if (drawerFocusBtn) {
     drawerFocusBtn.addEventListener('click', () => {
@@ -920,13 +969,11 @@ function setupUI() {
     });
   }
 
-  // Drawer Overview Button
   const drawerOverviewBtn = document.getElementById('drawer-overview-btn');
   if (drawerOverviewBtn) {
     drawerOverviewBtn.addEventListener('click', resetToOverview);
   }
 
-  // 360 Spin Toggle Button
   const btnAutoRotate = document.getElementById('btn-auto-rotate');
   if (btnAutoRotate) {
     btnAutoRotate.addEventListener('click', () => {
@@ -935,7 +982,6 @@ function setupUI() {
     });
   }
 
-  // Camera Presets: ISO
   const btnViewIso = document.getElementById('btn-view-iso');
   if (btnViewIso) {
     btnViewIso.addEventListener('click', () => {
@@ -943,7 +989,6 @@ function setupUI() {
     });
   }
 
-  // Camera Presets: Top-Down Aerial View
   const btnViewTop = document.getElementById('btn-view-top');
   if (btnViewTop) {
     btnViewTop.addEventListener('click', () => {
@@ -952,7 +997,6 @@ function setupUI() {
     });
   }
 
-  // Camera Presets: Front Entrance View
   const btnViewFront = document.getElementById('btn-view-front');
   if (btnViewFront) {
     btnViewFront.addEventListener('click', () => {
@@ -961,13 +1005,11 @@ function setupUI() {
     });
   }
 
-  // Reset Button
   const btnReset = document.getElementById('btn-reset');
   if (btnReset) {
     btnReset.addEventListener('click', resetToOverview);
   }
 
-  // Toggle Labels
   const btnToggleLabels = document.getElementById('btn-toggle-labels');
   if (btnToggleLabels) {
     btnToggleLabels.addEventListener('click', () => {
@@ -979,7 +1021,6 @@ function setupUI() {
     });
   }
 
-  // Theme Switcher Button
   const btnTheme = document.getElementById('btn-theme');
   const themeBtnLabel = document.getElementById('theme-btn-label');
   if (btnTheme) {
@@ -998,7 +1039,6 @@ function setupUI() {
     });
   }
 
-  // Fullscreen Button
   const btnFullscreen = document.getElementById('btn-fullscreen');
   if (btnFullscreen) {
     btnFullscreen.addEventListener('click', toggleFullscreen);
@@ -1007,30 +1047,30 @@ function setupUI() {
 
 function applyTheme(theme) {
   if (theme === 'tech') {
-    scene.background = new THREE.Color(0x0e1117);
-    scene.fog.color.setHex(0x0e1117);
+    scene.background = new THREE.Color(0x0c1017);
+    if (scene.fog) { scene.fog.color.setHex(0x0c1017); scene.fog.near = 65; scene.fog.far = 175; }
     ambientLight.color.setHex(0xffffff);
-    ambientLight.intensity = 0.65;
+    ambientLight.intensity = 0.95;
     dirLight.color.setHex(0xffffff);
-    dirLight.intensity = 1.4;
-    hemiLight.color.setHex(0x72b01d);
-    hemiLight.groundColor.setHex(0x1f2937);
+    dirLight.intensity = 2.2;
+    hemiLight.color.setHex(0xbae6fd);
+    hemiLight.groundColor.setHex(0x1e293b);
   } else if (theme === 'daylight') {
     scene.background = new THREE.Color(0x93c5fd);
-    scene.fog.color.setHex(0xc7d2fe);
+    if (scene.fog) { scene.fog.color.setHex(0xc7d2fe); scene.fog.near = 75; scene.fog.far = 180; }
     ambientLight.color.setHex(0xffffff);
-    ambientLight.intensity = 0.8;
+    ambientLight.intensity = 1.0;
     dirLight.color.setHex(0xfffbeb);
-    dirLight.intensity = 1.6;
+    dirLight.intensity = 2.4;
     hemiLight.color.setHex(0xbae6fd);
     hemiLight.groundColor.setHex(0x86efac);
   } else if (theme === 'blueprint') {
     scene.background = new THREE.Color(0x030d1a);
-    scene.fog.color.setHex(0x030d1a);
+    if (scene.fog) { scene.fog.color.setHex(0x030d1a); scene.fog.near = 65; scene.fog.far = 175; }
     ambientLight.color.setHex(0x38bdf8);
-    ambientLight.intensity = 0.5;
+    ambientLight.intensity = 0.7;
     dirLight.color.setHex(0x38bdf8);
-    dirLight.intensity = 1.0;
+    dirLight.intensity = 1.4;
     hemiLight.color.setHex(0x0284c7);
     hemiLight.groundColor.setHex(0x082f49);
   }
@@ -1075,7 +1115,6 @@ function onWindowResize() {
 function animate(time) {
   requestAnimationFrame(animate);
 
-  // Smooth camera flight transition lerp
   if (cameraTransition) {
     const elapsed = performance.now() - cameraTransition.startTime;
     const progress = Math.min(elapsed / cameraTransition.duration, 1.0);
@@ -1089,7 +1128,6 @@ function animate(time) {
     }
   }
 
-  // Pulsing animation for IEDC beacon ring in 3D
   if (iedcBeaconRing) {
     const s = 1 + 0.18 * Math.sin(time * 0.005);
     iedcBeaconRing.scale.set(s, s, s);
